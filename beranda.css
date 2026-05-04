@@ -58,10 +58,6 @@ body {
     transition: 0.3s;
 }
 
-.menu-toggle:hover {
-    transform: rotate(90deg);
-}
-
 .menu-toggle.active {
     transform: rotate(180deg);
 }
