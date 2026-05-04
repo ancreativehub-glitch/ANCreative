@@ -412,3 +412,24 @@ body {
 * {
   -webkit-tap-highlight-color: transparent;
 }
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero,
+  .card,
+  .info,
+  .news,
+  .keunggulan {
+    opacity: 0;
+    transform: translateY(40px);
+    animation: autoShow 0.8s ease forwards;
+    animation-timeline: view();
+    animation-range: entry 10% cover 30%;
+  }
+}
+
+@keyframes autoShow {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
