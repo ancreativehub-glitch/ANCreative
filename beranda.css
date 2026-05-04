@@ -55,9 +55,12 @@ body {
 .menu-toggle {
     font-size: 30px;
     cursor: pointer;
-    transition: transform 0.4s ease;
+    transition: 0.3s;
 }
 
+.menu-toggle:hover {
+    transform: rotate(90deg);
+}
 .menu-toggle.active {
     transform: rotate(180deg);
 }
