@@ -55,9 +55,12 @@ body {
 .menu-toggle {
     font-size: 30px;
     cursor: pointer;
-    transition: transform 0.3s ease;
+    transition: 0.3s;
 }
 
+.menu-toggle:hover {
+    transform: rotate(90deg);
+}
 .menu-toggle.active {
     transform: rotate(180deg);
 }
@@ -78,17 +81,12 @@ body {
 
 /* DROPDOWN */
 .dropdown {
-    position: absolute;
-    top: 60px;
-    right: 20px;
-
-    opacity: 0;
-    transform: translateY(-15px);
-
-    visibility: hidden;
-    pointer-events: none;
-
-    transition: all 0.3s ease;
+    display: none;
+    flex-direction: column;
+    background: white;
+    margin: 0 20px;
+    border-radius: 15px;
+    overflow: hidden;
 }
 
 .dropdown.active {
@@ -97,6 +95,18 @@ body {
 
     visibility: visible;
     pointer-events: auto;
+}
+
+.dropdown a {
+    padding: 12px;
+    text-decoration: none;
+    color: black;
+    transition: 0.3s;
+}
+
+.dropdown a:hover {
+    background: #f0f0f0;
+    padding-left: 20px;
 }
 
 /* HERO */
