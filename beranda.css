@@ -370,55 +370,51 @@ body {
   }
 }
 
+/* ===== SMOOTH PERFORMANCE BOOST (WITHOUT DISABLING ANIMATION) ===== */
+
+/* Smooth scroll native */
 html {
   scroll-behavior: smooth;
 }
 
-/* Mengurangi beban rendering */
+/* Optimasi font rendering */
+body {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+/* GPU acceleration untuk elemen animasi */
+.navbar,
+.hero,
+.hero-img img,
+.card,
+.info,
+.dropdown {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform, opacity;
+}
+
+/* Kurangi “jank” saat animasi jalan */
+.card,
+.hero,
+.navbar {
+  contain: layout paint;
+}
+
+/* Optimasi hover supaya tidak bentrok animasi */
+.card:hover {
+  will-change: transform;
+}
+
+/* Smooth scrolling momentum di mobile */
+body {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: contain;
+}
+
+/* bantu browser tidak reflow berlebihan */
 * {
   -webkit-tap-highlight-color: transparent;
-}
-
-/* Optimasi performa rendering */
-body {
-  will-change: scroll-position;
-  overflow-x: hidden;
-  text-rendering: optimizeSpeed;
-}
-
-/* CARD OPTIMIZATION (penting untuk HP kentang) */
-.card {
-  will-change: transform;
-  transform: translateZ(0); /* GPU acceleration */
-  backface-visibility: hidden;
-}
-
-/* Hover tidak dipaksa di mobile (biar tidak lag) */
-@media (hover: hover) {
-  .card:hover {
-    transform: translateY(-5px);
-  }
-}
-
-/* Matikan animasi berat di HP low-end */
-@media (max-width: 600px) {
-  .card {
-    animation: none; /* penting biar tidak lag */
-    opacity: 1;
-    transform: none;
-  }
-}
-
-/* Reduce motion untuk device yang lemah / setting OS */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation: none !important;
-    transition: none !important;
-    scroll-behavior: auto;
-  }
-}
-
-/* Scroll container lebih stabil */
-body {
-  overscroll-behavior: contain;
 }
