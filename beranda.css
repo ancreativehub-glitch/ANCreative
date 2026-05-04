@@ -369,3 +369,56 @@ body {
     padding: 18px;
   }
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Mengurangi beban rendering */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Optimasi performa rendering */
+body {
+  will-change: scroll-position;
+  overflow-x: hidden;
+  text-rendering: optimizeSpeed;
+}
+
+/* CARD OPTIMIZATION (penting untuk HP kentang) */
+.card {
+  will-change: transform;
+  transform: translateZ(0); /* GPU acceleration */
+  backface-visibility: hidden;
+}
+
+/* Hover tidak dipaksa di mobile (biar tidak lag) */
+@media (hover: hover) {
+  .card:hover {
+    transform: translateY(-5px);
+  }
+}
+
+/* Matikan animasi berat di HP low-end */
+@media (max-width: 600px) {
+  .card {
+    animation: none; /* penting biar tidak lag */
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Reduce motion untuk device yang lemah / setting OS */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto;
+  }
+}
+
+/* Scroll container lebih stabil */
+body {
+  overscroll-behavior: contain;
+}
