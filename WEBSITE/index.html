@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=0.6, maximum-scale=1.0">
+<title>aditiadgprint</title>
+<link rel="stylesheet" href="beranda.css">
+</head>
+
+<body>
+
+<div class="wrapper">
+
+<header class="navbar">
+    <div class="logo">
+        <img src="logo1.png" alt="Logo">
+        <span class="aditia">
+            aditia<span class="dg">dg<span class="print">print</span></span>
+        </span>
+    </div>
+
+    <div class="menu-toggle" id="menuToggle">☰</div>
+</header>
+
+<div class="dropdown" id="dropdownMenu">
+    <a href="index.html">Beranda</a>
+    <a href="tentang.html">Tentang</a>
+    <a href="portofolio.html">Portofolio</a>
+    <a href="contact.html">Kontak</a>
+</div>
+
+<section class="hero">
+    <div class="hero-text">
+        <p>
+            Kadang orang nilai bisnis dari tampilannya dulu, makanya desain itu penting banget.
+            Kalau kamu mau tampil lebih meyakinkan, aku siap bantuin desainnya
+        </p>
+        <h1><strong>Yuk Mulai Sekarang!</strong></h1>
+    </div>
+
+    <div class="hero-img">
+        <img src="logo2.png" alt="Hero Image">
+    </div>
+</section>
+
+<section class="keunggulan">
+    <h2>Keunggulan dan Alasan Pilih Kami</h2>
+
+    <div class="cards">
+        <div class="card">Harga Murah</div>
+        <div class="card">Revisi Gratis</div>
+        <div class="card">Berkualitas Pasti</div>
+        <div class="card">Responsif</div>
+    </div>
+</section>
+
+<section class="info blue-box">
+    <h3>Apa itu DG?</h3>
+    <p>
+        Desain grafis adalah proses menciptakan komunikasi visual melalui elemen seperti warna,
+        tipografi, gambar, dan tata letak. Tujuannya adalah menyampaikan pesan secara menarik,
+        jelas, dan efektif kepada audiens.
+    </p>
+</section>
+
+<section class="info green-box">
+    <h3>Saat Visual Menjadi Pesan</h3>
+    <p>
+        Desain grafis bukan sekadar tentang keindahan visual, tetapi tentang bagaimana sebuah pesan
+        bisa tersampaikan dengan kuat dan tepat sasaran. Setiap warna, bentuk, dan detail memiliki
+        peran penting dalam menarik perhatian dan membangun kepercayaan.
+    </p>
+</section>
+
+<section class="footer">
+    <p>© 2026 aditiadgprint. All Rights Reserved.</p>
+</section>
+
+</div> <!-- penutup wrapper -->
+
+<script>
+const toggle = document.getElementById("menuToggle");
+const menu = document.getElementById("dropdownMenu");
+
+toggle.onclick = () => {
+    menu.classList.toggle("active");
+};
+
+const cards = document.querySelectorAll(".card");
+
+cards.forEach(card => {
+    card.addEventListener("click", () => {
+        card.classList.add("clicked");
+
+        setTimeout(() => {
+            card.classList.remove("clicked");
+        }, 400);
+    });
+});
+</script>
+
+</body>
+</html>
