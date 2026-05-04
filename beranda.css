@@ -51,28 +51,21 @@ body {
     color: #60a5fa;
 }
 
-/* MENU */
 .menu-toggle {
     font-size: 30px;
     cursor: pointer;
 
+    /* penting untuk animasi klik */
     transition: transform 0.3s ease;
+}
 
-    /* state awal untuk animasi masuk */
+/* =========================
+   ANIMASI SAAT WEBSITE DIBUKA
+   ========================= */
+.menu-toggle.load-animate {
     opacity: 0;
     transform: rotate(-180deg) scale(0.5);
-
     animation: toggleIn 0.6s ease forwards;
-}
-
-/* hover */
-.menu-toggle:hover {
-    transform: rotate(90deg) scale(1.05);
-}
-
-/* saat aktif klik */
-.menu-toggle.active {
-    transform: rotate(180deg) scale(1.05);
 }
 
 @keyframes toggleIn {
@@ -82,21 +75,44 @@ body {
     }
 }
 
-/* DROPDOWN */
+/* =========================
+   ANIMASI SAAT DI KLIK
+   ========================= */
+.menu-toggle.active {
+    transform: rotate(180deg) scale(1.1);
+}
+
+/* =========================
+   DROPDOWN (SMOOTH)
+   ========================= */
 .dropdown {
-    display: none;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+
     flex-direction: column;
     background: white;
     margin: 0 20px;
     border-radius: 15px;
     overflow: hidden;
+
+    opacity: 0;
+    transform: translateY(-10px);
+    visibility: hidden;
+    pointer-events: none;
+
+    transition: all 0.3s ease;
 }
 
 .dropdown.active {
-    display: flex;
-    animation: fadeDown 0.5s ease;
+    opacity: 1;
+    transform: translateY(0);
+
+    visibility: visible;
+    pointer-events: auto;
 }
 
+/* LINK */
 .dropdown a {
     padding: 12px;
     text-decoration: none;
