@@ -81,21 +81,17 @@ body {
 
 /* DROPDOWN */
 .dropdown {
-    position: absolute;
-    top: 60px;
-    right: 20px;
-
-    opacity: 0;
-    transform: translateY(-10px);
-    visibility: hidden;
-
-    transition: all 0.3s ease;
+    display: none;
+    flex-direction: column;
+    background: white;
+    margin: 0 20px;
+    border-radius: 15px;
+    overflow: hidden;
 }
 
 .dropdown.active {
-    opacity: 1;
-    transform: translateY(0);
-    visibility: visible;
+    display: flex;
+    animation: fadeDown 0.5s ease;
 }
 
 .dropdown a {
