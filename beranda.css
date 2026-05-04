@@ -62,6 +62,10 @@ body {
     transform: rotate(90deg);
 }
 
+.menu-toggle.active {
+    transform: rotate(180deg);
+}
+
 /* DROPDOWN */
 .dropdown {
     display: none;
