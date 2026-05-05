@@ -3,69 +3,205 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ANCreative Portfolio</title>
 
-<link rel="stylesheet" href="tentang.css"> <!-- CSS kamu -->
-</head>
-<body>
+<title>Tentang - ANCreative</title>
 
-<!-- HERO -->
-<section class="hero">
-    <h1 class="fade-up">Halo, Saya Adit</h1>
-    <p class="fade-up delay">Web Developer & Designer</p>
-    <a href="#project" class="btn fade-up delay2">Lihat Project</a>
-</section>
+<!-- FONT (WAJIB biar nggak jelek) -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-<!-- ABOUT -->
-<section class="section">
-    <h2 class="fade-up">Tentang Saya</h2>
-    <p class="fade-up delay">
-        Saya membuat website modern, responsif, dan menarik secara visual.
-    </p>
-</section>
-
-<!-- PROJECT -->
-<section id="project" class="section dark">
-    <h2 class="fade-up">Project</h2>
-
-    <div class="card fade-up">
-        <h3>Website Company</h3>
-        <p>Website modern dengan animasi</p>
-    </div>
-
-    <div class="card fade-up delay">
-        <h3>Landing Page</h3>
-        <p>Design clean & profesional</p>
-    </div>
-</section>
-
-<!-- CONTACT -->
-<section class="section">
-    <h2 class="fade-up">Kontak</h2>
-    <p class="fade-up delay">Email: kamu@email.com</p>
-</section>
-
-<!-- JS LANGSUNG DI SINI -->
-<script>
-const elements = document.querySelectorAll('.fade-up');
-
-function checkScroll() {
-    const screen = window.innerHeight;
-
-    elements.forEach(el => {
-        const position = el.getBoundingClientRect().top;
-
-        if (position < screen - 100) {
-            el.classList.add('show');
-        }
-    });
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-// jalan saat scroll
-window.addEventListener('scroll', checkScroll);
+body {
+    font-family: 'Inter', sans-serif;
+    background: #0b0b0b;
+    color: #eaeaea;
+    overflow-x: hidden;
+}
 
-// 🔥 penting: biar tidak blank saat pertama buka
-window.addEventListener('load', checkScroll);
+/* BACKGROUND GLOW */
+.bg-glow {
+    position: fixed;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(0,255,213,0.15), transparent 70%);
+    top: -100px;
+    left: -100px;
+    filter: blur(80px);
+    z-index: -1;
+}
+
+/* CONTAINER */
+.container {
+    width: 88%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* HERO */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.hero h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 600;
+    line-height: 1.25;
+}
+
+.hero span {
+    color: #00ffd5;
+}
+
+.sub {
+    margin-top: 20px;
+    color: #9a9a9a;
+    max-width: 500px;
+    line-height: 1.8;
+}
+
+/* SECTION */
+.section {
+    padding: 120px 0;
+}
+
+/* SPLIT */
+.split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+}
+
+@media(max-width: 768px){
+    .split {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* BLOCK */
+.block h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.block p {
+    color: #aaa;
+    line-height: 1.8;
+}
+
+/* LINE */
+.line {
+    width: 40px;
+    height: 3px;
+    background: #00ffd5;
+    margin: 15px 0 25px;
+    border-radius: 10px;
+}
+
+/* CARD */
+.card {
+    background: rgba(255,255,255,0.03);
+    border-radius: 20px;
+    padding: 30px;
+    backdrop-filter: blur(10px);
+    transition: 0.5s;
+}
+
+.card:hover {
+    transform: translateY(-12px);
+    background: rgba(255,255,255,0.06);
+}
+
+/* ANIMATION */
+.reveal {
+    opacity: 0;
+    transform: translateY(80px);
+    transition: 1s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* FOOTER */
+.footer {
+    text-align: center;
+    padding: 50px 0;
+    color: #666;
+    font-size: 0.85rem;
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg-glow"></div>
+
+<!-- HERO -->
+<section class="hero container">
+    <div class="reveal">
+        <h1>
+            Bukan sekadar desain.<br>
+            <span>Kami bikin sesuatu yang terasa.</span>
+        </h1>
+        <p class="sub">
+            ANCreative lahir dari keinginan sederhana: bikin karya yang nggak cuma dilihat,
+            tapi juga dirasakan.
+        </p>
+    </div>
+</section>
+
+<!-- SECTION -->
+<section class="section container">
+    <div class="split">
+
+        <div class="block reveal">
+            <h2>Tentang Kami</h2>
+            <div class="line"></div>
+            <p>
+                Kami fokus pada desain yang bersih, jelas, dan punya karakter.
+                Nggak perlu ramai untuk terlihat menarik.
+            </p>
+        </div>
+
+        <div class="card reveal">
+            <h2>Filosofi</h2>
+            <div class="line"></div>
+            <p>
+                Desain yang baik bukan cuma enak dilihat,
+                tapi juga punya rasa ketika digunakan.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<!-- FOOTER -->
+<div class="footer">
+    © 2026 ANCreative
+</div>
+
+<script>
+const items = document.querySelectorAll('.reveal');
+
+const obs = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+            setTimeout(() => {
+                entry.target.classList.add('show');
+            }, i * 120);
+        }
+    });
+}, { threshold: 0.2 });
+
+items.forEach(el => obs.observe(el));
 </script>
 
 </body>
