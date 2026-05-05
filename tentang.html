@@ -4,53 +4,69 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ANCreative Portfolio</title>
-<link rel="stylesheet" href="tentang.css">
+
+<link rel="stylesheet" href="style.css"> <!-- CSS kamu -->
 </head>
 <body>
 
-<header class="hero">
+<!-- HERO -->
+<section class="hero">
     <h1 class="fade-up">Halo, Saya Adit</h1>
     <p class="fade-up delay">Web Developer & Designer</p>
     <a href="#project" class="btn fade-up delay2">Lihat Project</a>
-</header>
+</section>
 
-<section id="about" class="section">
+<!-- ABOUT -->
+<section class="section">
     <h2 class="fade-up">Tentang Saya</h2>
     <p class="fade-up delay">
         Saya membuat website modern, responsif, dan menarik secara visual.
     </p>
 </section>
 
+<!-- PROJECT -->
 <section id="project" class="section dark">
     <h2 class="fade-up">Project</h2>
 
     <div class="card fade-up">
         <h3>Website Company</h3>
-        <p>Website modern dengan animasi dan responsive</p>
+        <p>Website modern dengan animasi</p>
     </div>
 
     <div class="card fade-up delay">
         <h3>Landing Page</h3>
-        <p>Design clean dan fokus conversion</p>
+        <p>Design clean & profesional</p>
     </div>
 </section>
 
+<!-- CONTACT -->
 <section class="section">
     <h2 class="fade-up">Kontak</h2>
     <p class="fade-up delay">Email: kamu@email.com</p>
 </section>
 
-<script src="const elements = document.querySelectorAll('.fade-up');
+<!-- JS LANGSUNG DI SINI -->
+<script>
+const elements = document.querySelectorAll('.fade-up');
 
-window.addEventListener('scroll', () => {
+function checkScroll() {
+    const screen = window.innerHeight;
+
     elements.forEach(el => {
         const position = el.getBoundingClientRect().top;
-        const screen = window.innerHeight;
 
-        if(position < screen - 100){
+        if (position < screen - 100) {
             el.classList.add('show');
         }
     });
-});"></script>
+}
+
+// jalan saat scroll
+window.addEventListener('scroll', checkScroll);
+
+// 🔥 penting: biar tidak blank saat pertama buka
+window.addEventListener('load', checkScroll);
+</script>
+
 </body>
 </html>
