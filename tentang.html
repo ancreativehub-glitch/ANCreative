@@ -47,9 +47,17 @@
     <div class="tentang-img fade-up">
         <img src="https://picsum.photos/400/400" alt="profile">
     </div>
+    
 </section>
-
 <script>
+const toggle = document.getElementById("menuToggle");
+const menu = document.getElementById("dropdownMenu");
+
+toggle.onclick = () => {
+    menu.classList.toggle("active");
+    toggle.classList.toggle("active");
+};
+    
 const elements = document.querySelectorAll('.fade-up');
 
 window.addEventListener('scroll', () => {
