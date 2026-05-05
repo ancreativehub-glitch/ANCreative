@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ANCreative Portfolio</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="hero">
+    <h1 class="fade-up">Halo, Saya Adit</h1>
+    <p class="fade-up delay">Web Developer & Designer</p>
+    <a href="#project" class="btn fade-up delay2">Lihat Project</a>
+</header>
+
+<section id="about" class="section">
+    <h2 class="fade-up">Tentang Saya</h2>
+    <p class="fade-up delay">
+        Saya membuat website modern, responsif, dan menarik secara visual.
+    </p>
+</section>
+
+<section id="project" class="section dark">
+    <h2 class="fade-up">Project</h2>
+
+    <div class="card fade-up">
+        <h3>Website Company</h3>
+        <p>Website modern dengan animasi dan responsive</p>
+    </div>
+
+    <div class="card fade-up delay">
+        <h3>Landing Page</h3>
+        <p>Design clean dan fokus conversion</p>
+    </div>
+</section>
+
+<section class="section">
+    <h2 class="fade-up">Kontak</h2>
+    <p class="fade-up delay">Email: kamu@email.com</p>
+</section>
+
+const elements = document.querySelectorAll('.fade-up');
+
+window.addEventListener('scroll', () => {
+    elements.forEach(el => {
+        const position = el.getBoundingClientRect().top;
+        const screen = window.innerHeight;
+
+        if(position < screen - 100){
+            el.classList.add('show');
+        }
+    });
+});
+</body>
+</html>
