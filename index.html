@@ -78,9 +78,9 @@ z-index:9999;
     </p>
 </section>
 
-<section class="footer">
-    <p>© 2026 aditiadgprint. All Rights Reserved.</p>
-</section>
+<footer class="footer">
+  <p>© <span id="year"></span> ANCreative. All Rights Reserved.</p>
+</footer>
 
 </div>
 
@@ -112,6 +112,9 @@ cards.forEach(card => {
         }, 400);
     });
 });
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+  
 </script>
 
 </body>
