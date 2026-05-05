@@ -10,12 +10,9 @@
 <body>
 
      <!-- BACKGROUND VIDEO -->
-  <video id="bgVideo" autoplay muted loop playsinline class="bg-video">
-    <source src="video.mp4" type="video/mp4">
-  </video>
-
-  <!-- OVERLAY GELAP -->
-  <div class="overlay"></div>
+<video autoplay muted loop id="bg-video">
+  <source src="video.mp4" type="video/mp4">
+</video>
 
 <div class="wrapper">
 
@@ -79,12 +76,20 @@
 </div> <!-- penutup wrapper -->
 
 <script>
-document.addEventListener("click", function () {
-    const video = document.getElementById("bgVideo");
+const video = document.getElementById("bg-video");
+let aktif = false;
+
+function aktifkanAudio() {
+  if (!aktif) {
     video.muted = false;
-    video.volume = 1;
     video.play();
-}, { once: true });
+    aktif = true;
+  }
+}
+
+window.addEventListener("scroll", aktifkanAudio);
+window.addEventListener("click", aktifkanAudio);
+window.addEventListener("touchstart", aktifkanAudio);
 
 const toggle = document.getElementById("menuToggle");
 const menu = document.getElementById("dropdownMenu");
