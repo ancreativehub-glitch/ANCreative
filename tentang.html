@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=2.0">
 <title>AditiaCreative</title>
-<link rel="stylesheet" href="tentang.css">
+<link rel="stylesheet" href="beranda.css">
 </head>
 
 <body>
@@ -28,49 +28,3 @@
     <a href="portofolio.html">Portofolio</a>
     <a href="contact.html">Kontak</a>
 </div>
-
-<section class="tentang">
-    <div class="tentang-text fade-up">
-        <h1>Tentang <span>Saya</span></h1>
-        <p>
-            Saya adalah kreator di balik ANCreative yang berfokus pada desain modern,
-            website interaktif, dan pengalaman visual yang menarik. 
-            Setiap project saya dibuat dengan detail dan estetika tinggi.
-        </p>
-        <p>
-            Saya percaya bahwa desain bukan hanya tentang tampilan,
-            tapi juga tentang bagaimana pengguna merasakan pengalaman tersebut.
-        </p>
-        <a href="#" class="btn">Lihat Karya</a>
-    </div>
-
-    <div class="tentang-img fade-up">
-        <img src="https://picsum.photos/400/400" alt="profile">
-    </div>
-    
-</section>
-<script>
-const toggle = document.getElementById("menuToggle");
-const menu = document.getElementById("dropdownMenu");
-
-toggle.onclick = () => {
-    menu.classList.toggle("active");
-    toggle.classList.toggle("active");
-};
-    
-const elements = document.querySelectorAll('.fade-up');
-
-window.addEventListener('scroll', () => {
-    elements.forEach(el => {
-        const position = el.getBoundingClientRect().top;
-        const windowHeight = window.innerHeight;
-
-        if (position < windowHeight - 100) {
-            el.classList.add('show');
-        }
-    });
-});
-</script>
-
-</body>
-</html>
