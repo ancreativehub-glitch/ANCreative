@@ -9,8 +9,8 @@
 
 <body>
 
-     <!-- BACKGROUND VIDEO -->
-<video autoplay muted loop id="bg-video">
+<!-- BACKGROUND VIDEO -->
+<video autoplay muted loop playsinline id="bg-video">
   <source src="video.mp4" type="video/mp4">
 </video>
 
@@ -55,17 +55,15 @@
     <h3>Apa itu DG?</h3>
     <p>
         Desain grafis adalah proses menciptakan komunikasi visual melalui elemen seperti warna,
-        tipografi, gambar, dan tata letak. Tujuannya adalah menyampaikan pesan secara menarik,
-        jelas, dan efektif kepada audiens.
+        tipografi, gambar, dan tata letak.
     </p>
 </section>
 
 <section class="info green-box">
     <h3>Saat Visual Menjadi Pesan</h3>
     <p>
-        Desain grafis bukan sekadar tentang keindahan visual, tetapi tentang bagaimana sebuah pesan
-        bisa tersampaikan dengan kuat dan tepat sasaran. Setiap warna, bentuk, dan detail memiliki
-        peran penting dalam menarik perhatian dan membangun kepercayaan.
+        Desain grafis bukan sekadar tentang keindahan visual, tetapi tentang bagaimana pesan
+        tersampaikan dengan kuat dan tepat sasaran.
     </p>
 </section>
 
@@ -73,7 +71,7 @@
     <p>© 2026 aditiadgprint. All Rights Reserved.</p>
 </section>
 
-</div> <!-- penutup wrapper -->
+</div>
 
 <script>
 const video = document.getElementById("bg-video");
@@ -104,7 +102,6 @@ const cards = document.querySelectorAll(".card");
 cards.forEach(card => {
     card.addEventListener("click", () => {
         card.classList.add("clicked");
-
         setTimeout(() => {
             card.classList.remove("clicked");
         }, 400);
