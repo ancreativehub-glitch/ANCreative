@@ -210,31 +210,34 @@ body {
 }
 
 .footer {
-    color: #ffffff;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeUp 1s ease forwards;
-    animation-delay: 1s;
+  width: 100%;
+  padding: 20px 10px;
+  text-align: center;
+  background: #0f172a; /* bisa kamu ganti */
+  color: #fff;
+  font-size: 14px;
+  letter-spacing: 1px;
+
+  /* animasi masuk */
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 1s ease forwards;
+  animation-delay: 0.5s;
 }
 
-.footer p {
-    font-size: 10px;
-    font-style: oblique;
-    text-align: center;
-    margin-bottom: 10px;
-    color: #ffffff;
-}
-
+/* efek hover biar hidup */
 .footer:hover {
-    letter-spacing: 1px;
-    color: #ffffff;
-    transition: 0.3s;
+  box-shadow: 0 -5px 20px rgba(0,0,0,0.4);
+  transform: translateY(0) scale(1.02);
+  transition: 0.3s ease;
 }
 
-/* ANIMATION */
+/* animasi */
 @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(40px); }
-    to   { opacity: 1; transform: translateY(0); }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes slideDown {
