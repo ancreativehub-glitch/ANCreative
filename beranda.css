@@ -130,7 +130,6 @@ body {
 
 .keunggulan h2 {
     text-shadow: 0 10px 10px #000000;
-    text-decoration: underline;
     color: rgb(255, 255, 255);
     margin-bottom: 35px;
     animation: fadeUp 1s ease;
