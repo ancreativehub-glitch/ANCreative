@@ -10,7 +10,7 @@
 <body>
 
 <!-- BACKGROUND VIDEO -->
-<video autoplay muted loop playsinline id="bg-video">
+<video autoplay muted loop playsinline preload="auto" id="bg-video">
   <source src="video.mp4" type="video/mp4">
 </video>
 
@@ -75,19 +75,10 @@
 
 <script>
 const video = document.getElementById("bg-video");
-let aktif = false;
 
-function aktifkanAudio() {
-  if (!aktif) {
-    video.muted = false;
-    video.play();
-    aktif = true;
-  }
-}
-
-window.addEventListener("scroll", aktifkanAudio);
-window.addEventListener("click", aktifkanAudio);
-window.addEventListener("touchstart", aktifkanAudio);
+video.addEventListener("canplay", () => {
+  video.play().catch(() => {});
+});
 
 const toggle = document.getElementById("menuToggle");
 const menu = document.getElementById("dropdownMenu");
