@@ -116,7 +116,7 @@ body {
     animation: slideDown 1s ease;
 }
 
-.hero-text p {
+.hero-text b {
     margin-bottom: 8px;
     font-size: 25px;
     font-weight: bold;
