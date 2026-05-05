@@ -110,7 +110,7 @@ body {
     font-family: 'Poppins', sans-serif;
     text-align: left;
     opacity: 0;
-    animation: fadeUp 1s ease forwards;
+    animation: slideUp 1s ease forwards;
 }
 
 .hero-text h1 {
@@ -281,11 +281,6 @@ body {
 }
 
 /* ANIMATION */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
 @keyframes slideUp {
   from {
     opacity: 0;
