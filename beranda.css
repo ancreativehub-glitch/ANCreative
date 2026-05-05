@@ -213,31 +213,34 @@ body {
   width: 100%;
   padding: 20px 10px;
   text-align: center;
-  background: #0f172a; /* bisa kamu ganti */
+  background: #0f172a;
   color: #fff;
   font-size: 14px;
   letter-spacing: 1px;
 
-  /* animasi masuk */
   opacity: 0;
   transform: translateY(30px);
   animation: fadeUp 1s ease forwards;
   animation-delay: 0.5s;
+
+  /* penting */
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
-/* efek hover biar hidup */
+/* HOVER YANG KELIATAN BANGET */
 .footer:hover {
-  box-shadow: 0 -5px 20px rgba(0,0,0,0.4);
-  transform: translateY(0) scale(1.02);
-  transition: 0.3s ease;
+  box-shadow: 0 0 25px rgba(0, 200, 255, 0.6),
+              0 0 50px rgba(0, 200, 255, 0.3);
+  transform: translateY(-5px) scale(1.02);
 }
 
-/* animasi */
+/* animasi masuk */
 @keyframes fadeUp {
   to {
     opacity: 1;
     transform: translateY(0);
-  }
+ }
 }
 
 @keyframes slideDown {
