@@ -108,7 +108,7 @@ body {
     font-size: 20px;
     font-weight: 600;
     font-family: 'Poppins', sans-serif;
-    text-align: left;
+    text-align: justify;
     opacity: 0;
     animation: slideUp 1s ease forwards;
 }
