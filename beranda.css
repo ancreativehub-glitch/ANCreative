@@ -236,6 +236,10 @@ body {
   transform: translateY(-5px) scale(1.02);
 }
 
+footer {
+  margin-top: auto;
+}
+
 /* animasi masuk */
 @keyframes fadeUp {
   to {
