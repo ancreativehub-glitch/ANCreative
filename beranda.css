@@ -122,6 +122,7 @@ body {
     font-weight: bold;
     font-family: 'Poppins', sans-serif;
     text-align: justify;
+    text-shadow: 0 10px 15px rgb(255, 255, 255);
     color: #eaeaea;
     -webkit-text-stroke: 1px rgb(0, 0, 0); 
     opacity: 0;
