@@ -128,15 +128,16 @@ body {
 
 /* ===== BERANDA ===== */
 .home-content{
-    width: 100%;
-    min-height: 100vh;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    background: #ffffff50;
     margin: 20px;
     padding: 15px 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 15px #ffffff;
+    animation: slideDown 1s ease;
     background: #06007886;
-    overflow: hidden;
 }
 
 .home-container{
