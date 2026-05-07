@@ -126,6 +126,153 @@ body {
     animation: fadeUp 1s ease forwards;
 }
 
+/* ===== BERANDA ===== */
+.home-content{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 120px 8%;
+    background: linear-gradient(to right, #0f172a, #111827);
+    overflow: hidden;
+}
+
+.home-container{
+    max-width: 900px;
+    text-align: center;
+    animation: fadeUp 1s ease;
+}
+
+.home-tag{
+    display: inline-block;
+    color: #38bdf8;
+    background: rgba(255,255,255,0.08);
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 14px;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+    backdrop-filter: blur(5px);
+}
+
+.home-container h1{
+    font-size: 65px;
+    color: #ffffff;
+    line-height: 1.2;
+    margin-bottom: 25px;
+    font-weight: bold;
+}
+
+.home-container p{
+    color: #d1d5db;
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 40px;
+}
+
+.home-buttons{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.btn-primary,
+.btn-secondary{
+    padding: 15px 35px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: 0.4s;
+    font-weight: bold;
+}
+
+.btn-primary{
+    background: #38bdf8;
+    color: #ffffff;
+}
+
+.btn-primary:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(56,189,248,0.4);
+}
+
+.btn-secondary{
+    border: 2px solid #38bdf8;
+    color: #38bdf8;
+}
+
+.btn-secondary:hover{
+    background: #38bdf8;
+    color: #ffffff;
+    transform: translateY(-5px);
+}
+
+.home-box{
+    margin-top: 70px;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.box-item{
+    width: 220px;
+    padding: 30px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(10px);
+    transition: 0.4s;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.box-item:hover{
+    transform: translateY(-10px);
+    background: rgba(255,255,255,0.1);
+}
+
+.box-item h2{
+    color: #38bdf8;
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.box-item span{
+    color: #ffffff;
+    font-size: 16px;
+}
+
+/* ===== ANIMASI ===== */
+@keyframes fadeUp{
+    from{
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width: 768px){
+
+    .home-container h1{
+        font-size: 42px;
+    }
+
+    .home-container p{
+        font-size: 16px;
+    }
+
+    .box-item{
+        width: 100%;
+    }
+
+}
+
 .keunggulan {
     text-align: center;
     padding: 40px;
