@@ -133,8 +133,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 120px 8%;
-    background: #ffffff50;
+    margin: 20px;
+    padding: 15px 30px;
+    background: #06007886;
     overflow: hidden;
 }
 
