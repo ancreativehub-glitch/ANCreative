@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=2.0">
+<title>AditiaCreative</title>
+<link rel="stylesheet" href="portofolio.css">
+</head>
+
+<body>
+
+     <!-- BACKGROUND VIDEO -->
+  <video id="bgVideo" autoplay muted loop playsinline class="bg-video">
+    <source src="video.mp4" type="video/mp4">
+  </video>
+
+  <!-- OVERLAY GELAP -->
+  <div class="overlay"></div>
+
+<div class="wrapper">
+
+<header class="navbar">
+    <div class="logo">
+        <img src="logo1.png" alt="Logo">
+        <span class="aditia">
+            AN<span class="dg">Creative</span>
+        </span>
+    </div>
+
+  <div class="menu-toggle" id="menuToggle">☰</div>
+</header>
+
+<div class="dropdown" id="dropdownMenu">
+    <a href="index.html">Beranda</a>
+    <a href="tentang.html">Tentang</a>
+    <a href="portofolio.html">Portofolio</a>
+    <a href="contact.html">Kontak</a>
+</div>
+
+<script>
+document.addEventListener("click", function () {
+    const video = document.getElementById("bgVideo");
+    video.muted = false;
+    video.volume = 1;
+    video.play();
+}, { once: true });
+
+const toggle = document.getElementById("menuToggle");
+const menu = document.getElementById("dropdownMenu");
+
+toggle.onclick = () => {
+    menu.classList.toggle("active");
+    toggle.classList.toggle("active");
+};
+</script>
+
+<section class="portfolio-section" id="portofolio">
+
+    <div class="portfolio-header">
+
+        <span class="portfolio-tag">
+            PORTOFOLIO
+        </span>
+
+        <h1 class="portfolio-title">
+            Karya & Project <br>
+            Terbaik Kami
+        </h1>
+
+        <p class="portfolio-text">
+            Berikut beberapa hasil desain, branding,
+            website, dan visual kreatif yang telah
+            kami kerjakan untuk berbagai kebutuhan
+            bisnis maupun personal.
+        </p>
+
+    </div>
+
+    <div class="portfolio-container">
+
+        <!-- CARD 1 -->
+        <div class="portfolio-card">
+
+            <div class="portfolio-image">
+                <img src="project1.jpg" alt="Project 1">
+            </div>
+
+            <div class="portfolio-content">
+
+                <span class="portfolio-category">
+                    Branding
+                </span>
+
+                <h2>
+                    Modern Brand Identity
+                </h2>
+
+                <p>
+                    Desain identitas visual modern
+                    dengan konsep elegan dan profesional.
+                </p>
+
+                <a href="#" class="portfolio-btn">
+                    Lihat Detail
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="portfolio-card">
+
+            <div class="portfolio-image">
+                <img src="project2.jpg" alt="Project 2">
+            </div>
+
+            <div class="portfolio-content">
+
+                <span class="portfolio-category">
+                    Website
+                </span>
+
+                <h2>
+                    Creative Landing Page
+                </h2>
+
+                <p>
+                    Tampilan website modern dengan
+                    animasi interaktif dan responsif.
+                </p>
+
+                <a href="#" class="portfolio-btn">
+                    Lihat Detail
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="portfolio-card">
+
+            <div class="portfolio-image">
+                <img src="project3.jpg" alt="Project 3">
+            </div>
+
+            <div class="portfolio-content">
+
+                <span class="portfolio-category">
+                    Poster Design
+                </span>
+
+                <h2>
+                    Modern Poster Concept
+                </h2>
+
+                <p>
+                    Poster visual estetik dengan
+                    perpaduan warna modern dan clean.
+                </p>
+
+                <a href="#" class="portfolio-btn">
+                    Lihat Detail
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- CARD 4 -->
+        <div class="portfolio-card">
+
+            <div class="portfolio-image">
+                <img src="project4.jpg" alt="Project 4">
+            </div>
+
+            <div class="portfolio-content">
+
+                <span class="portfolio-category">
+                    Social Media
+                </span>
+
+                <h2>
+                    Instagram Feed Design
+                </h2>
+
+                <p>
+                    Desain feed sosial media agar
+                    terlihat premium dan menarik.
+                </p>
+
+                <a href="#" class="portfolio-btn">
+                    Lihat Detail
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<footer class="footer">
+    <p>© 2026 AN Creative. All Rights Reserved.</p>
+</footer>
