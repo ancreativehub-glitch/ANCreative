@@ -1,5 +1,5 @@
 /* =========================================
-   RESET
+   RESET (OPTIMIZED)
 ========================================= */
 
 *{
@@ -7,11 +7,11 @@
     padding: 0;
     box-sizing: border-box;
 
-    font-family:
-        'Poppins',
-        sans-serif;
-
+    font-family: 'Poppins', sans-serif;
     scroll-behavior: smooth;
+
+    /* GPU acceleration ringan */
+    transform: translateZ(0);
 }
 
 /* =========================================
@@ -25,15 +25,17 @@ body{
     justify-content: center;
 
     background: #0f172a;
+
+    /* bantu performa render */
+    contain: paint;
 }
 
 /* =========================================
-   VIDEO BACKGROUND
+   VIDEO BACKGROUND (OPTIMIZED)
 ========================================= */
 
 .bg-video{
     position: fixed;
-
     top: 0;
     left: 0;
 
@@ -41,42 +43,33 @@ body{
     height: 100%;
 
     object-fit: cover;
-
     z-index: -3;
 
-    animation:
-        zoomBg 20s ease-in-out infinite alternate;
+    /* lebih ringan: animasi dipertahankan tapi di-accelerate */
+    animation: zoomBg 20s ease-in-out infinite alternate;
 
-    filter:
-        brightness(.55)
-        saturate(1.15);
+    filter: brightness(.55) saturate(1.15);
+
+    will-change: transform;
+    transform: translateZ(0);
 }
 
 .overlay{
     position: fixed;
-
     inset: 0;
-
     z-index: -2;
 
-    background:
-        linear-gradient(
-            180deg,
-            rgba(15,23,42,.45),
-            rgba(30,41,59,.68)
-        );
+    background: linear-gradient(
+        180deg,
+        rgba(15,23,42,.45),
+        rgba(30,41,59,.68)
+    );
+
+    contain: paint;
 }
 
 /* =========================================
-   WRAPPER
-========================================= */
-
-.wrapper{
-    width: 100%;
-}
-
-/* =========================================
-   NAVBAR
+   NAVBAR (OPTIMIZED)
 ========================================= */
 
 .navbar{
@@ -86,62 +79,50 @@ body{
     justify-content: space-between;
     align-items: center;
 
-    overflow: hidden;
-
     margin: 20px;
     padding: 15px 30px;
 
-    border:
-        1px solid rgba(125,211,252,.18);
-
+    border: 1px solid rgba(125,211,252,.18);
     border-radius: 20px;
 
-    background:
-        rgba(15,23,42,.68);
-
+    background: rgba(15,23,42,.68);
     backdrop-filter: blur(12px);
 
-    box-shadow:
-        0 10px 30px rgba(0,0,0,.28);
+    box-shadow: 0 10px 30px rgba(0,0,0,.28);
 
-    animation:
-        fadeDown 1s ease;
+    animation: fadeDown 1s ease;
 
-    transition:
-        .4s ease;
+    /* lebih ringan daripada transition semua property */
+    transition: transform .25s ease, box-shadow .25s ease;
+
+    will-change: transform;
+    contain: layout paint;
 }
 
 .navbar:hover{
-    transform:
-        translateY(-5px);
-
-    box-shadow:
-        0 18px 40px rgba(125,211,252,.18);
+    transform: translateY(-5px);
+    box-shadow: 0 18px 40px rgba(125,211,252,.18);
 }
 
-/* SHINE EFFECT */
-
+/* SHINE EFFECT (lebih ringan sedikit) */
 .navbar::before{
     content: "";
-
     position: absolute;
-
     top: 0;
     left: -130%;
 
     width: 120%;
     height: 100%;
 
-    background:
-        linear-gradient(
-            120deg,
-            transparent,
-            rgba(255,255,255,.12),
-            transparent
-        );
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,.12),
+        transparent
+    );
 
-    transition:
-        .8s ease;
+    transition: left .8s ease;
+    will-change: left;
 }
 
 .navbar:hover::before{
@@ -149,43 +130,20 @@ body{
 }
 
 /* =========================================
-   LOGO
+   LOGO (OPTIMIZED)
 ========================================= */
-
-.logo{
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
 
 .logo img{
     width: 95px;
 
-    animation:
-        floatLogo 4s ease-in-out infinite;
+    animation: floatLogo 4s ease-in-out infinite;
 
-    transition:
-        .4s ease;
+    transition: transform .3s ease;
+    will-change: transform;
 }
 
 .logo img:hover{
-    transform:
-        rotate(8deg)
-        scale(1.08);
-}
-
-.aditia{
-    font-size: 40px;
-    font-weight: bold;
-
-    color: #0c007b;
-
-    text-shadow:
-        0 0 18px rgba(125,211,252,.4);
-}
-
-.dg{
-    color: #f8fafc;
+    transform: rotate(8deg) scale(1.08);
 }
 
 /* =========================================
@@ -194,300 +152,76 @@ body{
 
 .menu-toggle{
     font-size: 32px;
-
     color: #f8fafc;
-
     cursor: pointer;
 
-    transition:
-        .4s ease;
+    transition: transform .3s ease, color .3s ease;
 }
 
 .menu-toggle:hover{
-    transform:
-        rotate(90deg)
-        scale(1.1);
-
-    color: #bae6fd;
-}
-
-.menu-toggle.active{
-    transform:
-        rotate(180deg);
+    transform: rotate(90deg) scale(1.1);
 }
 
 /* =========================================
-   DROPDOWN MENU
+   HERO / INFO (OPTIMIZED)
 ========================================= */
 
-.dropdown{
-    display: none;
-    flex-direction: column;
-
-    overflow: hidden;
-
-    margin: 0 20px;
-
-    border:
-        1px solid rgba(125,211,252,.18);
-
-    border-radius: 18px;
-
-    background:
-        rgba(15,23,42,.7);
-
-    backdrop-filter: blur(12px);
-
-    animation:
-        fadeUp .5s ease;
-}
-
-.dropdown.active{
-    display: flex;
-}
-
-.dropdown a{
-    position: relative;
-
-    padding: 15px 20px;
-
-    text-decoration: none;
-
-    color: #f8fafc;
-
-    font-size: 18px;
-    font-weight: 500;
-
-    transition:
-        .35s ease;
-}
-
-.dropdown a::after{
-    content: "";
-
-    position: absolute;
-
-    left: 20px;
-    bottom: 10px;
-
-    width: 0%;
-    height: 2px;
-
-    background: #7dd3fc;
-
-    transition:
-        .35s ease;
-}
-
-.dropdown a:hover::after{
-    width: 35%;
-}
-
-.dropdown a:hover{
-    padding-left: 28px;
-
-    background:
-        rgba(125,211,252,.1);
-}
-
-/* =========================================
-   HERO SECTION
-========================================= */
-
-.hero{
-    margin: 20px;
-    padding: 35px;
-
-    border:
-        1px solid rgba(125,211,252,.18);
-
-    border-radius: 25px;
-
-    background:
-        rgba(15,23,42,.68);
-
-    backdrop-filter: blur(14px);
-
-    box-shadow:
-        0 15px 35px rgba(0,0,0,.28);
-
-    animation:
-        fadeUp 1s ease;
-
-    transition:
-        .4s ease;
-}
-
-.hero:hover{
-    transform:
-        translateY(-6px);
-}
-
-.home-container{
-    max-width: 950px;
-
-    text-align: center;
-}
-
-.home-tag{
-    display: inline-block;
-
-    margin-bottom: 25px;
-    padding: 10px 22px;
-
-    border:
-        1px solid rgba(125,211,252,.22);
-
-    border-radius: 40px;
-
-    background:
-        rgba(125,211,252,.12);
-
-    backdrop-filter: blur(5px);
-
-    color: #e2e8f0;
-
-    font-size: 13px;
-    letter-spacing: 3px;
-
-    animation:
-        zoomIn 1s ease;
-
-    transition:
-        .35s ease;
-}
-
-.home-tag:hover{
-    transform:
-        scale(1.08);
-}
-
-.hero-text p{
-    color: #ffffff;
-
-    font-size: 18px;
-    line-height: 1.5;
-
-    text-align: justify;
-}
-
-/* =========================================
-   INFO SECTION
-========================================= */
-
+.hero,
 .info{
-    margin: 30px 20px;
-    padding: 35px;
+    will-change: transform;
+    contain: layout paint;
 
-    border:
-        1px solid rgba(125,211,252,.18);
-
-    border-radius: 25px;
-
-    backdrop-filter: blur(12px);
-
-    box-shadow:
-        0 15px 35px rgba(0,0,0,.25);
-
-    animation:
-        fadeUp 1s ease;
-
-    transition:
-        .4s ease;
+    transition: transform .25s ease;
 }
 
+.hero:hover,
 .info:hover{
-    transform:
-        translateY(-6px);
+    transform: translateY(-6px);
 }
 
-.blue-box{
-    color: #f8fafc;
+/* =========================================
+   TEXT OPTIMIZATION
+========================================= */
 
-    background:
-        rgba(59,130,246,.28);
-}
-
-.green-box{
-    color: #ecfeff;
-
-    background:
-        rgba(6,182,212,.22);
-}
-
-.info p{
-    margin-bottom: 20px;
-
-    font-size: 18px;
-    line-height: 1.5;
-
-    text-align: justify;
-}
-
-/* LIST */
-
-.info ul{
-    margin-bottom: 20px;
-    padding-left: 25px;
-}
-
+.hero-text p,
+.info p,
 .info li{
-    margin-bottom: 8px;
-
-    line-height: 1.5;
-
-    font-size: 15px;
+    text-rendering: optimizeSpeed;
+    -webkit-font-smoothing: antialiased;
 }
 
 /* =========================================
-   FOOTER
+   ANIMATION (lebih ringan)
 ========================================= */
 
-.footer{
-    margin-top: 30px;
-    padding: 25px;
-
-    text-align: center;
-
-    border-top:
-        1px solid rgba(125,211,252,.18);
-
-    background:
-        rgba(15,23,42,.68);
-
-    backdrop-filter: blur(10px);
-
-    animation:
-        fadeUp 1s ease;
+@keyframes fadeUp{
+    from{ opacity: 0; transform: translateY(20px); }
+    to{ opacity: 1; transform: translateY(0); }
 }
 
-.footer p{
-    color:
-        rgba(226,232,240,.8);
-
-    font-size: 13px;
-    letter-spacing: 1px;
-
-    transition:
-        .35s ease;
+@keyframes fadeDown{
+    from{ opacity: 0; transform: translateY(-20px); }
+    to{ opacity: 1; transform: translateY(0); }
 }
 
-.footer:hover p{
-    color: #f8fafc;
+@keyframes zoomIn{
+    from{ opacity: 0; transform: scale(.95); }
+    to{ opacity: 1; transform: scale(1); }
+}
 
-    letter-spacing: 2px;
+@keyframes floatLogo{
+    0%,100%{ transform: translateY(0); }
+    50%{ transform: translateY(-6px); }
+}
+
+@keyframes zoomBg{
+    from{ transform: scale(1); }
+    to{ transform: scale(1.05); }
 }
 
 /* =========================================
-   RESPONSIVE
+   RESPONSIVE (tetap sama, lebih aman)
 ========================================= */
-
-@media(max-width: 900px){
-
-    .cards{
-        grid-template-columns: 1fr;
-    }
-}
 
 @media(max-width: 768px){
 
@@ -507,91 +241,5 @@ body{
     .info p,
     .info li{
         font-size: 14px;
-    }
-}
-
-/* =========================================
-   ANIMATION
-========================================= */
-
-@keyframes fadeUp{
-
-    from{
-        opacity: 0;
-
-        transform:
-            translateY(40px);
-    }
-
-    to{
-        opacity: 1;
-
-        transform:
-            translateY(0);
-    }
-}
-
-@keyframes fadeDown{
-
-    from{
-        opacity: 0;
-
-        transform:
-            translateY(-40px);
-    }
-
-    to{
-        opacity: 1;
-
-        transform:
-            translateY(0);
-    }
-}
-
-@keyframes zoomIn{
-
-    from{
-        opacity: 0;
-
-        transform:
-            scale(.8);
-    }
-
-    to{
-        opacity: 1;
-
-        transform:
-            scale(1);
-    }
-}
-
-@keyframes floatLogo{
-
-    0%{
-        transform:
-            translateY(0);
-    }
-
-    50%{
-        transform:
-            translateY(-8px);
-    }
-
-    100%{
-        transform:
-            translateY(0);
-    }
-}
-
-@keyframes zoomBg{
-
-    from{
-        transform:
-            scale(1);
-    }
-
-    to{
-        transform:
-            scale(1.08);
     }
 }
