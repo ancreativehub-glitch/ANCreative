@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=2.0">
+<title>AditiaCreative</title>
+<link rel="stylesheet" href="tentang.css">
+</head>
+
+<body>
+
+     <!-- BACKGROUND VIDEO -->
+  <video id="bgVideo" autoplay muted loop playsinline class="bg-video">
+    <source src="video.mp4" type="video/mp4">
+  </video>
+
+  <!-- OVERLAY GELAP -->
+  <div class="overlay"></div>
+
+<div class="wrapper">
+
+<header class="navbar">
+    <div class="logo">
+        <img src="logo1.png" alt="Logo">
+        <span class="aditia">
+            AN<span class="dg">Creative</span>
+        </span>
+    </div>
+
+  <div class="menu-toggle" id="menuToggle">☰</div>
+</header>
+
+<div class="dropdown" id="dropdownMenu">
+    <a href="index.html">Beranda</a>
+    <a href="tentang.html">Tentang</a>
+    <a href="portofolio.html">Portofolio</a>
+    <a href="contact.html">Kontak</a>
+</div>
+
+<script>
+document.addEventListener("click", function () {
+    const video = document.getElementById("bgVideo");
+    video.muted = false;
+    video.volume = 1;
+    video.play();
+}, { once: true });
+
+const toggle = document.getElementById("menuToggle");
+const menu = document.getElementById("dropdownMenu");
+
+toggle.onclick = () => {
+    menu.classList.toggle("active");
+    toggle.classList.toggle("active");
+};
+
+const cards = document.querySelectorAll(".card");
+
+cards.forEach(card => {
+    card.addEventListener("click", () => {
+        card.classList.add("clicked");
+
+        setTimeout(() => {
+            card.classList.remove("clicked");
+        }, 400);
+    });
+});
+</script>
+
+<section class="about">
+    <div class="about-container">
+
+        <div class="about-image">
+            <img src="saya.jpeg" alt="Foto Saya">
+        </div>
+
+        <div class="about-content">
+            <h1 class="about-title">Tentang Saya</h1>
+            <p class="about-text">
+              Halo Sobat, Salam Kenal gua Aditia dari Kabupaten Tulungagung, Jawa Timur. Kalau ditanya soal profesi gua bukan Desainer apa lagi Programer, tapi kalau ditanya bisa Desain apa enggak jawabannya Bisa. Tujuan gua buat bisnis kecil Jasa Desain ini buat apa? Yap buat menyalurkan hobi gua yang suka gambar, desain, dan sedikit coding untuk orang lain supaya berguna. Buat sobatku yang mau bekerjasama dengan gua pintu selebar tujuh turunan terbuka, kita santai aja negoisasinya gausah terlalu formal, pakai Jasa gua pokoknya aman, amanah, dan terpercaya deh. Kalau ga sesuai ekspektasi kalian atau merasa dirugikan samperin aja ke rumah gua dengan alamat yang sudah tercantum, tapi buat kalian ya jangan berlebihan juga, udah gua kasih murah, mudah, dan enak nanti ngelunjak wkwk
+            </p>
+
+            <div class="about-info">
+                <div class="info-box">
+                    <h3>1</h3>
+                    <span>Tahun Pengalaman</span>
+                </div>
+                <div class="info-box">
+                    <h3>7</h3>
+                    <span>Proyek Selesai</span>
+                </div>
+                <div class="info-box">
+                    <h3>97%</h3>
+                    <span>Kepuasan Klien</span>
+                </div>
+            </div>
+
+    </div>
+</section>
+
+<footer class="footer">
+    <p>© 2026 AN Creative. All Rights Reserved.</p>
+</footer>
