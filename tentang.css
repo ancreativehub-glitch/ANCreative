@@ -802,3 +802,46 @@ body{
         translateY(0);
     }
 }
+
+/* =========================================
+   SAFE PERFORMANCE PATCH (NO VISUAL CHANGE)
+========================================= */
+
+/* GPU acceleration hint (tidak mengubah desain) */
+.bg-video,
+.navbar,
+.logo img,
+.about-container,
+.portfolio-card,
+.contact-container{
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+/* bantu browser tidak sering repaint */
+.overlay,
+.navbar::before,
+.about-container::before,
+.portfolio-section::before,
+.portfolio-section::after{
+    will-change: transform;
+}
+
+/* isolasi layout supaya tidak tabrakan render */
+.wrapper,
+.about,
+.portfolio-section,
+.contact-section{
+    contain: layout paint;
+}
+
+/* text rendering lebih ringan di device kentang */
+body{
+    text-rendering: optimizeSpeed;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* scroll tetap smooth tapi ringan */
+html{
+    scroll-behavior: smooth;
+}
