@@ -429,7 +429,6 @@ body{
 .info ul{
     margin-bottom: 20px;
     padding-left: 25px
-    font-size: 18px;
 }
 
 .info li{
@@ -437,7 +436,7 @@ body{
 
     line-height: 1.5;
 
-    font-size: 50px;
+    font-size: 80px;
     font-weight: bold;
 }
 
