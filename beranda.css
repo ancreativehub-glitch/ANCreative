@@ -347,7 +347,7 @@ body{
 
     color: #e2e8f0;
 
-    font-size: 13px;
+    font-size: 25px;
     letter-spacing: 3px;
 
     animation:
@@ -365,7 +365,7 @@ body{
 .hero-text p{
     color: #ffffff;
 
-    font-size: 68px;
+    font-size: 100px;
     line-height: 1.5;
 
     text-align: justify;
@@ -418,7 +418,7 @@ body{
 .info p{
     margin-bottom: 20px;
 
-    font-size: 68px;
+    font-size: 100px;
     line-height: 1.5;
 
     text-align: justify;
