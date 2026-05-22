@@ -428,7 +428,8 @@ body{
 
 .info ul{
     margin-bottom: 20px;
-    padding-left: 25px;
+    padding-left: 25px
+    font-size: 18px;
 }
 
 .info li{
