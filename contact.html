@@ -1,170 +1,394 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=2.0">
-<title>AditiaCreative</title>
-<link rel="stylesheet" href="contact.css">
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=0.7, maximum-scale=2.0"
+    >
+
+    <title>AditiaCreative</title>
+
+    <link rel="stylesheet" href="contact.css">
+
 </head>
 
 <body>
 
-     <!-- BACKGROUND VIDEO -->
-  <video id="bgVideo" autoplay muted loop playsinline class="bg-video">
-    <source src="video.mp3" type="video/mp4">
-  </video>
+    <!-- =========================================
+         BACKGROUND VIDEO
+    ========================================= -->
 
-  <!-- OVERLAY GELAP -->
-  <div class="overlay"></div>
+    <video
+        id="bgVideo"
+        autoplay
+        muted
+        loop
+        playsinline
+        class="bg-video"
+    >
 
-<div class="wrapper">
+        <source
+            src="vieo.mp4"
+            type="video/mp4"
+        >
 
-<header class="navbar">
-    <div class="logo">
-        <img src="logo1.png" alt="Logo">
-        <span class="aditia">
-            AN<span class="dg">Creative</span>
-        </span>
-    </div>
+    </video>
 
-  <div class="menu-toggle" id="menuToggle">☰</div>
-</header>
+    <!-- OVERLAY -->
 
-<div class="dropdown" id="dropdownMenu">
-    <a href="index.html">Beranda</a>
-    <a href="tentang.html">Tentang</a>
-    <a href="portofolio.html">Portofolio</a>
-    <a href="contact.html">Kontak</a>
-</div>
+    <div class="overlay"></div>
 
-<script>
-document.addEventListener("click", function () {
-    const video = document.getElementById("bgVideo");
-    video.muted = false;
-    video.volume = 1;
-    video.play();
-}, { once: true });
+    <!-- =========================================
+         WRAPPER
+    ========================================= -->
 
-const toggle = document.getElementById("menuToggle");
-const menu = document.getElementById("dropdownMenu");
+    <div class="wrapper">
 
-toggle.onclick = () => {
-    menu.classList.toggle("active");
-    toggle.classList.toggle("active");
-};
-</script>
+        <!-- =========================================
+             NAVBAR
+        ========================================= -->
 
-<section class="contact-section" id="kontak">
+        <header class="navbar">
 
-    <div class="contact-container">
+            <div class="logo">
 
-        <!-- KIRI -->
-        <div class="contact-left">
+                <img
+                    src="logo1.png"
+                    alt="Logo"
+                >
 
-            <span class="contact-tag">
-                HUBUNGI KAMI
-            </span>
+                <span class="aditia">
+                    AN<span class="dg">Creative</span>
+                </span>
 
-            <h1 class="contact-title">
-                Mari Bangun Sesuatu <br>
-                Yang Menarik Bersama
-            </h1>
+            </div>
 
-            <p class="contact-text">
-                Jika Anda membutuhkan desain grafis dan website,
-                silakan hubungi kami melalui form
-                atau media sosial di bawah ini.
-            </p>
+            <div
+                class="menu-toggle"
+                id="menuToggle"
+            >
+                ☰
+            </div>
 
-            <div class="contact-info">
+        </header>
 
-                <div class="contact-box">
-                    <i>📍</i>
-                    <div>
-                        <h3>Alamat</h3>
-                        <span>Jl. Raden Patah, Kebonsari, Betak, Kec. Kalidawir, Kab. Tulungagung, Jawa Timur 66281</span>
+        <!-- =========================================
+             DROPDOWN
+        ========================================= -->
+
+        <div
+            class="dropdown"
+            id="dropdownMenu"
+        >
+
+            <a href="index.html">
+                Beranda
+            </a>
+
+            <a href="tentang.html">
+                Tentang
+            </a>
+
+            <a href="portofolio.html">
+                Portofolio
+            </a>
+
+            <a href="contact.html">
+                Kontak
+            </a>
+
+        </div>
+
+        <!-- =========================================
+             CONTACT SECTION
+        ========================================= -->
+
+        <section
+            class="contact-section"
+            id="kontak"
+        >
+
+            <div class="contact-container">
+
+                <!-- =========================================
+                     LEFT
+                ========================================= -->
+
+                <div class="contact-left">
+
+                    <span class="contact-tag">
+                        HUBUNGI KAMI
+                    </span>
+
+                    <h1 class="contact-title">
+
+                        Mari Bangun Sesuatu <br>
+                        Yang Menarik Bersama
+
+                    </h1>
+
+                    <p class="contact-text">
+
+                        Jika Anda membutuhkan desain
+                        grafis dan website, silakan
+                        hubungi kami melalui form
+                        atau media sosial di bawah ini.
+
+                    </p>
+
+                    <!-- CONTACT INFO -->
+
+                    <div class="contact-info">
+
+                        <div class="contact-box">
+
+                            <i>📍</i>
+
+                            <div>
+
+                                <h3>Alamat</h3>
+
+                                <span>
+
+                                    Jl. Raden Patah,
+                                    Kebonsari, Betak,
+                                    Kec. Kalidawir,
+                                    Kab. Tulungagung,
+                                    Jawa Timur 66281
+
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                        <div class="contact-box">
+
+                            <i>📞</i>
+
+                            <div>
+
+                                <h3>Telepon</h3>
+
+                                <span>
+                                    +62 856-0639-8242
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                        <div class="contact-box">
+
+                            <i>✉️</i>
+
+                            <div>
+
+                                <h3>Email</h3>
+
+                                <span>
+                                    ancreativehub@email.com
+                                </span>
+
+                            </div>
+
+                        </div>
+
                     </div>
+
                 </div>
 
-                <div class="contact-box">
-                    <i>📞</i>
-                    <div>
-                        <h3>Telepon</h3>
-                        <span>+62 856-0639-8242</span>
-                    </div>
-                </div>
+                <!-- =========================================
+                     RIGHT / FORM
+                ========================================= -->
 
-                <div class="contact-box">
-                    <i>✉️</i>
-                    <div>
-                        <h3>Email</h3>
-                        <span>ancreativehub@email.com</span>
-                    </div>
+                <div class="contact-right">
+
+                    <form
+                        class="contact-form"
+                        id="contact-form"
+                    >
+
+                        <div class="input-group">
+
+                            <input
+                                type="text"
+                                name="nama"
+                                placeholder="Nama Lengkap"
+                                required
+                            >
+
+                        </div>
+
+                        <div class="input-group">
+
+                            <input
+                                type="email"
+                                name="email"
+                                placeholder="Email Aktif"
+                                required
+                            >
+
+                        </div>
+
+                        <div class="input-group">
+
+                            <input
+                                type="text"
+                                name="whatsapp"
+                                placeholder="No WhatsApp Aktif"
+                            >
+
+                        </div>
+
+                        <div class="input-group">
+
+                            <textarea
+                                name="pesan"
+                                placeholder="Pesan atau Pertanyaan"
+                                required
+                            ></textarea>
+
+                        </div>
+
+                        <button
+                            type="submit"
+                            class="contact-btn"
+                        >
+
+                            Kirim Pesan
+
+                        </button>
+
+                    </form>
+
                 </div>
 
             </div>
 
-        </div>
+        </section>
 
-        <!-- KANAN -->
-        <div class="contact-right">
-<form
-    action="https://formsubmit.co/ancreativehub@email.com"
-    method="POST"
-    class="contact-form"
->
+        <!-- =========================================
+             FOOTER
+        ========================================= -->
 
-    <input
-        type="hidden"
-        name="_captcha"
-        value="false"
-    >
+        <footer class="footer">
 
-    <div class="input-group">
-        <input
-            type="text"
-            name="nama"
-            placeholder="Nama Lengkap"
-            required
-        >
-    </div>
+            <p>
+                © 2026 AN Creative.
+                All Rights Reserved.
+            </p>
 
-    <div class="input-group">
-        <input
-            type="email"
-            name="email"
-            placeholder="Email Aktif"
-            required
-        >
-    </div>
-
-    <div class="input-group">
-        <input
-            type="text"
-            name="whatsapp"
-            placeholder="No WhatsApp Aktif"
-        >
-    </div>
-
-    <div class="input-group">
-        <textarea
-            name="pesan"
-            placeholder="Pesan atau Pertanyaan"
-            required
-        ></textarea>
-    </div>
-
-    <button type="submit" class="contact-btn">
-        Kirim Pesan
-    </button>
-
-</form>
-        </div>
+        </footer>
 
     </div>
 
-</section>
+    <!-- =========================================
+         EMAILJS
+    ========================================= -->
 
-<footer class="footer">
-    <p>© 2026 AN Creative. All Rights Reserved.</p>
-</footer>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================= -->
+
+    <script>
+
+        // =========================================
+        // VIDEO SOUND
+        // =========================================
+
+        document.addEventListener(
+            "click",
+            function () {
+
+                const video =
+                    document.getElementById("bgVideo");
+
+                video.muted = false;
+
+                video.volume = 1;
+
+                video.play();
+
+            },
+
+            { once: true }
+        );
+
+        // =========================================
+        // MENU TOGGLE
+        // =========================================
+
+        const toggle =
+            document.getElementById("menuToggle");
+
+        const menu =
+            document.getElementById("dropdownMenu");
+
+        toggle.onclick = () => {
+
+            menu.classList.toggle("active");
+
+            toggle.classList.toggle("active");
+
+        };
+
+        // =========================================
+        // EMAILJS
+        // =========================================
+
+        emailjs.init(
+            "UY0LaGzkEq8BR2376"
+        );
+
+        const form =
+            document.getElementById("contact-form");
+
+        form.addEventListener(
+            "submit",
+
+            function (e) {
+
+                e.preventDefault();
+
+                emailjs.sendForm(
+
+                    "service_fdiykxw",
+                    "template_jkffukm",
+                    this
+
+                )
+
+                .then(() => {
+
+                    alert(
+                        "Pesan berhasil dikirim!"
+                    );
+
+                    form.reset();
+
+                })
+
+                .catch((error) => {
+
+                    alert(
+                        "Pesan gagal dikirim!"
+                    );
+
+                    console.log(error);
+
+                });
+
+            }
+        );
+
+    </script>
+
+</body>
+</html>
