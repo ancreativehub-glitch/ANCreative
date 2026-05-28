@@ -359,7 +359,7 @@ body{
         scale(1.08);
 }
 
-.hero-text p{
+.hero-text h1{
     color: #ffffff;
    font-weight: bold;
     font-size: 25px;
@@ -412,7 +412,7 @@ body{
         rgba(6,182,212,.22);
 }
 
-.info p{
+.info h2{
     margin-bottom: 20px;
      font-weight: bold;
     font-size: 25px;
