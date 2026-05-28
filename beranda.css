@@ -362,7 +362,7 @@ body{
 .hero-text p{
     color: #ffffff;
    font-weight: bold;
-    font-size: 90px;
+    font-size: 25px;
     line-height: 1.5;
 
     text-align: justify;
@@ -415,7 +415,7 @@ body{
 .info p{
     margin-bottom: 20px;
      font-weight: bold;
-    font-size: 90px;
+    font-size: 25px;
     line-height: 1.5;
 
     text-align: justify;
