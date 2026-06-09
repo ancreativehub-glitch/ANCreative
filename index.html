@@ -1,123 +1,233 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Website Sederhana</title>
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, sans-serif;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=2.0">
 
-body{
-    background:#f5f5f5;
-}
+    <title>AditiaCreative</title>
 
-header{
-    background:#1e293b;
-    color:white;
-    padding:20px 10%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-
-nav a{
-    color:white;
-    text-decoration:none;
-    margin-left:20px;
-}
-
-.hero{
-    text-align:center;
-    padding:100px 20px;
-    background:white;
-}
-
-.hero h1{
-    font-size:42px;
-    margin-bottom:15px;
-}
-
-.hero p{
-    color:#666;
-    margin-bottom:20px;
-}
-
-.btn{
-    background:#2563eb;
-    color:white;
-    padding:12px 25px;
-    border-radius:5px;
-    text-decoration:none;
-}
-
-.section{
-    padding:60px 10%;
-}
-
-.cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:20px;
-}
-
-.card{
-    background:white;
-    padding:20px;
-    border-radius:10px;
-    box-shadow:0 2px 10px rgba(0,0,0,0.1);
-}
-
-footer{
-    background:#1e293b;
-    color:white;
-    text-align:center;
-    padding:20px;
-}
-</style>
+    <link rel="stylesheet" href="beranda.css">
 </head>
+
 <body>
 
-<header>
-    <h2>Aditia Creative</h2>
-    <nav>
-        <a href="#">Beranda</a>
-        <a href="#">Tentang</a>
-        <a href="#">Layanan</a>
-        <a href="#">Kontak</a>
-    </nav>
-</header>
+    <video
+        id="bgVideo"
+        class="bg-video"
+        autoplay
+        muted
+        loop
+        playsinline
+    >
+        <source src="video.mp3" type="video/mp4">
+    </video>
 
-<section class="hero">
-    <h1>Selamat Datang</h1>
-    <p>Website sederhana dengan desain modern dan responsif.</p>
-    <a href="#" class="btn">Pelajari Lebih Lanjut</a>
-</section>
+    <div class="overlay"></div>
 
-<section class="section">
-    <div class="cards">
-        <div class="card">
-            <h3>Desain Modern</h3>
-            <p>Tampilan bersih dan profesional.</p>
+    <div class="wrapper">
+
+        <!-- Navbar -->
+        <header class="navbar">
+
+            <div class="logo">
+                <img src="logo1.png" alt="Logo">
+
+                <span class="aditia">
+                    AN<span class="dg">Creative</span>
+                </span>
+            </div>
+
+            <div class="menu-toggle" id="menuToggle">
+                ☰
+            </div>
+
+        </header>
+
+        <!-- Dropdown Menu -->
+        <div class="dropdown" id="dropdownMenu">
+            <a href="index.html">Beranda</a>
+            <a href="tentang.html">Tentang</a>
+            <a href="portofolio.html">Portofolio</a>
+            <a href="contact.html">Kontak</a>
         </div>
-        <div class="card">
-            <h3>Responsif</h3>
-            <p>Nyaman dibuka di HP maupun laptop.</p>
-        </div>
-        <div class="card">
-            <h3>Mudah Dikembangkan</h3>
-            <p>Struktur kode sederhana dan rapi.</p>
-        </div>
+
+        <!-- Hero Section -->
+        <section class="hero">
+
+            <div class="home-container">
+                <span class="home-tag">
+                    WELCOME TO MY WEBSITE
+                </span>
+            </div>
+
+            <div class="hero-text">
+                <p>
+                    Halo Sobat, Kami melayani Jasa Desain Grafis dan Pembuatan Website loh.
+                    Layanan apa saja sih yang kami tawarkan, coba sobat gesr ke bawah!
+                </p>
+            </div>
+
+        </section>
+
+        <!-- Desain Grafis -->
+        <section class="info blue-box">
+
+            <p>
+                Kami melayani jasa desain grafis nih Sobat! Buat Sobat yang lagi punya usaha
+                atau lagi bingung mau bikin desain brosur, banner, poster, dan kebutuhan
+                desain lainnya, semuanya bisa banget pesan di ANCreative.
+            </p>
+
+            <p>
+                Penasaran gimana cara pesan, prosesnya, dan biayanya? Tenang,
+                Mimin kasih tau ya!
+            </p>
+
+            <p>
+                Untuk pemesanan desain grafis, Sobat cukup hubungi Admin kami melalui
+                DM Instagram atau kontak yang ada di bio.
+                Setelah itu, Sobat akan diminta mengisi brief, jadi Sobat bisa jelaskan
+                desain yang diinginkan beserta referensinya supaya hasil desainnya makin
+                sesuai ekspektasi.
+            </p>
+
+            <p>
+                Kalau brief sudah dikirim, Admin akan memberikan estimasi waktu pengerjaan
+                desainnya.
+                Setelah desain selesai, kami akan mengirimkan hasil preview dalam format
+                JPEG untuk Sobat cek terlebih dahulu.
+            </p>
+
+            <p>
+                Kalau masih ada yang kurang cocok atau ingin diperbaiki, tenang aja,
+                revisi gratis kok Sobat!
+                Jadi desain bisa benar-benar sesuai dengan yang Sobat inginkan.
+            </p>
+
+            <p>
+                Nah, kalau desainnya sudah fix dan Sobat suka dengan hasilnya, kami akan
+                mengirim file final sesuai kebutuhan Sobat, seperti format .AI, .PSD,
+                .SVG, dan format lainnya.
+                File final akan dikirim setelah proses pembayaran selesai ya Sobat.
+            </p>
+
+            <p>
+                Tenang aja, layanan di ANCreative ramah di kantong kok!
+                Mulai dari Rp50K aja Sobat sudah bisa dapat:
+                Gratis revisi, Gratis konsultasi, File sesuai format yang diinginkan.
+                Dan spesial buat Sobat yang baru mulai usaha serta pelajar/mahasiswa,
+                ada diskon 50% juga loh!
+            </p>
+
+        </section>
+
+        <!-- Pembuatan Website -->
+        <section class="info green-box">
+
+            <p>
+                Selain jasa desain grafis, ANCreative juga melayani pembuatan website
+                loh Sobat!
+            </p>
+
+            <p>
+                “Cara pesannya gimana kak?”
+                Tenang aja Sobat, prosesnya gampang kok!
+            </p>
+
+            <p>
+                Untuk layanan pembuatan website, Sobat cukup menyiapkan informasi mengenai
+                website yang ingin dibuat, seperti isi website, nama usaha, kontak, foto,
+                dan kebutuhan lainnya.
+                Kalau Sobat sudah punya desain website sendiri juga boleh banget.
+            </p>
+
+            <p>
+                “Kalau desain websitenya belum ada, bisa dibantu buatkan juga gak kak?”
+                Tentu bisa dong Sobat!
+                Tapi Sobat perlu menyiapkan referensi desain yang diinginkan supaya hasil
+                websitenya makin sesuai ekspektasi.
+            </p>
+
+            <p>
+                Untuk proses desain website sekaligus pembuatan websitenya biasanya
+                membutuhkan waktu sekitar 2–3 bulan, tergantung tingkat kesulitan dan
+                fitur yang diinginkan ya Sobat.
+            </p>
+
+            <p>
+                “Terus hosting dan domainnya gimana kak?”
+                Nah, untuk hosting kami menyediakan beberapa pilihan nih Sobat.
+            </p>
+
+            <p>
+                Kalau ingin yang gratis, website bisa dihosting menggunakan GitHub
+                atau Vercel.
+                Cocok untuk portofolio atau website sederhana.
+            </p>
+
+            <p>
+                Tapi kalau Sobat ingin website terlihat lebih profesional untuk bisnis
+                atau usaha, kami sarankan menggunakan hosting berbayar seperti
+                niagahoster.co.id karena fiturnya lebih lengkap dan domain website
+                juga bisa terlihat lebih profesional.
+            </p>
+
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>© 2026 AN Creative. All Rights Reserved.</p>
+        </footer>
+
     </div>
-</section>
 
-<footer>
-    <p>© 2026 Aditia Creative. All Rights Reserved.</p>
-</footer>
+    <script>
+
+        document.addEventListener(
+            "click",
+            function () {
+
+                const video = document.getElementById("bgVideo");
+
+                video.muted = false;
+                video.volume = 1;
+                video.play();
+
+            },
+            { once: true }
+        );
+
+        const toggle = document.getElementById("menuToggle");
+        const menu = document.getElementById("dropdownMenu");
+
+        toggle.onclick = () => {
+
+            menu.classList.toggle("active");
+            toggle.classList.toggle("active");
+
+        };
+
+        const cards = document.querySelectorAll(".card");
+
+        cards.forEach(card => {
+
+            card.addEventListener("click", () => {
+
+                card.classList.add("clicked");
+
+                setTimeout(() => {
+
+                    card.classList.remove("clicked");
+
+                }, 400);
+
+            });
+
+        });
+
+    </script>
 
 </body>
+
 </html>
