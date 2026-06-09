@@ -3,444 +3,121 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Welcome To My Website</title>
-
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-
+<title>Website Sederhana</title>
 <style>
-
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Poppins,sans-serif;
+    font-family:Arial, sans-serif;
 }
 
 body{
-    background:#fff;
-    overflow-x:hidden;
+    background:#f5f5f5;
+}
+
+header{
+    background:#1e293b;
+    color:white;
+    padding:20px 10%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:20px;
 }
 
 .hero{
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:70px 6%;
+    text-align:center;
+    padding:100px 20px;
+    background:white;
 }
 
-.left{
-    width:45%;
+.hero h1{
+    font-size:42px;
+    margin-bottom:15px;
 }
 
-.left h2{
-    font-size:70px;
-    font-weight:800;
-    color:#081336;
-}
-
-.left h1{
-    font-size:90px;
-    font-weight:900;
-    background:linear-gradient(180deg,#8248ff,#5320e6);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-}
-
-.left p{
-    margin-top:30px;
-    font-size:22px;
-    line-height:1.8;
-    color:#222;
-}
-
-.buttons{
-    display:flex;
-    gap:20px;
-    margin-top:40px;
+.hero p{
+    color:#666;
+    margin-bottom:20px;
 }
 
 .btn{
-    text-decoration:none;
-    padding:18px 35px;
-    border-radius:14px;
-    font-weight:600;
-    display:flex;
-    align-items:center;
-    gap:10px;
-}
-
-.instagram{
-    background:#5f2eff;
+    background:#2563eb;
     color:white;
+    padding:12px 25px;
+    border-radius:5px;
+    text-decoration:none;
 }
 
-.contact{
-    border:2px solid #d5c8ff;
-    color:#5f2eff;
+.section{
+    padding:60px 10%;
 }
 
-.right{
-    width:50%;
-    height:700px;
-    position:relative;
-}
-
-.blob{
-    position:absolute;
-    border-radius:50%;
-}
-
-.blob1{
-    width:500px;
-    height:500px;
-    background:rgba(116,81,255,.25);
-    top:100px;
-    left:50px;
-}
-
-.blob2{
-    width:300px;
-    height:300px;
-    background:rgba(116,81,255,.2);
-    top:20px;
-    right:0;
-}
-
-.computer{
-    position:absolute;
-    width:700px;
-    right:0;
-    top:20px;
-    z-index:2;
-}
-
-.mobile{
-    position:absolute;
-    width:180px;
-    right:40px;
-    bottom:90px;
-    z-index:3;
-}
-
-.pencil{
-    position:absolute;
-    width:170px;
-    left:90px;
-    bottom:100px;
-    z-index:3;
-}
-
-.mug{
-    position:absolute;
-    width:170px;
-    right:-20px;
-    bottom:20px;
-    z-index:3;
-}
-
-.scroll{
-    margin-top:50px;
-}
-
-.scroll button{
-    width:55px;
-    height:55px;
-    border-radius:50%;
-    border:1px solid #ddd;
-    background:white;
-    cursor:pointer;
-}
-
-@media(max-width:991px){
-
-.hero{
-    flex-direction:column;
-    text-align:center;
-}
-
-.left,
-.right{
-    width:100%;
-}
-
-.left h2{
-    font-size:45px;
-}
-
-.left h1{
-    font-size:60px;
-}
-
-.buttons{
-    justify-content:center;
-}
-
-}
-    .services{
-    width:100%;
-    padding:100px 6%;
-    display:flex;
-    gap:50px;
-    background:#f7f7fb;
-}
-
-.services-text{
-    width:30%;
-}
-
-.services-text h2{
-    font-size:55px;
-    font-weight:800;
-    color:#081336;
-    line-height:1.2;
-    margin-bottom:25px;
-}
-
-.services-text p{
-    font-size:22px;
-    line-height:1.8;
-    color:#333;
-}
-
-.line{
-    width:70px;
-    height:6px;
-    background:#6a35ff;
-    margin-top:25px;
-    border-radius:20px;
-}
-
-.services-grid{
-    width:70%;
+.cards{
     display:grid;
-    grid-template-columns:repeat(5,1fr);
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
     gap:20px;
 }
 
 .card{
     background:white;
-    border-radius:20px;
-    padding:35px 20px;
-    text-align:center;
-    box-shadow:0 5px 20px rgba(0,0,0,.05);
-    transition:.3s;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.1);
 }
 
-.card:hover{
-    transform:translateY(-10px);
-}
-
-.icon{
-    width:120px;
-    height:120px;
-    border-radius:50%;
-    margin:auto;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-size:50px;
+footer{
+    background:#1e293b;
     color:white;
+    text-align:center;
+    padding:20px;
 }
-
-.purple{
-    background:linear-gradient(135deg,#5f2eff,#9c62ff);
-}
-
-.pink{
-    background:linear-gradient(135deg,#ff2c8d,#ff67b6);
-}
-
-.orange{
-    background:linear-gradient(135deg,#ffb328,#ffd57c);
-}
-
-.green{
-    background:linear-gradient(135deg,#29d44f,#73f18e);
-}
-
-.blue{
-    background:linear-gradient(135deg,#2f7cff,#79afff);
-}
-
-.card h3{
-    margin-top:25px;
-    font-size:24px;
-    color:#111;
-    min-height:70px;
-}
-
-.underline{
-    display:block;
-    width:55px;
-    height:5px;
-    margin:20px auto 0;
-    border-radius:20px;
-}
-
-.purple-bg{
-    background:#6a35ff;
-}
-
-.pink-bg{
-    background:#ff2c8d;
-}
-
-.orange-bg{
-    background:#ffb328;
-}
-
-.green-bg{
-    background:#29d44f;
-}
-
-.blue-bg{
-    background:#2f7cff;
-}
-
-@media(max-width:1200px){
-
-.services{
-    flex-direction:column;
-}
-
-.services-text,
-.services-grid{
-    width:100%;
-}
-
-.services-grid{
-    grid-template-columns:repeat(2,1fr);
-}
-
-}
-
 </style>
 </head>
 <body>
 
+<header>
+    <h2>Aditia Creative</h2>
+    <nav>
+        <a href="#">Beranda</a>
+        <a href="#">Tentang</a>
+        <a href="#">Layanan</a>
+        <a href="#">Kontak</a>
+    </nav>
+</header>
+
 <section class="hero">
-
-<div class="left">
-
-<h2>WELCOME TO</h2>
-<h1>MY WEBSITE</h1>
-
-<p>
-Halo Sobat, Kami melayani Jasa Desain Grafis dan
-Pembuatan Website loh. Layanan apa saja sih yang kami
-tawarkan, coba sobat geser ke bawah!
-</p>
-
-<div class="buttons">
-
-<a href="#" class="btn instagram">
-<i class="fab fa-instagram"></i>
-DM Instagram
-</a>
-
-<a href="#" class="btn contact">
-<i class="fas fa-phone"></i>
-Hubungi Kami
-</a>
-
-</div>
-
-<div class="scroll">
-<button onclick="scrollPage()">
-<i class="fas fa-arrow-down"></i>
-</button>
-</div>
-
-</div>
-
-<div class="right">
-
-<div class="blob blob1"></div>
-<div class="blob blob2"></div>
-
-<img src="assets/computer.png" class="computer">
-<img src="assets/mobile.png" class="mobile">
-<img src="assets/pencil.png" class="pencil">
-<img src="assets/mug.png" class="mug">
-
-</div>
-
+    <h1>Selamat Datang</h1>
+    <p>Website sederhana dengan desain modern dan responsif.</p>
+    <a href="#" class="btn">Pelajari Lebih Lanjut</a>
 </section>
 
-<script>
-
-function scrollPage(){
-    window.scrollTo({
-        top: window.innerHeight,
-        behavior:'smooth'
-    });
-}
-    <section class="services">
-
-    <div class="services-text">
-
-        <h2>Jasa Desain Grafis Profesional</h2>
-
-        <p>
-            Kami melayani jasa desain grafis nih Sobat!
-            Buat Sobat yang lagi punya usaha atau lagi
-            bingung mau bikin desain brosur, banner,
-            poster, dan kebutuhan desain lainnya,
-            semuanya bisa banget pesan di ANCreative.
-        </p>
-
-        <div class="line"></div>
-
+<section class="section">
+    <div class="cards">
+        <div class="card">
+            <h3>Desain Modern</h3>
+            <p>Tampilan bersih dan profesional.</p>
+        </div>
+        <div class="card">
+            <h3>Responsif</h3>
+            <p>Nyaman dibuka di HP maupun laptop.</p>
+        </div>
+        <div class="card">
+            <h3>Mudah Dikembangkan</h3>
+            <p>Struktur kode sederhana dan rapi.</p>
+        </div>
     </div>
-
-    <div class="services-grid">
-
-        <div class="card">
-            <div class="icon purple">
-                <i class="fas fa-newspaper"></i>
-            </div>
-            <h3>Brosur</h3>
-            <span class="underline purple-bg"></span>
-        </div>
-
-        <div class="card">
-            <div class="icon pink">
-                <i class="fas fa-image"></i>
-            </div>
-            <h3>Banner</h3>
-            <span class="underline pink-bg"></span>
-        </div>
-
-        <div class="card">
-            <div class="icon orange">
-                <i class="fas fa-file-image"></i>
-            </div>
-            <h3>Poster</h3>
-            <span class="underline orange-bg"></span>
-        </div>
-
-        <div class="card">
-            <div class="icon green">
-                <i class="fas fa-clipboard-list"></i>
-            </div>
-            <h3>Konten<br>Sosial Media</h3>
-            <span class="underline green-bg"></span>
-        </div>
-
-        <div class="card">
-            <div class="icon blue">
-                <i class="fas fa-user"></i>
-            </div>
-            <h3>Dan kebutuhan<br>desain lainnya</h3>
-            <span class="underline blue-bg"></span>
-        </div>
-
-    </div>
-
 </section>
 
-</script>
+<footer>
+    <p>© 2026 Aditia Creative. All Rights Reserved.</p>
+</footer>
 
 </body>
 </html>
