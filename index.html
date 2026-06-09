@@ -1,214 +1,246 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=2.0">
-    <meta name="google-site-verification" content="M4lT5gi01j6DyR8dFs4GahLCdO_SaZ_TPsAkOLwqn3w" />
-    <title>AditiaCreative</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Welcome To My Website</title>
 
-    <link rel="stylesheet" href="beranda.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Poppins,sans-serif;
+}
+
+body{
+    background:#fff;
+    overflow-x:hidden;
+}
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:70px 6%;
+}
+
+.left{
+    width:45%;
+}
+
+.left h2{
+    font-size:70px;
+    font-weight:800;
+    color:#081336;
+}
+
+.left h1{
+    font-size:90px;
+    font-weight:900;
+    background:linear-gradient(180deg,#8248ff,#5320e6);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.left p{
+    margin-top:30px;
+    font-size:22px;
+    line-height:1.8;
+    color:#222;
+}
+
+.buttons{
+    display:flex;
+    gap:20px;
+    margin-top:40px;
+}
+
+.btn{
+    text-decoration:none;
+    padding:18px 35px;
+    border-radius:14px;
+    font-weight:600;
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.instagram{
+    background:#5f2eff;
+    color:white;
+}
+
+.contact{
+    border:2px solid #d5c8ff;
+    color:#5f2eff;
+}
+
+.right{
+    width:50%;
+    height:700px;
+    position:relative;
+}
+
+.blob{
+    position:absolute;
+    border-radius:50%;
+}
+
+.blob1{
+    width:500px;
+    height:500px;
+    background:rgba(116,81,255,.25);
+    top:100px;
+    left:50px;
+}
+
+.blob2{
+    width:300px;
+    height:300px;
+    background:rgba(116,81,255,.2);
+    top:20px;
+    right:0;
+}
+
+.computer{
+    position:absolute;
+    width:700px;
+    right:0;
+    top:20px;
+    z-index:2;
+}
+
+.mobile{
+    position:absolute;
+    width:180px;
+    right:40px;
+    bottom:90px;
+    z-index:3;
+}
+
+.pencil{
+    position:absolute;
+    width:170px;
+    left:90px;
+    bottom:100px;
+    z-index:3;
+}
+
+.mug{
+    position:absolute;
+    width:170px;
+    right:-20px;
+    bottom:20px;
+    z-index:3;
+}
+
+.scroll{
+    margin-top:50px;
+}
+
+.scroll button{
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    border:1px solid #ddd;
+    background:white;
+    cursor:pointer;
+}
+
+@media(max-width:991px){
+
+.hero{
+    flex-direction:column;
+    text-align:center;
+}
+
+.left,
+.right{
+    width:100%;
+}
+
+.left h2{
+    font-size:45px;
+}
+
+.left h1{
+    font-size:60px;
+}
+
+.buttons{
+    justify-content:center;
+}
+
+}
+
+</style>
 </head>
-
 <body>
 
-    <video
-        id="bgVideo"
-        class="bg-video"
-        autoplay
-        muted
-        loop
-        playsinline
-    >
-        <source src="video.mp3" type="video/mp4">
-    </video>
+<section class="hero">
 
-    <div class="overlay"></div>
+<div class="left">
 
-    <div class="wrapper">
+<h2>WELCOME TO</h2>
+<h1>MY WEBSITE</h1>
 
-        <!-- Navbar -->
-        <header class="navbar">
+<p>
+Halo Sobat, Kami melayani Jasa Desain Grafis dan
+Pembuatan Website loh. Layanan apa saja sih yang kami
+tawarkan, coba sobat geser ke bawah!
+</p>
 
-            <div class="logo">
-                <img src="logo1.png" alt="Logo">
+<div class="buttons">
 
-                <span class="aditia">
-                    AN<span class="dg">Creative</span>
-                </span>
-            </div>
+<a href="#" class="btn instagram">
+<i class="fab fa-instagram"></i>
+DM Instagram
+</a>
 
-            <div class="menu-toggle" id="menuToggle">
-                ☰
-            </div>
+<a href="#" class="btn contact">
+<i class="fas fa-phone"></i>
+Hubungi Kami
+</a>
 
-        </header>
+</div>
 
-        <!-- Dropdown Menu -->
-        <div class="dropdown" id="dropdownMenu">
-            <a href="index.html">Beranda</a>
-            <a href="tentang.html">Tentang</a>
-            <a href="portofolio.html">Portofolio</a>
-            <a href="contact.html">Kontak</a>
-        </div>
+<div class="scroll">
+<button onclick="scrollPage()">
+<i class="fas fa-arrow-down"></i>
+</button>
+</div>
 
-                
-            <!-- HERO -->
-    <section class="hero">
-        <div class="hero-text">
-            <h1>WELCOME TO<br><span>MY WEBSITE</span></h1>
+</div>
 
-            <p>
-                Halo Sobat, Kami melayani jasa desain grafis
-                dan pembuatan website profesional.
-            </p>
+<div class="right">
 
-            <div class="hero-btn">
-                <button class="btn-primary">
-                    Instagram
-                </button>
+<div class="blob blob1"></div>
+<div class="blob blob2"></div>
 
-                <button class="btn-outline">
-                    Hubungi Kami
-                </button>
-            </div>
-        </div>
+<img src="assets/computer.png" class="computer">
+<img src="assets/mobile.png" class="mobile">
+<img src="assets/pencil.png" class="pencil">
+<img src="assets/mug.png" class="mug">
 
-        <div class="hero-image">
-            <img src="https://via.placeholder.com/600x400"
-                 alt="Hero">
-        </div>
-    </section>
+</div>
 
-    <!-- LAYANAN -->
-    <section class="services">
-        <div class="section-title">
-            <h2>Jasa Desain Grafis Profesional</h2>
-            <p>
-                Berbagai kebutuhan desain untuk bisnis Anda.
-            </p>
-        </div>
+</section>
 
-        <div class="service-grid">
-            <div class="card">Brosur</div>
-            <div class="card">Banner</div>
-            <div class="card">Poster</div>
-            <div class="card">Konten Sosial Media</div>
-            <div class="card">Lainnya</div>
-        </div>
-    </section>
+<script>
 
-    <!-- CARA PEMESANAN -->
-    <section class="steps">
-        <h2>Cara Pemesanan Desain Grafis</h2>
-
-        <div class="step-grid">
-            <div class="step">
-                <span>1</span>
-                <p>Hubungi Admin</p>
-            </div>
-
-            <div class="step">
-                <span>2</span>
-                <p>Isi Brief</p>
-            </div>
-
-            <div class="step">
-                <span>3</span>
-                <p>Estimasi Waktu</p>
-            </div>
-
-            <div class="step">
-                <span>4</span>
-                <p>Preview Desain</p>
-            </div>
-
-            <div class="step">
-                <span>5</span>
-                <p>Revisi</p>
-            </div>
-
-            <div class="step">
-                <span>6</span>
-                <p>File Final</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- PROMO -->
-    <section class="promo">
-        <div class="price-box">
-            <h3>Mulai Dari</h3>
-            <h1>Rp50.000</h1>
-        </div>
-
-        <div class="discount-box">
-            <h2>DISKON 50%</h2>
-            <p>Untuk pelanggan baru.</p>
-        </div>
-    </section>
-
-    <!-- WEBSITE -->
-    <section class="website">
-        <div class="website-left">
-            <h2>Pembuatan Website</h2>
-
-            <ul>
-                <li>Company Profile</li>
-                <li>Landing Page</li>
-                <li>Portfolio</li>
-                <li>Website Bisnis</li>
-            </ul>
-        </div>
-
-        <div class="website-right">
-            <h3>Estimasi Waktu</h3>
-            <h1>2 - 3 Bulan</h1>
-        </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="cta">
-        <h2>Siap Upgrade Bisnismu?</h2>
-
-        <button class="btn-primary">
-            Konsultasi Sekarang
-        </button>
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-        <div class="footer-content">
-            <div>
-                <h3>ANCreative</h3>
-                <p>Creative Solution For Your Business</p>
-            </div>
-
-            <div>
-                <h4>Layanan</h4>
-                <p>Desain Grafis</p>
-                <p>Pembuatan Website</p>
-            </div>
-
-            <div>
-                <h4>Kontak</h4>
-                <p>Instagram</p>
-                <p>WhatsApp</p>
-                <p>Email</p>
-            </div>
-        </div>
-
-        <p class="copyright">
-            © 2026 ANCreative. All Rights Reserved.
-        </p>
-    </footer>
-
-    <script src="document.querySelectorAll("a").forEach(link => {
-    link.addEventListener("click", e => {
-        e.preventDefault();
-
-        alert("Menu masih dalam tahap pengembangan");
+function scrollPage(){
+    window.scrollTo({
+        top: window.innerHeight,
+        behavior:'smooth'
     });
-});"></script>
+}
+
+</script>
+
 </body>
 </html>
