@@ -998,3 +998,156 @@ body {
         font-size:42px;
     }
 }
+
+/* =========================================
+   PAGE LOAD ANIMATION
+========================================= */
+
+@keyframes fadeLeft {
+    from{
+        opacity:0;
+        transform:translateX(-50px);
+    }
+    to{
+        opacity:1;
+        transform:translateX(0);
+    }
+}
+
+@keyframes fadeRight {
+    from{
+        opacity:0;
+        transform:translateX(50px);
+    }
+    to{
+        opacity:1;
+        transform:translateX(0);
+    }
+}
+
+@keyframes fadeScale {
+    from{
+        opacity:0;
+        transform:scale(.9);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+/* HERO */
+.hero-left{
+    animation:fadeLeft 1s ease both;
+}
+
+.hero-right{
+    animation:fadeRight 1.2s ease both;
+}
+
+/* HERO ICONS */
+.palette{
+    animation:fadeScale .8s ease .2s both;
+}
+
+.ps{
+    animation:fadeScale .8s ease .3s both;
+}
+
+.ai{
+    animation:fadeScale .8s ease .4s both;
+}
+
+.id{
+    animation:fadeScale .8s ease .5s both;
+}
+
+.cup{
+    animation:fadeScale .8s ease .6s both;
+}
+
+.tablet{
+    animation:fadeScale .8s ease .7s both;
+}
+
+/* ABOUT */
+.about-image{
+    animation:fadeLeft 1s ease both;
+}
+
+.about-content{
+    animation:fadeRight 1s ease both;
+}
+
+.feature{
+    animation:fadeUp 1s ease both;
+}
+
+/* SERVICES */
+.section-title{
+    animation:fadeUp .8s ease both;
+}
+
+.service-card{
+    animation:fadeUp 1s ease both;
+}
+
+.service-card:nth-child(1){
+    animation-delay:.15s;
+}
+
+.service-card:nth-child(2){
+    animation-delay:.3s;
+}
+
+/* STEP */
+.step{
+    animation:fadeUp .9s ease both;
+}
+
+.step:nth-child(1){animation-delay:.1s;}
+.step:nth-child(3){animation-delay:.2s;}
+.step:nth-child(5){animation-delay:.3s;}
+.step:nth-child(7){animation-delay:.4s;}
+
+/* PRICE */
+.price-banner{
+    animation:fadeScale 1s ease both;
+}
+
+/* WEBSITE PROCESS */
+.process-card{
+    animation:fadeUp 1s ease both;
+}
+
+.process-image{
+    animation:fadeScale 1s ease both;
+}
+
+/* HOSTING */
+.hosting-card{
+    animation:fadeUp 1s ease both;
+}
+
+.hosting-card:nth-child(1){
+    animation-delay:.15s;
+}
+
+.hosting-card:nth-child(2){
+    animation-delay:.3s;
+}
+
+/* WHY US */
+.why-card{
+    animation:fadeUp 1s ease both;
+}
+
+.why-card:nth-child(1){animation-delay:.1s;}
+.why-card:nth-child(2){animation-delay:.2s;}
+.why-card:nth-child(3){animation-delay:.3s;}
+.why-card:nth-child(4){animation-delay:.4s;}
+
+/* FOOTER */
+.footer{
+    animation:fadeUp 1s ease both;
+}
