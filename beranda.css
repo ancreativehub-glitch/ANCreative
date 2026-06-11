@@ -857,6 +857,48 @@ body {
     }
 }
 
+.btn-pesan {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    padding: 18px 45px;
+    background: #ff6b00;
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 700;
+    border-radius: 60px;
+    transition: all 0.3s ease;
+}
+
+/* Efek kilap */
+.btn-pesan::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 60px;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.4);
+    transform: skewX(-25deg);
+}
+
+/* Saat disentuh/hover */
+.btn-pesan:hover::before,
+.btn-pesan:active::before {
+    animation: shine 0.7s ease;
+}
+
+@keyframes shine {
+    0% {
+        left: -120%;
+    }
+
+    100% {
+        left: 130%;
+    }
+}
+
 /* =========================================
    FOOTER
 ========================================= */
