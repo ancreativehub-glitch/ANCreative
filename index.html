@@ -718,6 +718,31 @@
                 }, 400);
             });
         });
+
+        // EMAILJS
+        emailjs.init("UY0LaGzkEq8BR2376");
+
+        const form = document.getElementById("contact-form");
+
+        if (form) {
+            form.addEventListener("submit", function (e) {
+                e.preventDefault();
+
+                emailjs.sendForm(
+                    "service_fdiykxw",
+                    "template_v808cgu",
+                    this
+                )
+                .then(() => {
+                    alert("Pesan berhasil dikirim!");
+                    form.reset();
+                })
+                .catch((error) => {
+                    alert("Pesan gagal dikirim!");
+                    console.error(error);
+                });
+            });
+        }
     </script>
 
 </body>
