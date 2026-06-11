@@ -899,6 +899,29 @@ body {
     }
 }
 
+.btn-pesan {
+    display: inline-block;
+    padding: 18px 45px;
+    background: #ff6b00;
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 700;
+    border-radius: 60px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Saat cursor menyentuh tombol */
+.btn-pesan:hover {
+    transform: scale(1.08);
+    box-shadow: 0 12px 25px rgba(255, 107, 0, 0.4);
+}
+
+/* Saat tombol ditekan */
+.btn-pesan:active {
+    transform: scale(0.95);
+}
+
 /* =========================================
    FOOTER
 ========================================= */
