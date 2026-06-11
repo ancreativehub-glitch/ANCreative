@@ -42,10 +42,12 @@ body {
     position: fixed;
     inset: 0;
     z-index: -2;
-    background: linear-gradient(
-        180deg,
-        rgba(15,23,42,.45),
-        rgba(30,41,59,.68)
+   background:linear-gradient(
+        90deg,
+         #192d5b,
+         #0F172AB3,
+        #474c85,
+        #3f3a51
     );
 }
 
@@ -301,6 +303,7 @@ body {
     gap: 35px;
     position: relative;
     z-index: 2;
+    align-items: stretch;
 }
 
 /* =========================================
@@ -317,6 +320,9 @@ body {
     transition: .45s ease;
     animation: fadeUp 1s ease;
     box-shadow: 0 15px 40px rgba(0,0,0,.25);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .portfolio-card:hover {
@@ -391,6 +397,9 @@ body {
     padding: 30px;
     position: relative;
     z-index: 3;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
 .portfolio-category {
@@ -420,6 +429,7 @@ body {
     font-size: 15px;
     line-height: 1.8;
     margin-bottom: 28px;
+    flex: 1;
 }
 
 /* =========================================
