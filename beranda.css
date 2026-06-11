@@ -791,10 +791,14 @@ body {
 
 }
 
+.pesan-container {
+    width: 100%;
+    text-align: center;
+    padding: 80px 0; /* jarak atas dan bawah */
+}
+
 .btn-pesan {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    display: inline-block;
     padding: 14px 32px;
     background: #ff6b00;
     color: #fff;
@@ -802,7 +806,6 @@ body {
     border-radius: 50px;
     font-weight: 600;
 }
-
 /* =========================================
    FOOTER
 ========================================= */
