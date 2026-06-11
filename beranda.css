@@ -713,9 +713,9 @@ body {
 ========================== */
 
 .why-us{
-    padding:0 80px 80px;
-    background-color: white;
-    border-top: 2px;
+    padding: 40px 80px 80px;
+    background-color: #fff;
+    border-top: none;
 }
 
 .why-grid{
@@ -739,10 +739,7 @@ body {
 
 .why-card h3{
     color:#123da5;
-    font-size:36px
-    margin-top: 50px;
-    padding-top: 20px;
-    border-top: none;
+    font-size:36px;
 }
 
 .why-card h4{
