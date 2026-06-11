@@ -6,17 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=2.0">
 
     <title>AditiaCreative</title>
-
     <link rel="stylesheet" href="contact.css">
 </head>
 
 <body>
 
     <!-- BACKGROUND VIDEO -->
-    <video id="bgVideo" autoplay muted loop playsinline class="bg-video">
-        <source src="video.mp4" type="video/mp4">
+    <video id="bgVideo" class="bg-video" autoplay muted loop playsinline>
+        <source src="vide.mp4" type="video/mp4">
     </video>
 
+    <!-- OVERLAY -->
     <div class="overlay"></div>
 
     <div class="wrapper">
@@ -25,7 +25,6 @@
         <header class="navbar">
             <div class="logo">
                 <img src="logo1.png" alt="Logo">
-
                 <span class="aditia">
                     AN<span class="dg">Creative</span>
                 </span>
@@ -46,9 +45,10 @@
 
         <!-- CONTACT SECTION -->
         <section class="contact-section" id="kontak">
+
             <div class="contact-container">
 
-                <!-- LEFT -->
+                <!-- LEFT SIDE -->
                 <div class="contact-left">
 
                     <span class="contact-tag">
@@ -62,8 +62,7 @@
 
                     <p class="contact-text">
                         Jika Anda membutuhkan desain grafis dan website,
-                        silakan hubungi kami melalui form atau media sosial
-                        di bawah ini.
+                        silakan hubungi kami melalui form atau media sosial di bawah ini.
                     </p>
 
                     <!-- CONTACT INFO -->
@@ -71,10 +70,8 @@
 
                         <div class="contact-box">
                             <i>📍</i>
-
                             <div>
                                 <h3>Alamat</h3>
-
                                 <span>
                                     Jl. Raden Patah, Kebonsari, Betak,
                                     Kec. Kalidawir, Kab. Tulungagung,
@@ -85,7 +82,6 @@
 
                         <div class="contact-box">
                             <i>📞</i>
-
                             <div>
                                 <h3>Telepon</h3>
                                 <span>+62 856-0639-8242</span>
@@ -94,7 +90,6 @@
 
                         <div class="contact-box">
                             <i>✉️</i>
-
                             <div>
                                 <h3>Email</h3>
                                 <span>ancreativehub@email.com</span>
@@ -102,46 +97,27 @@
                         </div>
 
                     </div>
-
                 </div>
 
-                <!-- RIGHT FORM -->
+                <!-- RIGHT SIDE (FORM) -->
                 <div class="contact-right">
 
                     <form class="contact-form" id="contact-form">
 
                         <div class="input-group">
-                            <input
-                                type="text"
-                                name="nama"
-                                placeholder="Nama Lengkap"
-                                required
-                            >
+                            <input type="text" name="nama" placeholder="Nama Lengkap" required>
                         </div>
 
                         <div class="input-group">
-                            <input
-                                type="email"
-                                name="email"
-                                placeholder="Email Aktif"
-                                required
-                            >
+                            <input type="email" name="email" placeholder="Email Aktif" required>
                         </div>
 
                         <div class="input-group">
-                            <input
-                                type="text"
-                                name="whatsapp"
-                                placeholder="No WhatsApp Aktif"
-                            >
+                            <input type="text" name="whatsapp" placeholder="No WhatsApp Aktif">
                         </div>
 
                         <div class="input-group">
-                            <textarea
-                                name="pesan"
-                                placeholder="Pesan atau Pertanyaan"
-                                required
-                            ></textarea>
+                            <textarea name="pesan" placeholder="Pesan atau Pertanyaan" required></textarea>
                         </div>
 
                         <button type="submit" class="contact-btn">
@@ -153,6 +129,7 @@
                 </div>
 
             </div>
+
         </section>
 
         <!-- FOOTER -->
@@ -166,21 +143,16 @@
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
     <script>
+        // VIDEO SOUND ON FIRST CLICK
+        document.addEventListener("click", () => {
+            const video = document.getElementById("bgVideo");
 
-        // VIDEO AUTOPLAY SOUND (after click)
-        document.addEventListener(
-            "click",
-            () => {
-                const video = document.getElementById("bgVideo");
-
-                if (video) {
-                    video.muted = false;
-                    video.volume = 1;
-                    video.play();
-                }
-            },
-            { once: true }
-        );
+            if (video) {
+                video.muted = false;
+                video.volume = 1;
+                video.play();
+            }
+        }, { once: true });
 
         // MENU TOGGLE
         const toggle = document.getElementById("menuToggle");
@@ -193,7 +165,7 @@
             });
         }
 
-        // EMAILJS INIT
+        // EMAILJS
         emailjs.init("UY0LaGzkEq8BR2376");
 
         const form = document.getElementById("contact-form");
@@ -213,13 +185,11 @@
                 })
                 .catch((error) => {
                     alert("Pesan gagal dikirim!");
-                    console.log(error);
+                    console.error(error);
                 });
             });
         }
-
     </script>
 
 </body>
-
 </html>
