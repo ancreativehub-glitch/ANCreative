@@ -791,6 +791,13 @@ body {
 
 }
 
+.pesan-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 60px 0; /* jarak atas dan bawah */
+}
+
 .btn-pesan {
     display: inline-block;
     padding: 14px 32px;
@@ -808,10 +815,6 @@ body {
     background: #e65f00;
     transform: translateY(-3px);
     box-shadow: 0 12px 25px rgba(255, 107, 0, 0.4);
-}
-
-.btn-pesan:active {
-    transform: translateY(0);
 }
 
 /* =========================================
