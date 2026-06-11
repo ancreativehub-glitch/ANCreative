@@ -738,7 +738,10 @@ body {
 
 .why-card h3{
     color:#123da5;
-    font-size:36px;
+    font-size:36px
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: none;
 }
 
 .why-card h4{
