@@ -2,29 +2,19 @@
 <html lang="id">
 
 <head>
-
-<meta charset="UTF-8">
-
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=2.0">
 
-<title>AditiaCreative</title>
+    <title>AditiaCreative</title>
 
-<link rel="stylesheet" href="portofolio.css">
-
+    <link rel="stylesheet" href="portofolio.css">
 </head>
 
 <body>
 
     <!-- BACKGROUND VIDEO -->
-    <video
-        id="bgVideo"
-        autoplay
-        muted
-        loop
-        playsinline
-        class="bg-video"
-    >
-        <source src="video.mp4" type="video/mp4">
+    <video id="bgVideo" class="bg-video" autoplay muted loop playsinline>
+        <source src="vide.mp4" type="video/mp4">
     </video>
 
     <!-- OVERLAY -->
@@ -44,21 +34,14 @@
 
             </div>
 
-            <div
-                class="menu-toggle"
-                id="menuToggle"
-                aria-label="Menu"
-            >
+            <div class="menu-toggle" id="menuToggle" aria-label="Menu">
                 ☰
             </div>
 
         </header>
 
         <!-- DROPDOWN -->
-        <div
-            class="dropdown"
-            id="dropdownMenu"
-        >
+        <div class="dropdown" id="dropdownMenu">
 
             <a href="index.html">Beranda</a>
             <a href="tentang.html">Tentang</a>
@@ -68,10 +51,7 @@
         </div>
 
         <!-- PORTFOLIO SECTION -->
-        <section
-            class="portfolio-section"
-            id="portofolio"
-        >
+        <section class="portfolio-section" id="portofolio">
 
             <div class="portfolio-header">
 
@@ -84,10 +64,7 @@
                 </h1>
 
                 <p class="portfolio-text">
-                    Berikut beberapa hasil desain,
-                    website, dan visual kreatif yang telah
-                    kami kerjakan untuk berbagai kebutuhan
-                    bisnis maupun personal.
+                    Berikut beberapa hasil desain, website, dan visual kreatif yang telah kami kerjakan untuk berbagai kebutuhan bisnis maupun personal.
                 </p>
 
             </div>
@@ -188,10 +165,7 @@
 
     <!-- SCRIPT -->
     <script>
-
-        // VIDEO SOUND ON CLICK
         document.addEventListener("click", () => {
-
             const video = document.getElementById("bgVideo");
 
             if (video) {
@@ -199,10 +173,8 @@
                 video.volume = 1;
                 video.play();
             }
-
         }, { once: true });
 
-        // MENU TOGGLE
         const toggle = document.getElementById("menuToggle");
         const menu = document.getElementById("dropdownMenu");
 
@@ -212,8 +184,8 @@
                 toggle.classList.toggle("active");
             });
         }
-
     </script>
 
 </body>
+
 </html>
