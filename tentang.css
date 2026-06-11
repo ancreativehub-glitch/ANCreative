@@ -1,13 +1,13 @@
 /* =========================================
-   ABOUT SECTION
+   TENTANG SECTION
 ========================================= */
 
-.about {
+.tentang {
     padding: 50px 20px;
     animation: fadeUp 1s ease;
 }
 
-.about-container {
+.tentang-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -25,12 +25,11 @@
     position: relative;
 }
 
-.about-container:hover {
+.tentang-container:hover {
     transform: translateY(-6px);
 }
 
-/* glow */
-.about-container::before {
+.tentang-container::before {
     content: "";
     position: absolute;
     top: -50%;
@@ -48,7 +47,7 @@
    FOTO
 ========================================= */
 
-.about-image {
+.tentang-image {
     flex: 1;
     display: flex;
     justify-content: center;
@@ -56,7 +55,7 @@
     z-index: 2;
 }
 
-.about-image img {
+.tentang-image img {
     width: 320px;
     border-radius: 25px;
     object-fit: cover;
@@ -66,7 +65,7 @@
     transition: .5s ease;
 }
 
-.about-image img:hover {
+.tentang-image img:hover {
     transform: scale(1.04) rotate(2deg);
     box-shadow: 0 25px 45px rgba(0,0,0,.35);
 }
@@ -75,12 +74,12 @@
    CONTENT
 ========================================= */
 
-.about-content {
+.tentang-content {
     flex: 1;
     z-index: 2;
 }
 
-.about-title {
+.tentang-title {
     font-size: 60px;
     color: white;
     margin-bottom: 25px;
@@ -88,11 +87,11 @@
     transition: .35s ease;
 }
 
-.about-title:hover {
+.tentang-title:hover {
     letter-spacing: 2px;
 }
 
-.about-text {
+.tentang-text {
     color: #cbd5e1;
     font-size: 18px;
     line-height: 1.9;
@@ -101,7 +100,7 @@
     transition: .35s ease;
 }
 
-.about-text:hover {
+.tentang-text:hover {
     color: white;
 }
 
@@ -109,7 +108,7 @@
    INFO BOX
 ========================================= */
 
-.about-info {
+.tentang-info {
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
@@ -150,7 +149,7 @@
    BUTTON
 ========================================= */
 
-.about-btn {
+.tentang-btn {
     display: inline-block;
     padding: 16px 38px;
     border-radius: 50px;
@@ -164,7 +163,7 @@
     overflow: hidden;
 }
 
-.about-btn::before {
+.tentang-btn::before {
     content: "";
     position: absolute;
     top: 0;
@@ -180,11 +179,11 @@
     transition: .8s ease;
 }
 
-.about-btn:hover::before {
+.tentang-btn:hover::before {
     left: 140%;
 }
 
-.about-btn:hover {
+.tentang-btn:hover {
     transform: translateY(-6px) scale(1.03);
 }
 
@@ -193,88 +192,35 @@
 ========================================= */
 
 @media(max-width:950px) {
-    .about-container {
+    .tentang-container {
         flex-direction: column;
         text-align: center;
     }
 
-    .about-info {
+    .tentang-info {
         justify-content: center;
     }
 
-    .about-title {
+    .tentang-title {
         font-size: 45px;
     }
 }
 
 @media(max-width:768px) {
-    .navbar {
-        padding: 15px 20px;
-    }
-
-    .logo img {
-        width: 70px;
-    }
-
-    .aditia {
-        font-size: 30px;
-    }
-
-    .about-container {
+    .tentang-container {
         padding: 35px 25px;
     }
 
-    .about-image img {
+    .tentang-image img {
         width: 100%;
         max-width: 300px;
     }
 
-    .about-title {
+    .tentang-title {
         font-size: 38px;
     }
 
-    .about-text {
+    .tentang-text {
         font-size: 16px;
     }
-}
-
-/* =========================================
-   ANIMATION
-========================================= */
-
-@keyframes fadeUp {
-    from { opacity: 0; transform: translateY(40px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fadeDown {
-    from { opacity: 0; transform: translateY(-40px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fadeLeft {
-    from { opacity: 0; transform: translateX(-40px); }
-    to { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes floatLogo {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-8px); }
-    100% { transform: translateY(0); }
-}
-
-@keyframes floatPhoto {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-12px); }
-    100% { transform: translateY(0); }
-}
-
-@keyframes zoomBg {
-    from { transform: scale(1); }
-    to { transform: scale(1.08); }
-}
-
-@keyframes rotateGlow {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
 }
