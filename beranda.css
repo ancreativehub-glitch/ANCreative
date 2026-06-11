@@ -792,21 +792,23 @@ body {
 }
 
 .pesan-container {
+    display: flex;
+    justify-content: center !important;
     width: 100%;
-    text-align: center;
     margin: 80px 0;
 }
 
 .btn-pesan {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     padding: 14px 32px;
     background: #ff6b00;
-    color: white;
+    color: #fff;
     text-decoration: none;
     border-radius: 50px;
     font-weight: 600;
 }
-
 /* =========================================
    FOOTER
 ========================================= */
