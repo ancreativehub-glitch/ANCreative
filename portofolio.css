@@ -4,6 +4,7 @@
     position: relative;
     overflow: hidden;
     animation: fadeUp 1s ease;
+    border-top: none;
 }
 
 .portfolio-section::before {
