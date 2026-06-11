@@ -786,90 +786,72 @@ body {
 
 }
 
-.pesan-container {
-    width: 100%;
-    text-align: center;
-    padding: 80px 0;
+/* ==========================
+   CTA BUTTON
+========================== */
+
+.cta-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
 }
 
-.btn-pesan {
-    position: relative;
-    overflow: hidden;
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 
-    display: inline-block;
-    padding: 18px 45px;
+    padding: 14px 28px;
+    border-radius: 50px;
 
-    background: #ff6b00;
-    color: #fff;
     text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
 
-    font-size: 20px;
-    font-weight: 700;
-
-    border-radius: 60px;
-
-    box-shadow: 0 8px 20px rgba(255, 107, 0, 0.3);
-
-    opacity: 0;
-    animation: muncul 1s ease forwards;
-
-    transition: transform 0.3s ease,
-                box-shadow 0.3s ease;
+    transition: 0.3s ease;
+    cursor: pointer;
 }
 
-/* Efek kilap */
-.btn-pesan::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -100px;
-
-    width: 50px;
-    height: 100%;
-
-    background: rgba(255,255,255,0.5);
-    transform: skewX(-25deg);
-
-    pointer-events: none;
+/* Tombol Desain Grafis */
+.btn-design {
+    background: #ff9800;
+    color: #fff;
+    box-shadow: 0 5px 15px rgba(255, 152, 0, 0.3);
 }
 
-/* Hover */
-.btn-pesan:hover {
-    transform: translateY(-5px) scale(1.05);
-    box-shadow: 0 15px 30px rgba(255, 107, 0, 0.45);
+.btn-design:hover {
+    transform: translateY(-3px);
+    background: #f57c00;
 }
 
-/* Kilap saat hover */
-.btn-pesan:hover::before {
-    animation: shine 0.8s ease;
+/* Tombol Pembuatan Website */
+.btn-web {
+    background: #2563eb;
+    color: #fff;
+    box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
 }
 
-/* Saat ditekan */
-.btn-pesan:active {
-    transform: scale(0.97);
+.btn-web:hover {
+    transform: translateY(-3px);
+    background: #1d4ed8;
 }
 
-@keyframes muncul {
-    from {
-        opacity: 0;
-        transform: translateY(40px);
+/* Responsive */
+@media (max-width: 768px) {
+    .cta-buttons {
+        flex-direction: column;
+        width: 100%;
     }
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
+    .btn {
+        width: 100%;
+        max-width: 320px;
     }
 }
 
-@keyframes shine {
-    from {
-        left: -100px;
-    }
-
-    to {
-        left: calc(100% + 100px);
-    }
-}
 
 /* =========================================
    FOOTER
