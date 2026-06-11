@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+<meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=2.0">
+
+<title>AditiaCreative</title>
+
+<link rel="stylesheet" href="tentang.css">
+
+</head>
+
+<body>
+
+    <!-- BACKGROUND VIDEO -->
+    <video
+        id="bgVideo"
+        autoplay
+        muted
+        loop
+        playsinline
+        class="bg-video"
+    >
+        <source src="video.mp4" type="video/mp4">
+    </video>
+
+    <!-- OVERLAY -->
+    <div class="overlay"></div>
+
+    <div class="wrapper">
+
+        <!-- NAVBAR -->
+        <header class="navbar">
+
+            <div class="logo">
+                <img src="logo1.png" alt="Logo">
+
+                <span class="aditia">
+                    AN<span class="dg">Creative</span>
+                </span>
+
+            </div>
+
+            <div
+                class="menu-toggle"
+                id="menuToggle"
+                aria-label="Menu"
+            >
+                ☰
+            </div>
+
+        </header>
+
+        <!-- DROPDOWN -->
+        <div
+            class="dropdown"
+            id="dropdownMenu"
+        >
+
+            <a href="index.html">Beranda</a>
+            <a href="tentang.html">Tentang</a>
+            <a href="portofolio.html">Portofolio</a>
+            <a href="contact.html">Kontak</a>
+
+        </div>
+
+        <!-- SCRIPT -->
+        <script>
+
+            // VIDEO AUTOPLAY SOUND (ON CLICK)
+            document.addEventListener("click", () => {
+
+                const video = document.getElementById("bgVideo");
+
+                if (video) {
+                    video.muted = false;
+                    video.volume = 1;
+                    video.play();
+                }
+
+            }, { once: true });
+
+            // MENU TOGGLE
+            const toggle = document.getElementById("menuToggle");
+            const menu = document.getElementById("dropdownMenu");
+
+            if (toggle && menu) {
+                toggle.addEventListener("click", () => {
+                    menu.classList.toggle("active");
+                    toggle.classList.toggle("active");
+                });
+            }
+
+        </script>
+
+        <!-- ABOUT SECTION -->
+        <section class="about">
+
+            <div class="about-container">
+
+                <div class="about-image">
+                    <img src="saya.jpeg" alt="Foto Saya">
+                </div>
+
+                <div class="about-content">
+
+                    <h1 class="about-title">
+                        Tentang Saya
+                    </h1>
+
+                    <p class="about-text">
+
+                        ANCreative adalah layanan jasa Desain Grafis dan Website yang dikelola oleh Aditia Nugraha Creative sebagai founder dan personal creative. ANCreative didirikan pada tanggal 28 Juni 2023. Salam kenal saya Aditia dari Kabupaten Tulungagung, Jawa Timur. Saya bukan desainer profesional atau programmer, tapi saya bisa desain. Tujuan saya membuat layanan ini adalah untuk menyalurkan hobi saya di bidang desain, gambar, dan sedikit coding. Untuk teman-teman di mana pun berada yang ingin bekerja sama, kami siap membantu dengan sistem yang santai dan fleksibel. ANCreative siap merancang solusi kreatif sesuai kebutuhan bisnis Anda.
+
+                    </p>
+
+                    <div class="about-info">
+
+                        <div class="info-box">
+                            <h3>1</h3>
+                            <span>Tahun Pengalaman</span>
+                        </div>
+
+                        <div class="info-box">
+                            <h3>7</h3>
+                            <span>Proyek Selesai</span>
+                        </div>
+
+                        <div class="info-box">
+                            <h3>97%</h3>
+                            <span>Kepuasan Klien</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <p>© 2026 AN Creative. All Rights Reserved.</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
