@@ -794,57 +794,66 @@ body {
 .pesan-container {
     width: 100%;
     text-align: center;
-    padding: 80px 0; /* jarak atas dan bawah */
-}
-
-.btn-pesan {
-    display: inline-block;
-    padding: 14px 32px;
-    background: #ff6b00;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: 600;
-}
-
-/* Container */
-.pesan-container {
-    width: 100%;
-    text-align: center;
     padding: 80px 0;
 }
 
-/* Tombol */
 .btn-pesan {
+    position: relative;
+    overflow: hidden;
+
     display: inline-block;
     padding: 18px 45px;
+
     background: #ff6b00;
     color: #fff;
     text-decoration: none;
+
     font-size: 20px;
     font-weight: 700;
+
     border-radius: 60px;
+
     box-shadow: 0 8px 20px rgba(255, 107, 0, 0.3);
 
-    /* Animasi masuk */
     opacity: 0;
     animation: muncul 1s ease forwards;
 
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease;
 }
 
-/* Hover desktop */
+/* Efek kilap */
+.btn-pesan::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100px;
+
+    width: 50px;
+    height: 100%;
+
+    background: rgba(255,255,255,0.5);
+    transform: skewX(-25deg);
+
+    pointer-events: none;
+}
+
+/* Hover */
 .btn-pesan:hover {
     transform: translateY(-5px) scale(1.05);
     box-shadow: 0 15px 30px rgba(255, 107, 0, 0.45);
 }
 
-/* Saat ditekan */
-.btn-pesan:active {
-    transform: scale(0.95);
+/* Kilap saat hover */
+.btn-pesan:hover::before {
+    animation: shine 0.8s ease;
 }
 
-/* Animasi muncul */
+/* Saat ditekan */
+.btn-pesan:active {
+    transform: scale(0.97);
+}
+
 @keyframes muncul {
     from {
         opacity: 0;
@@ -857,69 +866,14 @@ body {
     }
 }
 
-.btn-pesan {
-    position: relative;
-    overflow: hidden;
-    display: inline-block;
-    padding: 18px 45px;
-    background: #ff6b00;
-    color: #fff;
-    text-decoration: none;
-    font-size: 20px;
-    font-weight: 700;
-    border-radius: 60px;
-    transition: all 0.3s ease;
-}
-
-/* Efek kilap */
-.btn-pesan::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -120%;
-    width: 60px;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.4);
-    transform: skewX(-25deg);
-}
-
-/* Saat disentuh/hover */
-.btn-pesan:hover::before,
-.btn-pesan:active::before {
-    animation: shine 0.7s ease;
-}
-
 @keyframes shine {
-    0% {
-        left: -120%;
+    from {
+        left: -100px;
     }
 
-    100% {
-        left: 130%;
+    to {
+        left: calc(100% + 100px);
     }
-}
-
-.btn-pesan {
-    display: inline-block;
-    padding: 18px 45px;
-    background: #ff6b00;
-    color: #fff;
-    text-decoration: none;
-    font-size: 20px;
-    font-weight: 700;
-    border-radius: 60px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Saat cursor menyentuh tombol */
-.btn-pesan:hover {
-    transform: scale(1.08);
-    box-shadow: 0 12px 25px rgba(255, 107, 0, 0.4);
-}
-
-/* Saat tombol ditekan */
-.btn-pesan:active {
-    transform: scale(0.95);
 }
 
 /* =========================================
