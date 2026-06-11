@@ -9,6 +9,7 @@
 }
 
 .tentang-container {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,14 +17,15 @@
     margin: auto;
     max-width: 1200px;
     padding: 50px;
+
     border-radius: 30px;
     background: rgba(15,23,42,.55);
     backdrop-filter: blur(14px);
     border: 1px solid rgba(96,165,250,.12);
     box-shadow: 0 15px 35px rgba(0,0,0,.2);
-    transition: .4s ease;
+
     overflow: hidden;
-    position: relative;
+    transition: .4s ease;
 }
 
 .tentang-container:hover {
@@ -42,6 +44,7 @@
         transparent 70%
     );
     animation: rotateGlow 10s linear infinite;
+    z-index: 0;
 }
 
 /* =========================================
@@ -62,8 +65,9 @@
     object-fit: cover;
     border: 2px solid rgba(96,165,250,.15);
     box-shadow: 0 15px 35px rgba(0,0,0,.3);
+
     animation: floatPhoto 5s ease-in-out infinite;
-    transition: .5s ease;
+    transition: transform .5s ease, box-shadow .5s ease;
 }
 
 .tentang-image img:hover {
@@ -82,8 +86,9 @@
 
 .tentang-title {
     font-size: 60px;
-    color: white;
+    color: #fff;
     margin-bottom: 25px;
+
     animation: fadeLeft 1s ease;
     transition: .35s ease;
 }
@@ -97,12 +102,13 @@
     font-size: 18px;
     line-height: 1.9;
     margin-bottom: 40px;
+
     animation: fadeUp 1.2s ease;
     transition: .35s ease;
 }
 
 .tentang-text:hover {
-    color: white;
+    color: #fff;
 }
 
 /* =========================================
@@ -122,9 +128,11 @@
     padding: 25px;
     border-radius: 20px;
     text-align: center;
+
     background: rgba(15,23,42,.55);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(96,165,250,.12);
+
     transition: .4s ease;
     animation: fadeUp 1s ease;
 }
@@ -142,7 +150,7 @@
 }
 
 .info-box span {
-    color: white;
+    color: #fff;
     font-size: 15px;
 }
 
@@ -156,12 +164,14 @@
     border-radius: 50px;
     text-decoration: none;
     font-weight: 600;
+
     background: linear-gradient(135deg, #2563eb, #60a5fa);
-    color: white;
+    color: #fff;
     box-shadow: 0 10px 25px rgba(37,99,235,.3);
-    transition: .4s ease;
+
     position: relative;
     overflow: hidden;
+    transition: .4s ease;
 }
 
 .tentang-btn::before {
@@ -171,12 +181,14 @@
     left: -130%;
     width: 120%;
     height: 100%;
+
     background: linear-gradient(
         120deg,
         transparent,
         rgba(255,255,255,.25),
         transparent
     );
+
     transition: .8s ease;
 }
 
@@ -192,7 +204,7 @@
    RESPONSIVE
 ========================================= */
 
-@media(max-width:950px) {
+@media (max-width: 950px) {
     .tentang-container {
         flex-direction: column;
         text-align: center;
@@ -207,7 +219,7 @@
     }
 }
 
-@media(max-width:768px) {
+@media (max-width: 768px) {
     .tentang-container {
         padding: 35px 25px;
     }
@@ -224,4 +236,4 @@
     .tentang-text {
         font-size: 16px;
     }
-}
+   }
