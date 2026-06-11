@@ -791,6 +791,29 @@ body {
 
 }
 
+.btn-pesan {
+    display: inline-block;
+    padding: 14px 32px;
+    background: #ff6b00;
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(255, 107, 0, 0.3);
+}
+
+.btn-pesan:hover {
+    background: #e65f00;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(255, 107, 0, 0.4);
+}
+
+.btn-pesan:active {
+    transform: translateY(0);
+}
+
 /* =========================================
    FOOTER
 ========================================= */
