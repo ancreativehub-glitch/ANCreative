@@ -18,7 +18,7 @@
     margin: auto;
     max-width: 1200px;
     padding: 50px;
-
+    padding-top: 2px;
     border-radius: 30px;
     background: rgba(15,23,42,.55);
     backdrop-filter: blur(14px);
