@@ -14,24 +14,11 @@ html {
 }
 
 /* =========================================
-   BODY
-========================================= */
-
-body {
-    overflow-x: hidden;
-    background:  #192d5b;
-}
-
-/* =========================================
    WRAPPER
 ========================================= */
 
-.wrapper{
-    width:100%;
-    max-width:1200px;
-    margin:0 auto;
-    padding:0 20px;
-    box-sizing:border-box;
+.wrapper {
+    width: 100%;
 }
 
 /* =========================================
@@ -395,12 +382,12 @@ body {
     padding: clamp(40px, 6vw, 70px) clamp(20px, 5vw, 80px);
     background: #fff;
     gap: 40px;
-    padding-bottom: 2px;
 }
 
 .about-image {
     width: 48%;
 }
+
 
 .about-image img {
     width: 100%;
