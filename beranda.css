@@ -18,12 +18,8 @@ html {
 ========================================= */
 
 body {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: clamp(40px, 6vw, 70px) clamp(20px, 5vw, 80px);
-    background: #fff;
-    gap: 40px;
+    overflow-x: hidden;
+    background:  #192d5b;
 }
 
 /* =========================================
@@ -395,7 +391,6 @@ body {
     padding: clamp(40px, 6vw, 70px) clamp(20px, 5vw, 80px);
     background: #fff;
     gap: 40px;
-    padding-bottom: 2px;
 }
 
 .about-image {
@@ -1359,7 +1354,7 @@ body {
 
 .button-group {
     display: flex;
-    gap: 25px;
+    gap: 50px;
     justify-content: center;
     flex-wrap: wrap;
     margin-bottom: 30px;
