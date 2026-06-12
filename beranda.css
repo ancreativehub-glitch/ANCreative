@@ -18,8 +18,12 @@ html {
 ========================================= */
 
 body {
-    overflow-x: hidden;
-    background:  #192d5b;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: clamp(40px, 6vw, 70px) clamp(20px, 5vw, 80px);
+    background: #fff;
+    gap: 40px;
 }
 
 /* =========================================
