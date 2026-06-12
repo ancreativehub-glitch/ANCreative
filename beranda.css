@@ -1355,7 +1355,7 @@ body {
 
 .button-group {
     display: flex;
-    gap: 50px;
+    gap: 15px;
     justify-content: center;
     flex-wrap: wrap;
     margin-bottom: 30px;
