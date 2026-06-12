@@ -1795,7 +1795,7 @@ body {
 
 .footer p {
     color: rgba(226,232,240,.8);
-    font-size: 20px;
+    font-size: 15px;
     letter-spacing: 1px;
     transition: all .35s ease;
 }
