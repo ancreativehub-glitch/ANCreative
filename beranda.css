@@ -671,90 +671,97 @@ body {
     align-items: center;
     justify-content: space-between;
     gap: 25px;
-
-    padding: 25px 40px;
-
-    color: #fff;
-
-    background: linear-gradient(90deg, #0f58ff, #0047d4);
+    padding: 25px 30px;
+    background: linear-gradient(135deg, #ffc107, #ff9800);
     border-radius: 20px;
+    color: #222;
+    flex-wrap: wrap;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
 }
 
-/* =========================================
-   LEFT SECTION
-========================================= */
+/* Bagian kiri */
+.price-left {
+    flex: 1.5;
+    min-width: 220px;
+}
 
 .price-left small {
     display: block;
-    margin-bottom: 5px;
     font-size: 14px;
-    opacity: 0.9;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
 }
 
 .price-left h2 {
-    font-size: 52px;
+    font-size: 42px;
     font-weight: 800;
-    line-height: 1;
-    margin: 0;
+    margin: 0 0 15px;
+    color: #000;
 }
 
 .price-left button {
-    margin-top: 10px;
-    padding: 10px 25px;
-
-    color: #333;
-    font-weight: 700;
-
-    background: #ffd93d;
+    padding: 10px 24px;
     border: none;
-    border-radius: 30px;
-
+    border-radius: 999px;
+    background-color: #000;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: 0.3s;
 }
 
 .price-left button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    background-color: #333;
+    transform: translateY(-2px);
 }
 
-/* =========================================
-   FEATURE CENTER
-========================================= */
-
+/* Feature */
 .price-feature {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
+    flex: 1;
+    min-width: 120px;
 }
 
 .price-feature img {
-    width: 55px;
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
     margin-bottom: 10px;
 }
 
 .price-feature span {
-    display: block;
+    font-size: 14px;
     font-weight: 600;
 }
 
-/* =========================================
-   DISCOUNT RIGHT
-========================================= */
-
+/* Diskon */
 .price-discount {
     display: flex;
     align-items: center;
     gap: 15px;
+    background: rgba(255, 255, 255, 0.3);
+    padding: 15px 20px;
+    border-radius: 15px;
+    flex: 1.5;
+    min-width: 250px;
 }
 
 .price-discount img {
-    width: 70px;
-    height: auto;
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
 }
 
 .price-discount h3 {
-    font-size: 20px;
-    line-height: 1.4;
     margin: 0;
+    font-size: 18px;
+    line-height: 1.5;
+    font-weight: 700;
 }
 
 /* =========================================
@@ -765,63 +772,20 @@ body {
     .price-banner {
         flex-direction: column;
         text-align: center;
-        padding: 25px 20px;
-    }
-
-    .price-discount {
-        justify-content: center;
     }
 
     .price-left h2 {
-        font-size: 40px;
-    }
-}
-
-/* =========================================
-   RESPONSIVE
-========================================= */
-
-@media (max-width: 991px) {
-
-    .services {
-        padding: 50px 20px;
+        font-size: 34px;
     }
 
-    .service-wrapper {
-        grid-template-columns: 1fr;
-    }
-
-    .order-steps {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 25px;
-    }
-
-    .arrow {
-        display: none;
-    }
-
-    .price-banner {
-        flex-direction: column;
-        gap: 25px;
-
-        text-align: center;
-    }
-}
-
-@media (max-width: 768px) {
-
-    .service-card {
+    .price-discount {
         flex-direction: column;
         text-align: center;
     }
 
-    .service-list {
-        grid-template-columns: 1fr;
-    }
-
-    .section-title h2 {
-        font-size: 22px;
+    .price-discount img {
+        width: 70px;
+        height: 70px;
     }
 }
 
