@@ -11,19 +11,6 @@
     animation: fadeUp 1s ease;
 }
 
-/* BACKGROUND EFFECT */
-.portfolio-section::before {
-    content: "";
-    position: absolute;
-    width: 500px;
-    height: 500px;
-    border-radius: 50%;
-    background: radial-gradient(rgba(96,165,250,.15), transparent 70%);
-    top: -200px;
-    left: -200px;
-    animation: pulseGlow 7s ease-in-out infinite;
-}
-
 .portfolio-section::after {
     content: "";
     position: absolute;
