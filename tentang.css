@@ -1,12 +1,102 @@
 /* =========================================
+   ANIMATION
+========================================= */
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeRight {
+    from {
+        opacity: 0;
+        transform: translateX(80px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes flipReveal {
+    0% {
+        opacity: 0;
+        transform: perspective(1200px) rotateY(-90deg) scale(.8);
+    }
+    100% {
+        opacity: 1;
+        transform: perspective(1200px) rotateY(0) scale(1);
+    }
+}
+
+@keyframes floating {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes glowPulse {
+    0% {
+        box-shadow: 0 0 20px rgba(96,165,250,.15);
+    }
+    50% {
+        box-shadow: 0 0 50px rgba(96,165,250,.35);
+    }
+    100% {
+        box-shadow: 0 0 20px rgba(96,165,250,.15);
+    }
+}
+
+@keyframes auroraMove {
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+    50% {
+        transform: rotate(180deg) scale(1.15);
+    }
+    100% {
+        transform: rotate(360deg) scale(1);
+    }
+}
+
+@keyframes shine {
+    0% {
+        left: -150%;
+    }
+    100% {
+        left: 200%;
+    }
+}
+
+@keyframes lineShine {
+    0% {
+        background-position: -200% center;
+    }
+    100% {
+        background-position: 200% center;
+    }
+}
+
+/* =========================================
    TENTANG SECTION
 ========================================= */
 
 .tentang {
-    padding: 50px 20px;
-    animation: fadeUp 1s ease;
+    padding: 70px 20px 50px;
     border-bottom: none;
-    padding-top: 70px;
+    animation: fadeUp 1.2s ease;
 }
 
 .tentang-container {
@@ -20,17 +110,12 @@
     padding: 50px;
 
     border-radius: 30px;
-    background: rgba(15,23,42,.55);
+    background: rgba(15, 23, 42, 0.55);
     backdrop-filter: blur(14px);
-    border: 1px solid rgba(96,165,250,.12);
-    box-shadow: 0 15px 35px rgba(0,0,0,.2);
+    border: 1px solid rgba(96, 165, 250, 0.12);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
 
     overflow: hidden;
-    transition: .4s ease;
-}
-
-.tentang-container:hover {
-    transform: translateY(-6px);
 }
 
 .tentang-container::before {
@@ -41,11 +126,24 @@
     width: 200%;
     height: 200%;
     background: radial-gradient(
-        rgba(96,165,250,.08),
+        rgba(96, 165, 250, 0.08),
         transparent 70%
     );
-    animation: rotateGlow 10s linear infinite;
     z-index: 0;
+    animation: auroraMove 18s linear infinite;
+}
+
+.tentang-container::after {
+    content: "";
+    position: absolute;
+    inset: -20%;
+    background: radial-gradient(
+        circle at 30% 30%,
+        rgba(96, 165, 250, 0.1),
+        transparent 60%
+    );
+    z-index: 0;
+    animation: auroraMove 25s linear infinite reverse;
 }
 
 /* =========================================
@@ -64,16 +162,38 @@
     width: 320px;
     border-radius: 25px;
     object-fit: cover;
-    border: 2px solid rgba(96,165,250,.15);
-    box-shadow: 0 15px 35px rgba(0,0,0,.3);
+    border: 2px solid rgba(96, 165, 250, 0.15);
 
-    animation: floatPhoto 5s ease-in-out infinite;
-    transition: transform .5s ease, box-shadow .5s ease;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+
+    cursor: pointer;
+
+    animation:
+        flipReveal 1.3s ease,
+        floating 5s ease-in-out infinite 1.3s,
+        glowPulse 4s ease-in-out infinite;
+
+    transition:
+        transform .6s ease,
+        filter .6s ease,
+        box-shadow .6s ease;
+
+    transform-style: preserve-3d;
 }
 
 .tentang-image img:hover {
-    transform: scale(1.04) rotate(2deg);
-    box-shadow: 0 25px 45px rgba(0,0,0,.35);
+    transform:
+        perspective(1200px)
+        rotateY(12deg)
+        rotateX(4deg)
+        scale(1.05);
+
+    filter:
+        brightness(1.1)
+        saturate(1.2);
+
+    box-shadow:
+        0 25px 60px rgba(96,165,250,.35);
 }
 
 /* =========================================
@@ -83,19 +203,58 @@
 .tentang-content {
     flex: 1;
     z-index: 2;
+    animation: fadeRight 1.2s ease;
 }
 
 .tentang-title {
+    position: relative;
     font-size: 60px;
-    color: #fff;
+    color: #ffffff;
     margin-bottom: 25px;
+    overflow: hidden;
+}
 
-    animation: fadeLeft 1s ease;
-    transition: .35s ease;
+.tentang-title::before {
+    content: "";
+    position: absolute;
+    top: -20%;
+    left: -150%;
+    width: 40%;
+    height: 160%;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.8),
+        transparent
+    );
+
+    transform: skewX(-25deg);
+
+    animation: shine 4s infinite;
+}
+
+.tentang-title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 100%;
+    height: 3px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #ffffff,
+        transparent
+    );
+
+    background-size: 300% 100%;
+    animation: lineShine 3s linear infinite;
 }
 
 .tentang-title:hover {
-    letter-spacing: 2px;
+    text-shadow: 0 0 25px rgba(96, 165, 250, 0.4);
 }
 
 .tentang-text {
@@ -103,13 +262,11 @@
     font-size: 18px;
     line-height: 1.9;
     margin-bottom: 40px;
-
-    animation: fadeUp 1.2s ease;
-    transition: .35s ease;
+    transition: .4s ease;
 }
 
 .tentang-text:hover {
-    color: #fff;
+    color: #ffffff;
 }
 
 /* =========================================
@@ -124,24 +281,78 @@
 }
 
 .info-box {
+    position: relative;
+    overflow: hidden;
+
     flex: 1;
     min-width: 150px;
     padding: 25px;
     border-radius: 20px;
     text-align: center;
 
-    background: rgba(15,23,42,.55);
+    background: rgba(15, 23, 42, 0.55);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(96,165,250,.12);
+    border: 1px solid rgba(96, 165, 250, 0.12);
 
-    transition: .4s ease;
-    animation: fadeUp 1s ease;
+    transition:
+        transform .4s ease,
+        background .4s ease,
+        box-shadow .4s ease;
+}
+
+.info-box:nth-child(1) {
+    animation: floating 5s ease-in-out infinite;
+}
+
+.info-box:nth-child(2) {
+    animation: floating 5s ease-in-out infinite .8s;
+}
+
+.info-box:nth-child(3) {
+    animation: floating 5s ease-in-out infinite 1.6s;
 }
 
 .info-box:hover {
-    transform: translateY(-8px) scale(1.03);
-    background: rgba(96,165,250,.08);
-    box-shadow: 0 18px 35px rgba(0,0,0,.25);
+    background: rgba(96, 165, 250, 0.08);
+
+    transform:
+        translateY(-12px)
+        scale(1.04);
+
+    box-shadow:
+        0 18px 35px rgba(0, 0, 0, 0.25);
+}
+
+.info-box::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 60%;
+    height: 100%;
+
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,.15),
+        transparent
+    );
+
+    transform: skewX(-25deg);
+    animation: shine 5s infinite;
+}
+
+.info-box::after {
+    content: "";
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 20px;
+
+    background: rgba(96, 165, 250, 0.15);
+    filter: blur(20px);
 }
 
 .info-box h3 {
@@ -151,7 +362,7 @@
 }
 
 .info-box span {
-    color: #fff;
+    color: #ffffff;
     font-size: 15px;
 }
 
@@ -165,40 +376,55 @@
     border-radius: 50px;
     text-decoration: none;
     font-weight: 600;
+    letter-spacing: 0.5px;
 
-    background: linear-gradient(135deg, #2563eb, #60a5fa);
-    color: #fff;
-    box-shadow: 0 10px 25px rgba(37,99,235,.3);
+    background: linear-gradient(
+        135deg,
+        #2563eb,
+        #60a5fa
+    );
+
+    color: #ffffff;
+    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
 
     position: relative;
     overflow: hidden;
-    transition: .4s ease;
+
+    transition:
+        transform .4s ease,
+        box-shadow .4s ease;
 }
 
 .tentang-btn::before {
     content: "";
     position: absolute;
     top: 0;
-    left: -130%;
-    width: 120%;
+    left: -150%;
+    width: 60%;
     height: 100%;
 
     background: linear-gradient(
-        120deg,
+        90deg,
         transparent,
-        rgba(255,255,255,.25),
+        rgba(255,255,255,.35),
         transparent
     );
 
-    transition: .8s ease;
-}
-
-.tentang-btn:hover::before {
-    left: 140%;
+    transform: skewX(-25deg);
+    animation: shine 3s infinite;
 }
 
 .tentang-btn:hover {
-    transform: translateY(-6px) scale(1.03);
+    transform:
+        translateY(-4px)
+        scale(1.04);
+
+    box-shadow:
+        0 15px 35px rgba(37, 99, 235, 0.45);
+}
+
+.tentang-btn:active {
+    opacity: 0.9;
 }
 
 /* =========================================
@@ -217,6 +443,11 @@
 
     .tentang-title {
         font-size: 45px;
+    }
+
+    .tentang-title::after {
+        left: 50%;
+        transform: translateX(-50%);
     }
 }
 
@@ -237,160 +468,4 @@
     .tentang-text {
         font-size: 16px;
     }
-   }
-
-   
-/* =========================================
-   EXTRA PREMIUM EFFECT (TENTANG SECTION)
-========================================= */
-
-/* smooth entrance lebih halus */
-.tentang {
-    animation: fadeUp 1s ease both;
-}
-
-/* hover container lebih “luxury depth” */
-.tentang-container {
-    transition: transform 0.5s ease, box-shadow 0.5s ease;
-}
-
-.tentang-container:hover {
-    transform: translateY(-8px) scale(1.01);
-    box-shadow: 0 25px 60px rgba(0,0,0,.35);
-}
-
-/* =========================================
-   BACKGROUND GLOW MOVEMENT ENHANCEMENT
-========================================= */
-
-.tentang-container::after {
-    content: "";
-    position: absolute;
-    inset: -20%;
-    background: radial-gradient(
-        circle at 30% 30%,
-        rgba(96,165,250,.10),
-        transparent 60%
-    );
-    animation: slowPulse 6s ease-in-out infinite;
-    z-index: 0;
-}
-
-@keyframes slowPulse {
-    0%, 100% {
-        transform: scale(1);
-        opacity: 0.6;
-    }
-    50% {
-        transform: scale(1.1);
-        opacity: 1;
-    }
-}
-
-/* =========================================
-   IMAGE MICRO INTERACTION UPGRADE
-========================================= */
-
-.tentang-image img {
-    cursor: pointer;
-}
-
-.tentang-image img:hover {
-    filter: brightness(1.08) saturate(1.1);
-}
-
-/* =========================================
-   TITLE EXTRA WOW EFFECT
-========================================= */
-
-.tentang-title {
-    position: relative;
-}
-
-.tentang-title::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -8px;
-    width: 0%;
-    height: 3px;
-    background: linear-gradient(90deg, #ffffff, transparent);
-    transition: 0.5s ease;
-}
-
-.tentang-title:hover::after {
-    width: 100%;
-}
-
-/* glow ringan saat hover judul */
-.tentang-title:hover {
-    text-shadow: 0 0 25px rgba(96,165,250,.25);
-}
-
-/* =========================================
-   INFO BOX EXTRA DEPTH EFFECT
-========================================= */
-
-.info-box {
-    position: relative;
-    overflow: hidden;
-}
-
-/* shine halus pada box */
-.info-box::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -120%;
-    width: 60%;
-    height: 100%;
-    background: linear-gradient(
-        120deg,
-        transparent,
-        rgba(255,255,255,.12),
-        transparent
-    );
-    transition: 0.7s ease;
-}
-
-.info-box:hover::before {
-    left: 140%;
-}
-
-/* icon-like glow bawah box */
-.info-box::after {
-    content: "";
-    position: absolute;
-    bottom: -20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60%;
-    height: 20px;
-    background: rgba(96,165,250,.15);
-    filter: blur(20px);
-    opacity: 0;
-    transition: 0.4s ease;
-}
-
-.info-box:hover::after {
-    opacity: 1;
-}
-
-/* =========================================
-   BUTTON MICRO ANIMATION UPGRADE
-========================================= */
-
-.tentang-btn {
-    letter-spacing: 0;
-    transition: 0.4s ease;
-}
-
-.tentang-btn:hover {
-    letter-spacing: 1px;
-    box-shadow: 0 15px 35px rgba(37,99,235,.45);
-}
-
-/* ripple effect ringan */
-.tentang-btn:active {
-    transform: scale(0.97);
 }
