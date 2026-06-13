@@ -194,7 +194,7 @@ body {
 }
 
 /* =========================================
-   HERO SECTION (ENHANCED + ANIMATED)
+   HERO SECTION
 ========================================= */
 
 .hero {
@@ -207,25 +207,6 @@ body {
     padding: 0 clamp(20px, 5vw, 80px);
 
     overflow: hidden;
-}
-
-/* ANIMASI MASUK HERO */
-
-.hero-left,
-.hero-right {
-    animation: fadeUp 1s ease forwards;
-}
-
-@keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(40px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
 
 /* =========================================
@@ -267,7 +248,9 @@ body {
     transform: translateX(5px);
 }
 
-/* BUTTON HERO */
+/* =========================================
+   BUTTON HERO
+========================================= */
 
 .btn {
     position: relative;
@@ -289,8 +272,6 @@ body {
     transition: 0.3s ease;
 }
 
-/* Hover tombol */
-
 .btn:hover {
     background: rgba(255, 255, 255, 0.1);
     box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
@@ -311,7 +292,9 @@ body {
     height: 100%;
 }
 
-/* MAIN OBJECT (LAPTOP) */
+/* =========================================
+   MAIN OBJECT (LAPTOP)
+========================================= */
 
 .laptop {
     position: absolute;
@@ -323,7 +306,6 @@ body {
     z-index: 10;
 
     transform: translate(-50%, -50%);
-    animation: floatLaptop 4s ease-in-out infinite;
     transition: 0.4s ease;
 }
 
@@ -332,19 +314,8 @@ body {
     transform: translate(-50%, -50%) scale(1.05);
 }
 
-@keyframes floatLaptop {
-    0%,
-    100% {
-        transform: translate(-50%, -50%);
-    }
-
-    50% {
-        transform: translate(-50%, -55%);
-    }
-}
-
 /* =========================================
-   FLOATING ELEMENTS (ANIMATED + HOVER WOW)
+   FLOATING ELEMENTS
 ========================================= */
 
 .palette,
@@ -354,22 +325,7 @@ body {
 .cup,
 .tablet {
     position: absolute;
-
-    animation: floatObj 5s ease-in-out infinite;
     transition: 0.4s ease;
-}
-
-/* Floating universal */
-
-@keyframes floatObj {
-    0%,
-    100% {
-        transform: translateY(0) rotate(0deg);
-    }
-
-    50% {
-        transform: translateY(-15px) rotate(2deg);
-    }
 }
 
 /* Hover effect semua object */
@@ -384,7 +340,9 @@ body {
     transform: scale(1.15) rotate(-5deg);
 }
 
-/* Position */
+/* =========================================
+   POSITIONING
+========================================= */
 
 .palette {
     top: 250px;
@@ -423,7 +381,260 @@ body {
 }
 
 /* =========================================
-   ABOUT SECTION (FIXED)
+   HERO ENTRY ANIMATION
+========================================= */
+
+.hero-left {
+    animation: heroTextIn 1s ease forwards;
+}
+
+.hero-left h1 {
+    animation: titleReveal 1.2s ease forwards;
+}
+
+.hero-left p {
+    opacity: 0;
+    animation: fadeUp 1s ease 0.3s forwards;
+}
+
+.btn {
+    opacity: 0;
+    animation: fadeUp 1s ease 0.6s forwards;
+}
+
+.hero-right {
+    animation: heroRightIn 1.2s ease forwards;
+}
+
+/* =========================================
+   LAPTOP ANIMATION
+========================================= */
+
+.laptop {
+    animation:
+        laptopEnter 1.4s ease forwards,
+        laptopFloat 5s ease-in-out infinite 1.4s;
+}
+
+.laptop:hover {
+    transform:
+        translate(-50%, -50%)
+        scale(1.08)
+        rotateY(10deg)
+        rotateX(5deg);
+
+    filter:
+        drop-shadow(0 25px 45px rgba(255,255,255,.15))
+        drop-shadow(0 20px 40px rgba(0,0,0,.4));
+}
+
+/* =========================================
+   FLOATING ELEMENTS ANIMATION
+========================================= */
+
+.palette {
+    animation:
+        objectIn 1s ease .2s forwards,
+        float1 5s ease-in-out infinite 1.2s;
+    opacity: 0;
+}
+
+.ps {
+    animation:
+        objectIn 1s ease .4s forwards,
+        float2 4s ease-in-out infinite 1.4s;
+    opacity: 0;
+}
+
+.ai {
+    animation:
+        objectIn 1s ease .5s forwards,
+        float1 6s ease-in-out infinite 1.5s;
+    opacity: 0;
+}
+
+.id {
+    animation:
+        objectIn 1s ease .6s forwards,
+        float2 5s ease-in-out infinite 1.6s;
+    opacity: 0;
+}
+
+.cup {
+    animation:
+        objectIn 1s ease .7s forwards,
+        float1 7s ease-in-out infinite 1.7s;
+    opacity: 0;
+}
+
+.tablet {
+    animation:
+        objectIn 1s ease .8s forwards,
+        float2 6s ease-in-out infinite 1.8s;
+    opacity: 0;
+}
+
+/* =========================================
+   HOVER FLOATING OBJECTS
+========================================= */
+
+.palette:hover,
+.ps:hover,
+.ai:hover,
+.id:hover,
+.cup:hover,
+.tablet:hover {
+    filter:
+        drop-shadow(0 15px 30px rgba(255,255,255,.15))
+        drop-shadow(0 15px 25px rgba(0,0,0,.3));
+
+    transform:
+        scale(1.15)
+        rotate(-8deg)
+        translateY(-8px);
+}
+
+/* =========================================
+   BUTTON EFFECT
+========================================= */
+
+.btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;
+
+    width: 80px;
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.5),
+        transparent
+    );
+
+    transform: skewX(-25deg);
+}
+
+.btn:hover::before {
+    left: 130%;
+    transition: 0.8s;
+}
+
+/* =========================================
+   KEYFRAMES
+========================================= */
+
+@keyframes heroTextIn {
+    from {
+        opacity: 0;
+        transform: translateX(-60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes heroRightIn {
+    from {
+        opacity: 0;
+        transform: translateX(80px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes titleReveal {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+        letter-spacing: 8px;
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        letter-spacing: 0;
+    }
+}
+
+@keyframes laptopEnter {
+    from {
+        opacity: 0;
+        transform:
+            translate(-50%, -50%)
+            scale(.6)
+            rotate(-10deg);
+    }
+    to {
+        opacity: 1;
+        transform:
+            translate(-50%, -50%)
+            scale(1)
+            rotate(0deg);
+    }
+}
+
+@keyframes objectIn {
+    from {
+        opacity: 0;
+        transform:
+            translateY(40px)
+            scale(.5)
+            rotate(-20deg);
+    }
+    to {
+        opacity: 1;
+        transform:
+            translateY(0)
+            scale(1)
+            rotate(0deg);
+    }
+}
+
+@keyframes laptopFloat {
+    0%,100% {
+        transform: translate(-50%, -50%) translateY(0);
+    }
+    50% {
+        transform: translate(-50%, -50%) translateY(-15px);
+    }
+}
+
+@keyframes float1 {
+    0%,100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+@keyframes float2 {
+    0%,100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(12px);
+    }
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================================
+   ABOUT SECTION
 ========================================= */
 
 .about {
@@ -466,7 +677,9 @@ body {
     line-height: 1.8;
 }
 
-/* FEATURES */
+/* =========================================
+   FEATURES
+========================================= */
 
 .features {
     display: flex;
@@ -505,165 +718,6 @@ body {
     color: #11184a;
     font-size: 15px;
     line-height: 1.5;
-}
-
-/* =========================================
-   ABOUT SECTION - PREMIUM ANIMATION LAYER
-========================================= */
-
-/* ANIMASI MASUK SECTION */
-
-.about {
-    animation: aboutFade 1s ease both;
-}
-
-@keyframes aboutFade {
-    from {
-        opacity: 0;
-        transform: translateY(60px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* =========================================
-   IMAGE EFFECT (WOW LOOK)
-========================================= */
-
-.about-image img {
-    border-radius: 10px;
-
-    transition: 0.5s ease;
-}
-
-.about-image img:hover {
-    filter:
-        brightness(1.1)
-        contrast(1.05)
-        drop-shadow(0 20px 40px rgba(0, 0, 0, 0.15));
-
-    transform: scale(1.03) rotate(-1deg);
-}
-
-/* =========================================
-   TITLE & TEXT INTERACTION
-========================================= */
-
-.about-content h2 {
-    transition: 0.4s ease;
-}
-
-.about-content h2:hover {
-    letter-spacing: 1px;
-    text-shadow: 0 10px 30px rgba(17, 24, 74, 0.2);
-}
-
-.about-content p {
-    transition: 0.3s ease;
-}
-
-.about-content p:hover {
-    color: #333;
-    transform: translateX(5px);
-}
-
-/* =========================================
-   FEATURE CARD FEEL (INTERAKTIF MEWAH)
-========================================= */
-
-.feature {
-    position: relative;
-
-    transition: 0.4s ease;
-}
-
-.feature:hover {
-    transform: translateY(-10px) scale(1.05);
-}
-
-/* ICON CIRCLE EFFECT */
-
-.icon {
-    position: relative;
-
-    overflow: hidden;
-
-    transition: 0.4s ease;
-}
-
-/* Glow pulse dalam icon */
-
-.icon::before {
-    content: "";
-
-    position: absolute;
-    top: -10%;
-    left: -10%;
-
-    width: 120%;
-    height: 120%;
-
-    background: radial-gradient(
-        circle,
-        rgba(17, 24, 74, 0.15),
-        transparent 70%
-    );
-
-    opacity: 0;
-
-    transition: 0.4s ease;
-}
-
-.feature:hover .icon::before {
-    opacity: 1;
-    transform: scale(1.2);
-}
-
-/* ICON IMAGE EFFECT */
-
-.icon img {
-    transition: 0.4s ease;
-}
-
-.feature:hover .icon img {
-    transform: scale(1.2) rotate(5deg);
-}
-
-/* TEXT HOVER MICRO EFFECT */
-
-.feature h4 {
-    transition: 0.3s ease;
-}
-
-.feature:hover h4 {
-    color: #0f1a5c;
-    letter-spacing: 0.5px;
-}
-
-/* =========================================
-   SECTION DEPTH (BIAR MEGAH)
-========================================= */
-
-.about::before {
-    content: "";
-
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 100%;
-
-    background: radial-gradient(
-        circle at center,
-        rgba(0, 0, 0, 0.03),
-        transparent 60%
-    );
-
-    pointer-events: none;
 }
 
 /* =========================================
@@ -715,6 +769,279 @@ body {
     .features {
         justify-content: center;
     }
+}
+
+/* =========================================
+   ULTRA CINEMATIC ABOUT SECTION (V2)
+========================================= */
+
+/* Smooth reveal + depth */
+.about {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Entrance lebih halus + natural */
+.about-image,
+.about-content,
+.feature {
+    opacity: 0;
+    transform: translateY(60px) scale(0.98);
+    animation: cinematicReveal 1.2s cubic-bezier(.2,.8,.2,1) forwards;
+}
+
+/* Stagger lebih cinematic */
+.about-image { animation-delay: 0.15s; }
+.about-content { animation-delay: 0.3s; }
+.feature:nth-child(1) { animation-delay: 0.45s; }
+.feature:nth-child(2) { animation-delay: 0.55s; }
+.feature:nth-child(3) { animation-delay: 0.65s; }
+
+@keyframes cinematicReveal {
+    0% {
+        opacity: 0;
+        transform: translateY(60px) scale(0.98);
+        filter: blur(8px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+}
+
+/* =========================================
+   IMAGE — DEPTH + FLOAT + PARALLAX FEEL
+========================================= */
+
+.about-image {
+    perspective: 1000px;
+}
+
+.about-image img {
+    width: 100%;
+    transform: translateZ(0);
+    transition: transform 0.8s cubic-bezier(.2,.8,.2,1),
+                filter 0.8s ease,
+                box-shadow 0.8s ease;
+    animation: slowFloat 8s ease-in-out infinite;
+    will-change: transform;
+}
+
+/* Floating lebih natural */
+@keyframes slowFloat {
+    0%, 100% { transform: translateY(0px) scale(1); }
+    50% { transform: translateY(-12px) scale(1.01); }
+}
+
+/* Hover cinematic depth */
+.about-image:hover img {
+    transform: scale(1.06) rotateX(3deg) rotateY(-3deg);
+    filter: brightness(1.08) contrast(1.1) saturate(1.1);
+    box-shadow: 0 40px 90px rgba(0,0,0,0.2);
+}
+
+/* =========================================
+   TEXT — GLOW + SOFT MOTION
+========================================= */
+
+.about-content h2 {
+    position: relative;
+    transition: all 0.5s ease;
+}
+
+.about-content h2::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 0%;
+    height: 3px;
+    background: linear-gradient(90deg, #11184a, transparent);
+    transition: width 0.6s ease;
+}
+
+.about-content:hover h2::after {
+    width: 100%;
+}
+
+.about-content p {
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.about-content:hover p {
+    transform: translateY(-3px);
+    opacity: 0.9;
+}
+
+/* =========================================
+   FEATURES — GLASS CARD HOVER PREMIUM
+========================================= */
+
+.feature {
+    position: relative;
+    padding: 15px;
+    border-radius: 16px;
+    transition: all 0.5s cubic-bezier(.2,.8,.2,1);
+    overflow: hidden;
+}
+
+/* Glass light sweep */
+.feature::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 120%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.6),
+        transparent
+    );
+    transition: 0.8s ease;
+}
+
+.feature:hover::before {
+    left: 120%;
+}
+
+/* Hover premium lift */
+.feature:hover {
+    transform: translateY(-10px) scale(1.04);
+    background: rgba(255,255,255,0.6);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 25px 60px rgba(0,0,0,0.12);
+}
+
+/* ICON cinematic pulse */
+.icon {
+    transition: all 0.5s ease;
+}
+
+.feature:hover .icon {
+    transform: scale(1.15) rotate(-4deg);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+/* =========================================
+   BACKGROUND — SOFT FLOATING ORBS (PREMIUM LOOK)
+========================================= */
+
+.about::before,
+.about::after {
+    content: "";
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.25;
+    z-index: 0;
+    animation: orbMove 12s infinite ease-in-out;
+}
+
+.about::before {
+    background: #11184a;
+    top: -120px;
+    left: -120px;
+}
+
+.about::after {
+    background: #5a6cff;
+    bottom: -120px;
+    right: -120px;
+    animation-delay: 3s;
+}
+
+@keyframes orbMove {
+    0%, 100% { transform: translateY(0px) scale(1); }
+    50% { transform: translateY(30px) scale(1.1); }
+}
+
+/* pastikan layer aman */
+.about > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* =========================================
+   REDUCE MOTION (aksesibilitas)
+========================================= */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* =========================================
+   IMAGE GLOSSY SHINE EFFECT (PREMIUM)
+========================================= */
+
+.about-image img {
+    position: relative;
+    overflow: hidden;
+}
+
+/* layer kilau */
+.about-image {
+    position: relative;
+}
+
+/* efek cahaya bergerak */
+.about-image::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -60%;
+    width: 40%;
+    height: 200%;
+
+    background: linear-gradient(
+        120deg,
+        transparent 0%,
+        rgba(255,255,255,0.0) 30%,
+        rgba(255,255,255,0.6) 50%,
+        rgba(255,255,255,0.0) 70%,
+        transparent 100%
+    );
+
+    transform: rotate(25deg);
+    animation: shineMove 4.5s ease-in-out infinite;
+    pointer-events: none;
+}
+
+/* animasi kilau bergerak */
+@keyframes shineMove {
+    0% {
+        left: -70%;
+        opacity: 0;
+    }
+    20% {
+        opacity: 0.6;
+    }
+    50% {
+        left: 120%;
+        opacity: 0.8;
+    }
+    100% {
+        left: 120%;
+        opacity: 0;
+    }
+}
+
+/* hover bikin lebih “premium glow” */
+.about-image:hover img {
+    filter: brightness(1.1) contrast(1.1) saturate(1.1);
+    transition: all 0.5s ease;
+}
+
+/* tambahan soft highlight pinggir */
+.about-image img {
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
 }
 
 /* =========================================
@@ -988,6 +1315,310 @@ body {
 }
 
 /* =========================================
+   PREMIUM GLOSSY LIVING UI SYSTEM
+   (SHINE • LIGHT • ELEGANT • SAFE)
+========================================= */
+
+/* ==========================
+   GLOBAL SMOOTH BASE
+========================== */
+.services *{
+    transition: transform .5s cubic-bezier(.2,.9,.2,1),
+                box-shadow .5s ease,
+                opacity .5s ease,
+                filter .5s ease;
+}
+
+/* ==========================
+   SECTION SOFT LUX LIGHT ENTRY
+========================== */
+.services{
+    opacity: 0;
+    animation: sectionGlowIn 1s ease forwards;
+}
+
+@keyframes sectionGlowIn{
+    from{
+        opacity: 0;
+        filter: blur(10px);
+    }
+    to{
+        opacity: 1;
+        filter: blur(0);
+    }
+}
+
+/* ==========================
+   TITLE SHINE ENTRY
+========================== */
+.section-title{
+    opacity: 0;
+    transform: translateY(14px);
+    animation: softIn 0.9s ease forwards;
+}
+
+.section-title span{
+    position: relative;
+    overflow: hidden;
+}
+
+/* moving shine text effect */
+.section-title span::after{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-120%;
+    width:100%;
+    height:100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,.6),
+        transparent
+    );
+    animation: textShine 4s infinite;
+}
+
+@keyframes textShine{
+    0%{ left:-120%; opacity:0; }
+    20%{ opacity:1; }
+    100%{ left:120%; opacity:0; }
+}
+
+@keyframes softIn{
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================
+   CARD GLOSSY SURFACE
+========================== */
+.service-card{
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(14px);
+    animation: cardIn 0.8s ease forwards;
+    background: linear-gradient(
+        145deg,
+        #f4f6ff,
+        #ffffff
+    );
+}
+
+/* stagger */
+.service-card:nth-child(1){ animation-delay:.1s; }
+.service-card:nth-child(2){ animation-delay:.2s; }
+.service-card:nth-child(3){ animation-delay:.3s; }
+.service-card:nth-child(4){ animation-delay:.4s; }
+
+@keyframes cardIn{
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================
+   GLOSSY LIGHT SWEEP (MAIN EFFECT)
+========================== */
+.service-card::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-120%;
+    width:60%;
+    height:100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,.8),
+        transparent
+    );
+    transform: skewX(-20deg);
+    opacity:0;
+}
+
+.service-card:hover::before{
+    animation: shineMove 1s ease;
+}
+
+@keyframes shineMove{
+    0%{
+        left:-120%;
+        opacity:0;
+    }
+    30%{
+        opacity:.8;
+    }
+    100%{
+        left:120%;
+        opacity:0;
+    }
+}
+
+/* ==========================
+   GLOSSY HOVER LIFT
+========================== */
+.service-card:hover{
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0,0,0,.12);
+}
+
+/* ==========================
+   ICON FLOAT LIGHT
+========================== */
+.service-icon img{
+    animation: floatLight 4s ease-in-out infinite;
+}
+
+@keyframes floatLight{
+    0%,100%{ transform: translateY(0); }
+    50%{ transform: translateY(-6px); }
+}
+
+/* ==========================
+   CONTENT SOFT REVEAL
+========================== */
+.service-content h3,
+.service-list{
+    opacity: 0;
+    animation: softIn 0.9s ease forwards;
+}
+
+/* ==========================
+   LIST GLOW ENTRY
+========================== */
+.service-list li{
+    opacity: 0;
+    transform: translateX(-8px);
+    animation: listIn 0.6s ease forwards;
+}
+
+.service-list li:nth-child(1){ animation-delay:.1s; }
+.service-list li:nth-child(2){ animation-delay:.15s; }
+.service-list li:nth-child(3){ animation-delay:.2s; }
+.service-list li:nth-child(4){ animation-delay:.25s; }
+.service-list li:nth-child(5){ animation-delay:.3s; }
+
+@keyframes listIn{
+    to{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* ==========================
+   STEP GLOSSY FLOAT
+========================== */
+.step{
+    opacity: 0;
+    transform: translateY(10px);
+    animation: softIn 0.8s ease forwards;
+}
+
+.step img{
+    animation: floatLight 4.5s ease-in-out infinite;
+}
+
+.step span{
+    position: relative;
+    overflow: hidden;
+}
+
+/* number glow pulse */
+.step span::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background: radial-gradient(circle, rgba(255,255,255,.6), transparent 70%);
+    animation: pulseGlow 2.8s ease-in-out infinite;
+}
+
+@keyframes pulseGlow{
+    0%,100%{ opacity:0; }
+    50%{ opacity:1; }
+}
+
+/* ==========================
+   PRICE BANNER GLOSSY ENERGY
+========================== */
+.price-banner{
+    position: relative;
+    overflow: hidden;
+    animation: softIn 1s ease forwards;
+}
+
+/* moving highlight wave */
+.price-banner::after{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-120%;
+    width:50%;
+    height:100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,.25),
+        transparent
+    );
+    transform: skewX(-20deg);
+}
+
+.price-banner:hover::after{
+    animation: shineMove 1.2s ease;
+}
+
+/* subtle float */
+.price-banner{
+    animation: floatLight 6s ease-in-out infinite;
+}
+
+/* price glow pulse */
+.price-left h2{
+    animation: pulseGlow 3s ease-in-out infinite;
+}
+
+/* ==========================
+   BUTTON GLOSSY FEEL
+========================== */
+.price-left button{
+    position: relative;
+    overflow: hidden;
+}
+
+.price-left button::after{
+    content:"";
+    position:absolute;
+    top:50%;
+    left:50%;
+    width:0;
+    height:0;
+    background: rgba(255,255,255,.3);
+    border-radius:50%;
+    transform: translate(-50%,-50%);
+    transition: width .5s ease, height .5s ease;
+}
+
+.price-left button:hover::after{
+    width:250px;
+    height:250px;
+}
+
+/* ==========================
+   ACCESSIBILITY SAFE MODE
+========================== */
+@media (prefers-reduced-motion: reduce){
+    *{
+        animation:none !important;
+        transition:none !important;
+    }
+}
+
+/* =========================================
    WEBSITE ORDER
 ========================================= */
 
@@ -1070,6 +1701,207 @@ body {
     border-radius: 50%;
 
     flex-shrink: 0;
+}
+
+/* =========================================
+   WEBSITE ORDER — ANIMATED PREMIUM VERSION
+========================================= */
+
+/* smooth global */
+.website-order {
+    padding: 70px 80px;
+    padding-top: 2px;
+
+    background-color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+/* soft background glow animation */
+.website-order::before {
+    content: "";
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(36,86,231,0.08), transparent 60%);
+    top: -200px;
+    left: -200px;
+    animation: floatGlow 8s ease-in-out infinite;
+    z-index: 0;
+}
+
+@keyframes floatGlow {
+    0%, 100% { transform: translate(0,0) scale(1); }
+    50% { transform: translate(80px, 60px) scale(1.2); }
+}
+
+/* grid entrance animation */
+.website-process {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    gap: 25px;
+
+    position: relative;
+    z-index: 1;
+}
+
+/* card base + animation */
+.process-card {
+    padding: 30px;
+
+    background: #f5f8ff;
+    border: 1px solid #d9e3ff;
+    border-radius: 20px;
+
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+
+    animation: fadeUp 0.8s ease forwards;
+}
+
+/* stagger effect (biar hidup saat load) */
+.process-card:nth-child(1) { animation-delay: 0.1s; }
+.process-card:nth-child(2) { animation-delay: 0.2s; }
+.process-card:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* hover glow + lift */
+.process-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 50px rgba(36, 86, 231, 0.15);
+    border-color: #2456e7;
+}
+
+/* animated shine effect */
+.process-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.6),
+        transparent
+    );
+    transform: skewX(-20deg);
+}
+
+.process-card:hover::before {
+    animation: shine 0.9s ease;
+}
+
+@keyframes shine {
+    0% { left: -120%; }
+    100% { left: 120%; }
+}
+
+/* heading animation */
+.process-card h3 {
+    margin-bottom: 20px;
+    color: #2456e7;
+
+    transition: 0.3s ease;
+}
+
+.process-card:hover h3 {
+    letter-spacing: 0.5px;
+}
+
+/* list styling */
+.process-card ul {
+    padding-left: 20px;
+}
+
+.process-card li {
+    margin-bottom: 12px;
+    color: #333;
+
+    transition: 0.3s ease;
+}
+
+.process-card li:hover {
+    transform: translateX(5px);
+    color: #2456e7;
+}
+
+/* paragraph subtle animation */
+.process-card p {
+    margin-top: 20px;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* image hover float */
+.process-image img {
+    width: 100%;
+    transition: transform 0.6s ease, filter 0.6s ease;
+}
+
+.process-image img:hover {
+    transform: scale(1.05) rotate(1deg);
+    filter: brightness(1.05) contrast(1.1);
+}
+
+/* requirements list */
+.requirements-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.requirements-list li {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    margin-bottom: 20px;
+
+    transition: 0.3s ease;
+}
+
+.requirements-list li:hover {
+    transform: translateX(6px);
+}
+
+/* warning icon pulse */
+.warning-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 23px;
+    height: 23px;
+
+    color: #fff;
+    font-weight: bold;
+
+    background: #f0a000;
+    border-radius: 50%;
+
+    flex-shrink: 0;
+
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(240,160,0,0.5); }
+    70% { box-shadow: 0 0 0 10px rgba(240,160,0,0); }
+    100% { box-shadow: 0 0 0 0 rgba(240,160,0,0); }
 }
 
 /* =========================================
@@ -1284,6 +2116,213 @@ body {
     .why-grid {
         grid-template-columns: 1fr;
     }
+}
+
+/* =========================================
+   HOSTING — ELEGANT PREMIUM MOTION
+   (soft cinematic, clean, aesthetic)
+========================================= */
+
+.hosting {
+    padding: 20px 80px 70px;
+    background: #ffffff;
+    position: relative;
+    overflow: hidden;
+}
+
+/* soft ambient blur light */
+.hosting::before {
+    content: "";
+    position: absolute;
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(18,61,165,0.04), transparent 70%);
+    top: -250px;
+    right: -250px;
+    filter: blur(20px);
+    animation: slowFloat 18s ease-in-out infinite;
+    z-index: 0;
+}
+
+@keyframes slowFloat {
+    0%, 100% { transform: translate(0,0) scale(1); }
+    50% { transform: translate(-60px, 50px) scale(1.08); }
+}
+
+/* GRID */
+.hosting-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    position: relative;
+    z-index: 1;
+}
+
+/* =========================================
+   ENTRY — SOFT FADE + BLUR (ELEGANT)
+========================================= */
+
+.hosting-card {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+
+    padding: 30px;
+    border-radius: 22px;
+
+    background: #f7f9ff;
+    border: 1px solid #e2e8ff;
+
+    position: relative;
+    overflow: hidden;
+
+    /* elegant entrance */
+    opacity: 0;
+    transform: translateY(18px);
+    filter: blur(8px);
+
+    animation: fadeSoft 0.9s ease forwards;
+}
+
+/* stagger */
+.hosting-card:nth-child(1) { animation-delay: 0.1s; }
+.hosting-card:nth-child(2) { animation-delay: 0.25s; }
+.hosting-card:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes fadeSoft {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+/* hover — very subtle premium lift */
+.hosting-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(18,61,165,0.10);
+    transition: all 0.35s ease;
+    background: #ffffff;
+}
+
+/* image soft motion */
+.hosting-card img {
+    width: 90px;
+    transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.hosting-card:hover img {
+    transform: translateY(-3px) scale(1.04);
+    filter: brightness(1.05);
+}
+
+/* text elegance */
+.hosting-card h3 {
+    margin-bottom: 15px;
+    color: #123da5;
+    transition: 0.3s ease;
+}
+
+.hosting-card:hover h3 {
+    letter-spacing: 0.3px;
+}
+
+/* =========================================
+   WHY US — CLEAN PREMIUM STYLE
+========================================= */
+
+.why-us {
+    padding: 0 80px 80px;
+    background: #ffffff;
+    position: relative;
+    overflow: hidden;
+}
+
+/* soft background glow */
+.why-us::before {
+    content: "";
+    position: absolute;
+    width: 650px;
+    height: 650px;
+    background: radial-gradient(circle, rgba(18,61,165,0.04), transparent 70%);
+    bottom: -250px;
+    left: -250px;
+    filter: blur(25px);
+    animation: slowFloat2 20s ease-in-out infinite;
+    z-index: 0;
+}
+
+@keyframes slowFloat2 {
+    0%, 100% { transform: translate(0,0); }
+    50% { transform: translate(70px, -60px); }
+}
+
+/* GRID */
+.why-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* CARD — soft entry */
+.why-card {
+    padding: 25px;
+
+    background: #ffffff;
+    border: 1px solid #e9e9e9;
+    border-radius: 18px;
+
+    text-align: center;
+
+    opacity: 0;
+    transform: translateY(15px);
+    filter: blur(6px);
+
+    animation: fadeSoft 0.9s ease forwards;
+}
+
+/* stagger */
+.why-card:nth-child(1) { animation-delay: 0.1s; }
+.why-card:nth-child(2) { animation-delay: 0.2s; }
+.why-card:nth-child(3) { animation-delay: 0.3s; }
+.why-card:nth-child(4) { animation-delay: 0.4s; }
+
+/* hover soft premium */
+.why-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 45px rgba(18,61,165,0.08);
+    transition: all 0.35s ease;
+}
+
+/* icon elegance */
+.why-card img {
+    width: 65px;
+    margin-bottom: 15px;
+    transition: transform 0.4s ease;
+}
+
+.why-card:hover img {
+    transform: scale(1.06);
+}
+
+/* text */
+.why-card h3 {
+    color: #123da5;
+    font-size: 36px;
+    transition: 0.3s ease;
+}
+
+.why-card h4 {
+    margin: 10px 0;
+    color: #1d2a57;
+}
+
+.why-card p {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.6;
 }
 
 /* =========================================
