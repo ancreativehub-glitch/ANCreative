@@ -790,6 +790,66 @@ body {
 }
 
 /* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 768px) {
+    .price-banner {
+        flex-direction: column;
+        text-align: center;
+        padding: 25px 20px;
+    }
+
+    .price-discount {
+        justify-content: center;
+    }
+
+    .price-left h2 {
+        font-size: 40px;
+    }
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 991px) {
+
+    .services {
+        padding: 50px 20px;
+    }
+
+    .service-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .order-steps {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 25px;
+    }
+
+    .arrow {
+        display: none;
+    }
+
+@media (max-width: 768px) {
+
+    .service-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .service-list {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title h2 {
+        font-size: 22px;
+    }
+}
+
+/* =========================================
    WEBSITE ORDER
 ========================================= */
 
