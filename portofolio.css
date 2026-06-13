@@ -1,465 +1,198 @@
-/* =========================================
+/* ==========================
    PORTFOLIO SECTION
-========================================= */
+========================== */
 
-.portfolio-section {
-    width: 100%;
-    padding: 90px 20px;
-    margin: 120px 0; /* jarak antar section */
-    position: relative;
-    overflow: hidden;
-    animation: fadeUp 1s ease;
+.portfolio-section{
+    padding:80px 20px;
+    max-width:1300px;
+    margin:auto;
 }
 
-.portfolio-section::after {
-    content: "";
-    position: absolute;
-    width: 450px;
-    height: 450px;
-    border-radius: 50%;
-    background: radial-gradient(rgba(255,255,255,.08), transparent 70%);
-    bottom: -180px;
-    right: -180px;
-    animation: pulseGlow 8s ease-in-out infinite;
+.portfolio-header{
+    text-align:center;
+    max-width:750px;
+    margin:0 auto 60px;
 }
 
-/* =========================================
-   HEADER
-========================================= */
+.portfolio-tag{
+    display:inline-block;
+    padding:8px 18px;
+    margin-bottom:20px;
 
-.portfolio-header {
-    max-width: 850px;
-    margin: auto;
-    margin-bottom: 70px;
-    text-align: center;
-    position: relative;
-    z-index: 2;
+    font-size:12px;
+    font-weight:600;
+    letter-spacing:2px;
+
+    color:#60a5fa;
+
+    border:1px solid rgba(96,165,250,.3);
+    border-radius:50px;
+
+    background:rgba(96,165,250,.08);
 }
 
-.portfolio-tag {
-    display: inline-block;
-    padding: 10px 22px;
-    border-radius: 50px;
-    background: rgba(15,23,42,.60);
-    color: white;
-    letter-spacing: 2px;
-    font-size: 13px;
-    margin-bottom: 25px;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(96,165,250,.15);
-    animation: zoomIn 1s ease;
+.portfolio-title{
+    font-size:48px;
+    color:#fff;
+    margin-bottom:15px;
+    line-height:1.2;
 }
 
-.portfolio-title {
-    font-size: 62px;
-    line-height: 1.2;
-    color: white;
-    margin-bottom: 25px;
-    text-shadow: 0 10px 30px rgba(0,0,0,.35);
-    animation: fadeDown 1s ease;
+.portfolio-text{
+    color:#cbd5e1;
+    line-height:1.8;
+    font-size:16px;
 }
 
-.portfolio-text {
-    color: #dbeafe;
-    font-size: 18px;
-    line-height: 1.9;
-    animation: fadeUp 1.2s ease;
+/* ==========================
+   GRID
+========================== */
+
+.portfolio-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:30px;
 }
 
-/* =========================================
-   CONTAINER
-========================================= */
-
-.portfolio-container {
-    max-width: 1300px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 35px;
-    position: relative;
-    z-index: 2;
-    align-items: stretch;
-}
-
-/* =========================================
+/* ==========================
    CARD
-========================================= */
+========================== */
 
-.portfolio-card {
-    border-radius: 32px;
-    overflow: hidden;
-    background: rgba(15,23,42,.60);
-    backdrop-filter: blur(18px);
-    border: 1px solid rgba(96,165,250,.15);
-    position: relative;
-    transition: .45s ease;
-    animation: fadeUp 1s ease;
-    box-shadow: 0 15px 40px rgba(0,0,0,.25);
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+.portfolio-card{
+    background:#0f172a;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:20px;
+    overflow:hidden;
 }
 
-.portfolio-card:hover {
-    transform: translateY(-12px) scale(1.02);
-    box-shadow: 0 25px 50px rgba(0,0,0,.4);
-}
-
-/* hover shine */
-.portfolio-card::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -120%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        120deg,
-        transparent,
-        rgba(255,255,255,.08),
-        transparent
-    );
-    transition: .9s ease;
-    z-index: 2;
-}
-
-.portfolio-card:hover::before {
-    left: 120%;
-}
-
-/* =========================================
+/* ==========================
    IMAGE
-========================================= */
+========================== */
 
-.portfolio-image {
-    width: 100%;
-    height: 250px;
-    overflow: hidden;
-    position: relative;
+.portfolio-image{
+    height:230px;
+    overflow:hidden;
 }
 
-.portfolio-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: .7s ease;
+.portfolio-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
 }
 
-.portfolio-card:hover img {
-    transform: scale(1.12) rotate(2deg);
-}
-
-/* overlay */
-.portfolio-image::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(transparent, rgba(2,6,23,.55));
-    opacity: 0;
-    transition: .4s ease;
-}
-
-.portfolio-card:hover .portfolio-image::after {
-    opacity: 1;
-}
-
-/* =========================================
+/* ==========================
    CONTENT
-========================================= */
+========================== */
 
-.portfolio-content {
-    padding: 30px;
-    position: relative;
-    z-index: 3;
-    display: flex;
-    flex-direction: column;
-    flex: 1;
+.portfolio-content{
+    padding:25px;
 }
 
-.portfolio-category {
-    display: inline-block;
-    padding: 8px 18px;
-    border-radius: 50px;
-    background: rgba(96,165,250,.12);
-    color: #bfdbfe;
-    font-size: 13px;
-    margin-bottom: 18px;
-    border: 1px solid rgba(96,165,250,.15);
+.portfolio-category{
+    display:inline-block;
+
+    padding:6px 14px;
+    margin-bottom:15px;
+
+    font-size:12px;
+    font-weight:600;
+
+    color:#60a5fa;
+
+    background:rgba(96,165,250,.1);
+    border-radius:50px;
 }
 
-.portfolio-content h2 {
-    color: white;
-    font-size: 28px;
-    margin-bottom: 15px;
-    transition: .3s ease;
+.portfolio-content h2{
+    color:#fff;
+    font-size:24px;
+    margin-bottom:12px;
+    line-height:1.3;
 }
 
-.portfolio-card:hover h2 {
-    color: #bfdbfe;
+.portfolio-content p{
+    color:#cbd5e1;
+    font-size:15px;
+    line-height:1.7;
+
+    margin-bottom:20px;
+
+    min-height:55px;
 }
 
-.portfolio-content p {
-    color: #dbeafe;
-    font-size: 15px;
-    line-height: 1.8;
-    margin-bottom: 28px;
-    flex: 1;
-}
-
-/* =========================================
+/* ==========================
    BUTTON
-========================================= */
+========================== */
 
-.portfolio-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 14px 28px;
-    border-radius: 50px;
-    text-decoration: none;
-    color: white;
-    font-size: 15px;
-    font-weight: 600;
-    background: linear-gradient(135deg, #2563eb, #60a5fa);
-    box-shadow: 0 12px 25px rgba(37,99,235,.35);
-    position: relative;
-    overflow: hidden;
-    transition: .4s ease;
-}
+.portfolio-btn{
+    display:inline-block;
 
-.portfolio-btn::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -120%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        120deg,
-        transparent,
-        rgba(255,255,255,.25),
-        transparent
+    padding:12px 24px;
+
+    color:#fff;
+    text-decoration:none;
+    font-weight:600;
+
+    border-radius:50px;
+
+    background:linear-gradient(
+        135deg,
+        #2563eb,
+        #3b82f6
     );
-    transition: .8s ease;
 }
 
-.portfolio-btn:hover::before {
-    left: 120%;
-}
-
-.portfolio-btn:hover {
-    transform: translateY(-4px) scale(1.03);
-    box-shadow: 0 18px 35px rgba(37,99,235,.45);
-}
-
-.portfolio-btn:active {
-    transform: scale(.96);
-}
-
-/* =========================================
+/* ==========================
    RESPONSIVE
-========================================= */
+========================== */
 
-@media (max-width: 950px) {
-    .portfolio-title {
-        font-size: 45px;
+@media(max-width:768px){
+
+    .portfolio-section{
+        padding:60px 15px;
+    }
+
+    .portfolio-header{
+        margin-bottom:40px;
+    }
+
+    .portfolio-title{
+        font-size:34px;
+    }
+
+    .portfolio-text{
+        font-size:15px;
+    }
+
+    .portfolio-container{
+        gap:20px;
+    }
+
+    .portfolio-image{
+        height:200px;
+    }
+
+    .portfolio-content{
+        padding:20px;
+    }
+
+    .portfolio-content h2{
+        font-size:20px;
     }
 }
 
-@media (max-width: 768px) {
+@media(max-width:480px){
 
-    .portfolio-title {
-        font-size: 35px;
+    .portfolio-title{
+        font-size:28px;
     }
 
-    .portfolio-text {
-        font-size: 15px;
+    .portfolio-image{
+        height:180px;
     }
 
-    .portfolio-content h2 {
-        font-size: 24px;
-    }
-
-    .portfolio-image {
-        height: 220px;
-    }
-}
-
-/* =========================================
-   ANIMATION
-========================================= */
-
-@keyframes fadeUp {
-    from { opacity: 0; transform: translateY(40px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fadeDown {
-    from { opacity: 0; transform: translateY(-40px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes zoomIn {
-    from { opacity: 0; transform: scale(.8); }
-    to { opacity: 1; transform: scale(1); }
-}
-
-@keyframes pulseGlow {
-    0% { transform: scale(1); opacity: .5; }
-    50% { transform: scale(1.2); opacity: 1; }
-    100% { transform: scale(1); opacity: .5; }
-                                      }
-
-                                      
-/* =========================================
-   EXTRA PREMIUM LAYER - PORTFOLIO
-========================================= */
-
-/* STAGGER ANIMATION CARD (MUNCUL SATU-SATU) */
-.portfolio-card {
-    opacity: 0;
-    transform: translateY(50px);
-    animation: cardIn 0.8s ease forwards;
-}
-
-/* delay otomatis tiap card */
-.portfolio-card:nth-child(1) { animation-delay: 0.1s; }
-.portfolio-card:nth-child(2) { animation-delay: 0.2s; }
-.portfolio-card:nth-child(3) { animation-delay: 0.3s; }
-.portfolio-card:nth-child(4) { animation-delay: 0.4s; }
-.portfolio-card:nth-child(5) { animation-delay: 0.5s; }
-
-@keyframes cardIn {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* =========================================
-   MAGNETIC HOVER FEEL (KARTU HIDUP)
-========================================= */
-
-.portfolio-card {
-    transition: transform 0.5s cubic-bezier(.2,.8,.2,1),
-                box-shadow 0.5s ease;
-}
-
-.portfolio-card:hover {
-    transform: translateY(-14px) scale(1.03) rotateX(2deg) rotateY(-2deg);
-}
-
-/* =========================================
-   TITLE PREMIUM MICRO EFFECT
-========================================= */
-
-.portfolio-title {
-    position: relative;
-    transition: 0.4s ease;
-}
-
-.portfolio-title:hover {
-    letter-spacing: 1px;
-    text-shadow: 0 0 25px rgba(96,165,250,.25);
-}
-
-/* underline animasi */
-.portfolio-title::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    bottom: -10px;
-    width: 0%;
-    height: 3px;
-    background: linear-gradient(90deg, transparent, #ffffff, transparent);
-    transition: 0.5s ease;
-    transform: translateX(-50%);
-}
-
-.portfolio-title:hover::after {
-    width: 60%;
-}
-
-/* =========================================
-   HEADER TAG GLOW (PORTFOLIO TAG)
-========================================= */
-
-.portfolio-tag {
-    transition: 0.4s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.portfolio-tag:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 25px rgba(96,165,250,.25);
-}
-
-/* shine kecil di tag */
-.portfolio-tag::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -120%;
-    width: 60%;
-    height: 100%;
-    background: linear-gradient(
-        120deg,
-        transparent,
-        rgba(255,255,255,.2),
-        transparent
-    );
-    transition: 0.7s ease;
-}
-
-.portfolio-tag:hover::before {
-    left: 140%;
-}
-
-/* =========================================
-   IMAGE DEPTH ENHANCEMENT
-========================================= */
-
-.portfolio-image img {
-    filter: saturate(1.05) contrast(1.05);
-}
-
-.portfolio-card:hover .portfolio-image img {
-    filter: saturate(1.2) contrast(1.1);
-}
-
-/* =========================================
-   BUTTON UPGRADE (FEEL LEBIH MAHAL)
-========================================= */
-
-.portfolio-btn {
-    letter-spacing: 0;
-    transition: 0.4s ease;
-}
-
-.portfolio-btn:hover {
-    letter-spacing: 0.8px;
-}
-
-/* click feel */
-.portfolio-btn:active {
-    transform: scale(0.95);
-}
-
-/* =========================================
-   BACKGROUND GLOW MOVEMENT (SUBTLE LUXURY)
-========================================= */
-
-.portfolio-section::before,
-.portfolio-section::after {
-    animation: floatGlow 10s ease-in-out infinite;
-}
-
-@keyframes floatGlow {
-    0%, 100% {
-        transform: translateY(0) scale(1);
-    }
-    50% {
-        transform: translateY(30px) scale(1.15);
+    .portfolio-btn{
+        width:100%;
+        text-align:center;
     }
 }
