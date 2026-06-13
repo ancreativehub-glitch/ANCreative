@@ -3,8 +3,10 @@
 ========================================= */
 
 .tentang {
+    padding: 20px 20px;
+    animation: fadeUp 1s ease;
+    border-bottom: none;
     padding-top: 70px;
-   
 }
 
 .tentang-container {
