@@ -663,38 +663,40 @@ body {
     font-size: 32px;
 }
 
-/* PRICE BANNER */
+/* =========================================
+   PRICE BANNER
+========================================= */
 
 .price-banner {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 25px;
 
     padding: 25px 40px;
 
     color: #fff;
 
-    background: linear-gradient(
-        90deg,
-        #0f58ff,
-        #0047d4
-    );
-
+    background: linear-gradient(90deg, #0f58ff, #0047d4);
     border-radius: 20px;
 }
 
+/* =========================================
+   LEFT SECTION
+========================================= */
+
 .price-left small {
     display: block;
-
     margin-bottom: 5px;
-
     font-size: 14px;
+    opacity: 0.9;
 }
 
 .price-left h2 {
     font-size: 52px;
     font-weight: 800;
     line-height: 1;
+    margin: 0;
 }
 
 .price-left button {
@@ -709,7 +711,17 @@ body {
     border-radius: 30px;
 
     cursor: pointer;
+    transition: all 0.3s ease;
 }
+
+.price-left button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+/* =========================================
+   FEATURE CENTER
+========================================= */
 
 .price-feature {
     text-align: center;
@@ -725,6 +737,10 @@ body {
     font-weight: 600;
 }
 
+/* =========================================
+   DISCOUNT RIGHT
+========================================= */
+
 .price-discount {
     display: flex;
     align-items: center;
@@ -733,11 +749,33 @@ body {
 
 .price-discount img {
     width: 70px;
+    height: auto;
 }
 
 .price-discount h3 {
     font-size: 20px;
     line-height: 1.4;
+    margin: 0;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 768px) {
+    .price-banner {
+        flex-direction: column;
+        text-align: center;
+        padding: 25px 20px;
+    }
+
+    .price-discount {
+        justify-content: center;
+    }
+
+    .price-left h2 {
+        font-size: 40px;
+    }
 }
 
 /* =========================================
