@@ -710,207 +710,317 @@ body {
     }
 }
 
-/* ================================
-   PRICE BANNER - PREMIUM STYLE
-================================ */
+/* =========================================
+   BANNER
+========================================= */
 
-.price-banner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
+.price-banner{
+    max-width:1200px;
+    margin:80px auto;
+    padding:50px 40px;
 
-    padding: 35px;
-    border-radius: 25px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+    flex-wrap:wrap;
 
-    background: radial-gradient(circle at top left, #7c3aed, #ec4899, #f59e0b);
-    position: relative;
-    overflow: hidden;
+    background:#fff;
 
-    color: #fff;
+    border-radius:20px;
+
+    position:relative;
+    overflow:hidden;
 
     box-shadow:
-        0 20px 60px rgba(0,0,0,0.35),
-        inset 0 0 80px rgba(255,255,255,0.15);
-
-    isolation: isolate;
+    0 15px 40px rgba(0,0,0,.08);
 }
 
-/* glowing overlay effect */
-.price-banner::before {
-    content: "";
-    position: absolute;
-    inset: -50%;
-    background: conic-gradient(
-        from 180deg,
-        #ff00cc,
-        #3333ff,
-        #00ffcc,
-        #ffcc00,
-        #ff00cc
+/* WAVE BAWAH */
+
+.price-banner::before{
+    content:"";
+    position:absolute;
+    bottom:-80px;
+    left:-50px;
+
+    width:140%;
+    height:180px;
+
+    background:
+    linear-gradient(
+        90deg,
+        #ff7b00,
+        #ffb300
     );
-    animation: rotateGlow 10s linear infinite;
-    opacity: 0.25;
-    z-index: 0;
+
+    border-radius:50%;
+    .price-banner::before{
+    animation: waveMove 12s ease-in-out infinite;
 }
 
-@keyframes rotateGlow {
-    to {
-        transform: rotate(360deg);
+@keyframes waveMove{
+    0%,100%{
+        transform:translateX(0);
+    }
+
+    50%{
+        transform:translateX(-40px);
     }
 }
-
-/* ================================
-   LEFT SECTION (MAIN VALUE)
-================================ */
-
-.price-left {
-    position: relative;
-    z-index: 2;
-    flex: 1.2;
 }
 
-.price-left small {
-    font-size: 13px;
-    letter-spacing: 2px;
-    opacity: 0.85;
-    text-transform: uppercase;
-}
+/* WAVE ATAS */
 
-.price-left h2 {
-    font-size: 52px;
-    font-weight: 900;
-    margin: 10px 0 15px;
-    text-shadow: 0 10px 25px rgba(0,0,0,0.3);
-}
+.price-banner::after{
+    content:"";
+    position:absolute;
+    top:-120px;
+    right:-120px;
 
-.price-left button {
-    padding: 12px 25px;
-    border: none;
-    border-radius: 50px;
+    width:450px;
+    height:250px;
 
-    background: linear-gradient(90deg, #ffe600, #ff7a00);
-    color: #111;
-    font-weight: 700;
-    cursor: pointer;
-
-    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-    transition: 0.3s ease;
-}
-
-.price-left button:hover {
-    transform: translateY(-3px) scale(1.05);
-}
-
-/* ================================
-   FEATURE CARDS (GLASS STYLE)
-================================ */
-
-.price-feature {
-    position: relative;
-    z-index: 2;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    min-width: 130px;
-    padding: 18px;
-
-    border-radius: 18px;
-
-    background: rgba(255,255,255,0.12);
-    backdrop-filter: blur(12px);
-
-    border: 1px solid rgba(255,255,255,0.2);
-
-    transition: 0.3s ease;
-}
-
-.price-feature:hover {
-    transform: translateY(-6px);
-    background: rgba(255,255,255,0.2);
-}
-
-.price-feature img {
-    width: 45px;
-    height: 45px;
-    object-fit: contain;
-    margin-bottom: 8px;
-}
-
-.price-feature span {
-    font-size: 12px;
-    font-weight: 600;
-    text-align: center;
-}
-
-/* ================================
-   DISCOUNT BOX (HIGHLIGHT)
-================================ */
-
-.price-discount {
-    position: relative;
-    z-index: 2;
-
-    display: flex;
-    align-items: center;
-    gap: 15px;
-
-    flex: 1.3;
-
-    padding: 22px;
-    border-radius: 22px;
-
-    background: linear-gradient(
+    background:
+    linear-gradient(
         135deg,
-        rgba(255,255,255,0.25),
-        rgba(255,255,255,0.08)
+        rgba(255,183,0,.2),
+        rgba(255,123,0,.15)
     );
 
-    backdrop-filter: blur(15px);
-
-    border: 1px solid rgba(255,255,255,0.25);
-
-    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    border-radius:50%;
+    .price-banner::after{
+    animation: glowPulse 8s ease-in-out infinite;
 }
 
-.price-discount img {
-    width: 75px;
-    height: 75px;
-    object-fit: contain;
-}
+@keyframes glowPulse{
 
-.price-discount h3 {
-    font-size: 15px;
-    line-height: 1.5;
-    font-weight: 600;
-}
-
-/* ================================
-   RESPONSIVE DESIGN
-================================ */
-
-@media (max-width: 1024px) {
-    .price-banner {
-        flex-wrap: wrap;
-        justify-content: center;
-        text-align: center;
+    0%,100%{
+        opacity:.4;
+        transform:scale(1);
     }
 
-    .price-discount {
-        justify-content: center;
+    50%{
+        opacity:.8;
+        transform:scale(1.08);
+    }
+}
+}
+
+/* KONTEN */
+
+.price-left,
+.price-feature,
+.price-discount{
+    position:relative;
+    z-index:2;
+}
+
+.price-left button{
+    position:relative;
+    overflow:hidden;
+}
+
+.price-left button::before{
+    content:"";
+    position:absolute;
+
+    top:0;
+    left:-120%;
+
+    width:60px;
+    height:100%;
+
+    background:
+    linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.6),
+        transparent
+    );
+
+    transform:skewX(-25deg);
+
+    animation: shine 4s infinite;
+}
+
+@keyframes shine{
+
+    0%{
+        left:-120%;
+    }
+
+    30%{
+        left:130%;
+    }
+
+    100%{
+        left:130%;
     }
 }
 
-@media (max-width: 600px) {
-    .price-left h2 {
-        font-size: 36px;
+.price-feature,
+.price-discount,
+.price-banner::before,
+.price-banner::after,
+.price-feature img{
+    will-change: transform;
+}
+
+/* HARGA */
+
+.price-left{
+    flex:1;
+    min-width:250px;
+}
+
+.price-left small{
+    display:block;
+
+    color:#555;
+    font-size:.85rem;
+    letter-spacing:3px;
+    text-transform:uppercase;
+
+    margin-bottom:10px;
+}
+
+.price-left h2{
+    font-size:4rem;
+    line-height:1;
+
+    color:#222;
+    font-weight:800;
+
+    margin-bottom:15px;
+}
+
+.price-left button{
+    padding:14px 30px;
+
+    border:none;
+    border-radius:12px;
+
+    background:#ff9800;
+    color:#fff;
+
+    font-weight:700;
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.price-left button:hover{
+    background:#ff7b00;
+    transform:translateY(-3px);
+}
+
+/* FEATURE */
+
+.price-feature{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    min-width:130px;
+}
+
+.price-feature img{
+    width:55px;
+    margin-bottom:10px;
+}
+
+.price-feature span{
+    font-size:.9rem;
+    font-weight:600;
+    color:#333;
+    text-align:center;
+}
+
+.price-feature img{
+    animation: floatIcon 4s ease-in-out infinite;
+}
+
+.price-feature:nth-child(3) img{
+    animation-delay:1s;
+}
+
+.price-feature:nth-child(4) img{
+    animation-delay:2s;
+}
+
+@keyframes floatIcon{
+
+    0%,100%{
+        transform:translateY(0);
     }
 
-    .price-feature {
-        min-width: 110px;
+    50%{
+        transform:translateY(-8px);
+    }
+}
+
+/* DISKON */
+
+.price-discount{
+    background:#fff;
+
+    padding:20px;
+
+    border-radius:15px;
+
+    border:2px solid #ff9800;
+
+    text-align:center;
+
+    min-width:250px;
+}
+
+.price-discount img{
+    width:70px;
+    margin-bottom:10px;
+}
+
+.price-discount h3{
+    color:#ff6b00;
+    font-size:.95rem;
+    line-height:1.6;
+}
+
+.price-discount{
+    animation: discountFloat 5s ease-in-out infinite;
+}
+
+@keyframes discountFloat{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-6px);
+    }
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+    .price-banner{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .price-left h2{
+        font-size:3rem;
+    }
+
+    .price-feature{
+        width:100%;
+    }
+
+    .price-discount{
+        width:100%;
     }
 }
 
