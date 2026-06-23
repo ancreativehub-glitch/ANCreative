@@ -1,396 +1,231 @@
 /* =========================================
+   GLOBAL
+========================================= */
+
+html{
+    scroll-behavior:smooth;
+}
+
+*{
+    box-sizing:border-box;
+}
+
+/* =========================================
    TENTANG SECTION
 ========================================= */
 
-.tentang {
-    padding: 20px 20px;
-    animation: fadeUp 1s ease;
-    border-bottom: none;
-    padding-top: 70px;
+.tentang{
+    padding:70px 20px 30px;
 }
 
-.tentang-container {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 50px;
-    margin: auto;
-    max-width: 1200px;
-    padding: 50px;
+.tentang-container{
+    position:relative;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:50px;
 
-    border-radius: 30px;
-    background: rgba(15,23,42,.55);
-    backdrop-filter: blur(14px);
-    border: 1px solid rgba(96,165,250,.12);
-    box-shadow: 0 15px 35px rgba(0,0,0,.2);
+    max-width:1200px;
+    margin:auto;
+    padding:45px;
 
-    overflow: hidden;
-    transition: .4s ease;
+    border-radius:24px;
+
+    background:rgba(15,23,42,.72);
+    border:1px solid rgba(96,165,250,.08);
+
+    backdrop-filter:blur(4px);
+
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+
+    overflow:hidden;
+
+    transition:transform .25s ease;
 }
 
-.tentang-container:hover {
-    transform: translateY(-6px);
+.tentang-container:hover{
+    transform:translateY(-3px);
 }
 
-.tentang-container::before {
-    content: "";
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(
-        rgba(96,165,250,.08),
-        transparent 70%
+.tentang-container::before{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:
+    radial-gradient(
+        circle at top right,
+        rgba(96,165,250,.06),
+        transparent 60%
     );
-    animation: rotateGlow 10s linear infinite;
-    z-index: 0;
+
+    pointer-events:none;
 }
 
 /* =========================================
    FOTO
 ========================================= */
 
-.tentang-image {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    position: relative;
-    z-index: 2;
+.tentang-image{
+    flex:1;
+    display:flex;
+    justify-content:center;
+    position:relative;
+    z-index:1;
 }
 
-.tentang-image img {
-    width: 320px;
-    border-radius: 25px;
-    object-fit: cover;
-    border: 2px solid rgba(96,165,250,.15);
-    box-shadow: 0 15px 35px rgba(0,0,0,.3);
+.tentang-image img{
+    width:320px;
+    max-width:100%;
 
-    animation: floatPhoto 5s ease-in-out infinite;
-    transition: transform .5s ease, box-shadow .5s ease;
+    border-radius:22px;
+    object-fit:cover;
+
+    border:1px solid rgba(96,165,250,.15);
+
+    box-shadow:0 10px 25px rgba(0,0,0,.18);
+
+    transition:transform .25s ease;
 }
 
-.tentang-image img:hover {
-    transform: scale(1.04) rotate(2deg);
-    box-shadow: 0 25px 45px rgba(0,0,0,.35);
+.tentang-image img:hover{
+    transform:scale(1.02);
 }
 
 /* =========================================
    CONTENT
 ========================================= */
 
-.tentang-content {
-    flex: 1;
-    z-index: 2;
+.tentang-content{
+    flex:1;
+    position:relative;
+    z-index:1;
 }
 
-.tentang-title {
-    font-size: 60px;
-    color: #fff;
-    margin-bottom: 25px;
+.tentang-title{
+    position:relative;
 
-    animation: fadeLeft 1s ease;
-    transition: .35s ease;
+    font-size:clamp(36px,5vw,60px);
+    line-height:1.1;
+
+    color:#fff;
+    margin-bottom:25px;
 }
 
-.tentang-title:hover {
-    letter-spacing: 2px;
+.tentang-title::after{
+    content:"";
+    position:absolute;
+
+    left:0;
+    bottom:-10px;
+
+    width:70px;
+    height:4px;
+
+    border-radius:50px;
 }
 
-.tentang-text {
-    color: #cbd5e1;
-    font-size: 18px;
-    line-height: 1.9;
-    margin-bottom: 40px;
-
-    animation: fadeUp 1.2s ease;
-    transition: .35s ease;
-}
-
-.tentang-text:hover {
-    color: #fff;
+.tentang-text{
+    color:#cbd5e1;
+    font-size:18px;
+    line-height:1.9;
+    margin-bottom:40px;
 }
 
 /* =========================================
    INFO BOX
 ========================================= */
 
-.tentang-info {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    margin-bottom: 40px;
+.tentang-info{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+    margin-bottom:35px;
 }
 
-.info-box {
-    flex: 1;
-    min-width: 150px;
-    padding: 25px;
-    border-radius: 20px;
-    text-align: center;
+.info-box{
+    flex:1;
+    min-width:150px;
 
-    background: rgba(15,23,42,.55);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(96,165,250,.12);
+    padding:25px;
 
-    transition: .4s ease;
-    animation: fadeUp 1s ease;
+    text-align:center;
+
+    border-radius:18px;
+
+    background:rgba(255,255,255,.03);
+    border:1px solid rgba(255,255,255,.06);
+
+    transition:transform .25s ease;
 }
 
-.info-box:hover {
-    transform: translateY(-8px) scale(1.03);
-    background: rgba(96,165,250,.08);
-    box-shadow: 0 18px 35px rgba(0,0,0,.25);
+.info-box:hover{
+    transform:translateY(-4px);
 }
 
-.info-box h3 {
-    font-size: 38px;
-    color: #ffffff;
-    margin-bottom: 10px;
+.info-box h3{
+    font-size:38px;
+    font-weight:700;
+    color:#fff;
+    margin-bottom:8px;
 }
 
-.info-box span {
-    color: #fff;
-    font-size: 15px;
-}
-
-/* =========================================
-   BUTTON
-========================================= */
-
-.tentang-btn {
-    display: inline-block;
-    padding: 16px 38px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 600;
-
-    background: linear-gradient(135deg, #2563eb, #60a5fa);
-    color: #fff;
-    box-shadow: 0 10px 25px rgba(37,99,235,.3);
-
-    position: relative;
-    overflow: hidden;
-    transition: .4s ease;
-}
-
-.tentang-btn::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -130%;
-    width: 120%;
-    height: 100%;
-
-    background: linear-gradient(
-        120deg,
-        transparent,
-        rgba(255,255,255,.25),
-        transparent
-    );
-
-    transition: .8s ease;
-}
-
-.tentang-btn:hover::before {
-    left: 140%;
-}
-
-.tentang-btn:hover {
-    transform: translateY(-6px) scale(1.03);
+.info-box span{
+    color:#cbd5e1;
+    font-size:15px;
 }
 
 /* =========================================
    RESPONSIVE
 ========================================= */
 
-@media (max-width: 950px) {
-    .tentang-container {
-        flex-direction: column;
-        text-align: center;
+@media (max-width:950px){
+
+    .tentang-container{
+        flex-direction:column;
+        text-align:center;
+        padding:35px 30px;
     }
 
-    .tentang-info {
-        justify-content: center;
+    .tentang-info{
+        justify-content:center;
     }
 
-    .tentang-title {
-        font-size: 45px;
-    }
-}
-
-@media (max-width: 768px) {
-    .tentang-container {
-        padding: 35px 25px;
-    }
-
-    .tentang-image img {
-        width: 100%;
-        max-width: 300px;
-    }
-
-    .tentang-title {
-        font-size: 38px;
-    }
-
-    .tentang-text {
-        font-size: 16px;
-    }
-   }
-
-   
-/* =========================================
-   EXTRA PREMIUM EFFECT (TENTANG SECTION)
-========================================= */
-
-/* smooth entrance lebih halus */
-.tentang {
-    animation: fadeUp 1s ease both;
-}
-
-/* hover container lebih “luxury depth” */
-.tentang-container {
-    transition: transform 0.5s ease, box-shadow 0.5s ease;
-}
-
-.tentang-container:hover {
-    transform: translateY(-8px) scale(1.01);
-    box-shadow: 0 25px 60px rgba(0,0,0,.35);
-}
-
-/* =========================================
-   BACKGROUND GLOW MOVEMENT ENHANCEMENT
-========================================= */
-
-.tentang-container::after {
-    content: "";
-    position: absolute;
-    inset: -20%;
-    background: radial-gradient(
-        circle at 30% 30%,
-        rgba(96,165,250,.10),
-        transparent 60%
-    );
-    animation: slowPulse 6s ease-in-out infinite;
-    z-index: 0;
-}
-
-@keyframes slowPulse {
-    0%, 100% {
-        transform: scale(1);
-        opacity: 0.6;
-    }
-    50% {
-        transform: scale(1.1);
-        opacity: 1;
+    .tentang-title::after{
+        left:50%;
+        transform:translateX(-50%);
     }
 }
 
-/* =========================================
-   IMAGE MICRO INTERACTION UPGRADE
-========================================= */
+@media (max-width:768px){
 
-.tentang-image img {
-    cursor: pointer;
-}
+    .tentang{
+        padding:60px 15px 20px;
+    }
 
-.tentang-image img:hover {
-    filter: brightness(1.08) saturate(1.1);
-}
+    .tentang-container{
+        gap:30px;
+        padding:30px 20px;
+    }
 
-/* =========================================
-   TITLE EXTRA WOW EFFECT
-========================================= */
+    .tentang-image img{
+        max-width:280px;
+    }
 
-.tentang-title {
-    position: relative;
-}
+    .tentang-title{
+        font-size:34px;
+    }
 
-.tentang-title::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -8px;
-    width: 0%;
-    height: 3px;
-    background: linear-gradient(90deg, #ffffff, transparent);
-    transition: 0.5s ease;
-}
+    .tentang-text{
+        font-size:16px;
+    }
 
-.tentang-title:hover::after {
-    width: 100%;
-}
+    .info-box{
+        min-width:130px;
+        padding:20px;
+    }
 
-/* glow ringan saat hover judul */
-.tentang-title:hover {
-    text-shadow: 0 0 25px rgba(96,165,250,.25);
-}
-
-/* =========================================
-   INFO BOX EXTRA DEPTH EFFECT
-========================================= */
-
-.info-box {
-    position: relative;
-    overflow: hidden;
-}
-
-/* shine halus pada box */
-.info-box::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -120%;
-    width: 60%;
-    height: 100%;
-    background: linear-gradient(
-        120deg,
-        transparent,
-        rgba(255,255,255,.12),
-        transparent
-    );
-    transition: 0.7s ease;
-}
-
-.info-box:hover::before {
-    left: 140%;
-}
-
-/* icon-like glow bawah box */
-.info-box::after {
-    content: "";
-    position: absolute;
-    bottom: -20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60%;
-    height: 20px;
-    background: rgba(96,165,250,.15);
-    filter: blur(20px);
-    opacity: 0;
-    transition: 0.4s ease;
-}
-
-.info-box:hover::after {
-    opacity: 1;
-}
-
-/* =========================================
-   BUTTON MICRO ANIMATION UPGRADE
-========================================= */
-
-.tentang-btn {
-    letter-spacing: 0;
-    transition: 0.4s ease;
-}
-
-.tentang-btn:hover {
-    letter-spacing: 1px;
-    box-shadow: 0 15px 35px rgba(37,99,235,.45);
-}
-
-/* ripple effect ringan */
-.tentang-btn:active {
-    transform: scale(0.97);
+    .info-box h3{
+        font-size:30px;
+    }
 }
