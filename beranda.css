@@ -1060,11 +1060,11 @@ textarea{
 
 .footer-logo img{
     width:70px;
-    margin-top:none;
+    margin:auto;
 }
 
 .footer-logo h3{
-    margin-top:15px;
+    margin-top:auto;
 }
 
 .footer-logo span{
