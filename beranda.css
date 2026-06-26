@@ -1228,3 +1228,94 @@ textarea{
         gap:15px;
     }
 }
+
+
+/* =========================
+   FINAL GLOBAL STABILITY FIX
+   FULL PAGE (TOP → FOOTER)
+========================= */
+
+/* ROOT SAFETY */
+html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip; /* lebih modern & stabil */
+    scroll-behavior: smooth;
+}
+
+/* BOX MODEL FIX GLOBAL */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* CEGAH OVERFLOW FLEX/GRID */
+* {
+    min-width: 0;
+}
+
+/* MEDIA SAFETY */
+img,
+video,
+iframe {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* SECTION SAFETY (ANTI LEBAR GESER) */
+section {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* TYPOGRAPHY SAFETY (ANTI TEKS NYUNDUL LAYOUT) */
+h1, h2, h3, h4, h5, h6,
+p, span, a {
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
+/* GRID & FLEX CONTAINER SAFETY GLOBAL */
+.hero,
+.about,
+.tentang-container,
+.website-process,
+.contact-container,
+.price-banner,
+.why-grid,
+.service-wrapper,
+.portfolio-container,
+.order-steps,
+.hosting-grid {
+    width: 100%;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* NAVBAR FIX (BIAR TIDAK NGELEWAT LAYAR) */
+.navbar {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* FORM SAFETY */
+input,
+textarea,
+button {
+    max-width: 100%;
+}
+
+/* SAFETY UNTUK ELEMENT ABSOLUTE / FLOATING SHAPE */
+.price-banner::before,
+.price-banner::after {
+    pointer-events: none;
+}
+
+/* FINAL SAFETY FALLBACK (LAST RESORT) */
+body {
+    overflow-x: clip;
+}
