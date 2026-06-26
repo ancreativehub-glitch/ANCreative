@@ -520,102 +520,54 @@ section{
 }
 
 /* =========================
-   PRICE BANNER FINAL
+   PRICE BANNER
 ========================= */
 
 .price-banner{
-    width:100%;
-    max-width:1100px;
-
+    width:min(92%,1200px);
     margin:80px auto;
 
-    padding:60px 40px;
+    padding:45px 35px;
 
-    background:linear-gradient(135deg,#0048ff,#7b2ff7);
-    border-radius:28px;
+    background:linear-gradient(135deg,#0d6efd,#7b2ff7);
+    border-radius:24px;
 
     display:grid;
-    grid-template-columns:1.5fr repeat(3,1fr) 1.3fr;
-    gap:35px;
-
+    grid-template-columns:2fr repeat(3,1fr) 1.5fr;
+    gap:25px;
     align-items:center;
 
-    box-shadow:0 20px 50px rgba(0,72,255,.25);
+    color:#fff;
 
-    position:relative;
-    overflow:hidden;
-    box-sizing:border-box;
-}
-
-/* dekorasi */
-
-.price-banner::before{
-    content:"";
-    position:absolute;
-
-    width:300px;
-    height:300px;
-
-    border-radius:50%;
-    background:rgba(255,255,255,.08);
-
-    top:-130px;
-    left:-130px;
-}
-
-.price-banner::after{
-    content:"";
-    position:absolute;
-
-    width:250px;
-    height:250px;
-
-    border-radius:50%;
-    background:rgba(255,255,255,.05);
-
-    bottom:-120px;
-    right:-120px;
+    box-shadow:0 20px 50px rgba(0,0,0,.18);
 }
 
 /* =========================
-   LEFT
+   PRICE LEFT
 ========================= */
-
-.price-left{
-    position:relative;
-    z-index:2;
-}
 
 .price-left small{
     display:block;
-
-    color:#fff;
+    font-size:.85rem;
+    letter-spacing:1px;
     opacity:.9;
-
-    letter-spacing:2px;
-    font-size:.95rem;
+    margin-bottom:10px;
 }
 
 .price-left h2{
-    color:#fff;
-
-    font-size:4rem;
+    font-size:3rem;
     font-weight:800;
-
-    margin:15px 0 25px;
     line-height:1.1;
+    margin-bottom:15px;
 }
 
 .price-left button{
     border:none;
-    outline:none;
-
     background:#fff;
-    color:#0048ff;
+    color:#0d6efd;
 
-    padding:15px 35px;
-
-    border-radius:50px;
+    padding:10px 22px;
+    border-radius:999px;
 
     font-size:1rem;
     font-weight:700;
@@ -625,7 +577,8 @@ section{
 }
 
 .price-left button:hover{
-    transform:translateY(-5px);
+    transform:translateY(-3px);
+    box-shadow:0 10px 20px rgba(0,0,0,.15);
 }
 
 /* =========================
@@ -633,28 +586,24 @@ section{
 ========================= */
 
 .price-feature{
-    position:relative;
-    z-index:2;
-
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
     text-align:center;
-
-    transition:.3s;
-}
-
-.price-feature:hover{
-    transform:translateY(-8px);
+    gap:12px;
 }
 
 .price-feature img{
-    width:72px;
-    display:block;
-    margin:0 auto 15px;
+    width:75px;
+    height:75px;
+    object-fit:contain;
 }
 
 .price-feature span{
-    color:#fff;
+    font-size:.95rem;
     font-weight:600;
-    font-size:1rem;
+    line-height:1.4;
 }
 
 /* =========================
@@ -662,96 +611,42 @@ section{
 ========================= */
 
 .price-discount{
-
-    position:relative;
-    z-index:2;
-
-    width:100%;
-    max-width:290px;
-
-    margin:auto;
-
-    background:linear-gradient(135deg,#ff2d55,#ff0040);
-
-    color:#fff;
-
-    padding:28px 45px 28px 28px;
-
-    text-align:center;
-
-    clip-path:polygon(
-        0 0,
-        88% 0,
-        100% 50%,
-        88% 100%,
-        0 100%,
-        5% 50%
-    );
-
-    box-shadow:0 15px 30px rgba(255,0,64,.35);
-
-    animation:floatRibbon 3s ease-in-out infinite;
+    display:flex;
+    align-items:center;
+    gap:18px;
 }
 
 .price-discount img{
-    width:65px;
-    display:block;
-    margin:0 auto 15px;
+    width:80px;
+    height:80px;
+    object-fit:contain;
 }
 
 .price-discount h3{
-    color:#fff;
-
     font-size:1rem;
-    line-height:1.7;
     font-weight:700;
-}
-
-/* =========================
-   ANIMATION
-========================= */
-
-@keyframes floatRibbon{
-
-    0%,100%{
-        transform:translateY(0);
-    }
-
-    50%{
-        transform:translateY(-8px);
-    }
-
+    line-height:1.5;
 }
 
 /* =========================
    TABLET
 ========================= */
 
-@media(max-width:1100px){
+@media (max-width:992px){
 
     .price-banner{
-
-        width:calc(100% - 50px);
-
         grid-template-columns:repeat(2,1fr);
-
-        padding:50px 30px;
-        gap:30px;
-
+        text-align:center;
     }
 
     .price-left{
-
         grid-column:1/-1;
-        text-align:center;
-
     }
 
     .price-discount{
-
         grid-column:1/-1;
-        margin:20px auto 0;
-
+        justify-content:center;
+        text-align:left;
     }
 
 }
@@ -760,51 +655,40 @@ section{
    MOBILE
 ========================= */
 
-@media(max-width:768px){
+@media (max-width:576px){
 
     .price-banner{
-
-        width:calc(100% - 32px);
-
-        margin:60px auto;
-
-        padding:45px 22px;
-
         grid-template-columns:1fr;
-
-        gap:28px;
-
-        border-radius:24px;
-
+        padding:35px 20px;
+        gap:30px;
         text-align:center;
-
     }
 
     .price-left h2{
-
-        font-size:3rem;
-
+        font-size:2.2rem;
     }
 
     .price-feature img{
-
-        width:64px;
-
+        width:65px;
+        height:65px;
     }
 
     .price-discount{
-
-        max-width:260px;
-
-        padding:25px 20px;
-
-        clip-path:none;
-
-        border-radius:20px;
-
+        flex-direction:column;
+        text-align:center;
+        gap:15px;
     }
 
-   }
+    .price-discount img{
+        width:70px;
+        height:70px;
+    }
+
+    .price-discount h3{
+        font-size:.95rem;
+    }
+
+}
 
 /* =======================
    WEBSITE PROCESS
