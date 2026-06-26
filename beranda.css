@@ -215,6 +215,15 @@ body {
     overflow: hidden;
 }
 
+.hero h1{
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 1.1;
+    font-size: clamp(2.5rem, 8vw, 5rem);
+}
+
 /* =========================================
    HERO LEFT
 ========================================= */
