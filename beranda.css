@@ -520,67 +520,65 @@ section{
 }
 
 /* =========================
-   PRICE BANNER FLOATING
-========================= */
-
-/* =========================
    PRICE BANNER FINAL
 ========================= */
 
 .price-banner{
-    width:90%;
-    max-width: 1100px;
-    margin: 0 auto;
+    width:100%;
+    max-width:1100px;
 
-    padding: 80px 20px;
+    margin:80px auto;
+
+    padding:60px 40px;
 
     background:linear-gradient(135deg,#0048ff,#7b2ff7);
-    border-radius: 24px;
+    border-radius:28px;
 
     display:grid;
-    grid-template-columns:1.4fr repeat(3,1fr) 1.3fr;
-    gap:30px;
+    grid-template-columns:1.5fr repeat(3,1fr) 1.3fr;
+    gap:35px;
 
     align-items:center;
 
     box-shadow:0 20px 50px rgba(0,72,255,.25);
 
-    overflow:hidden;
     position:relative;
+    overflow:hidden;
+    box-sizing:border-box;
 }
 
+/* dekorasi */
+
 .price-banner::before{
-    content:'';
+    content:"";
     position:absolute;
 
     width:300px;
     height:300px;
 
     border-radius:50%;
-
     background:rgba(255,255,255,.08);
 
-    top:-120px;
-    left:-100px;
+    top:-130px;
+    left:-130px;
 }
 
 .price-banner::after{
-    content:'';
+    content:"";
     position:absolute;
 
     width:250px;
     height:250px;
 
     border-radius:50%;
-
     background:rgba(255,255,255,.05);
 
-    right:-100px;
-    bottom:-100px;
+    bottom:-120px;
+    right:-120px;
 }
 
 /* =========================
-   PRICE LEFT
+   LEFT
 ========================= */
 
 .price-left{
@@ -589,33 +587,40 @@ section{
 }
 
 .price-left small{
+    display:block;
+
     color:#fff;
-    font-size:.95rem;
-    letter-spacing:2px;
     opacity:.9;
+
+    letter-spacing:2px;
+    font-size:.95rem;
 }
 
 .price-left h2{
     color:#fff;
-    font-size:4.5rem;
+
+    font-size:4rem;
     font-weight:800;
-    margin:15px 0;
+
+    margin:15px 0 25px;
+    line-height:1.1;
 }
 
 .price-left button{
     border:none;
-    padding:15px 35px;
-
-    border-radius:50px;
+    outline:none;
 
     background:#fff;
     color:#0048ff;
 
-    font-weight:700;
+    padding:15px 35px;
+
+    border-radius:50px;
+
     font-size:1rem;
+    font-weight:700;
 
     cursor:pointer;
-
     transition:.3s;
 }
 
@@ -624,7 +629,7 @@ section{
 }
 
 /* =========================
-   FEATURES
+   FEATURE
 ========================= */
 
 .price-feature{
@@ -637,23 +642,23 @@ section{
 }
 
 .price-feature:hover{
-    transform:translateY(-10px);
+    transform:translateY(-8px);
 }
 
 .price-feature img{
-    width:80px;
-    margin:0 auto 20px;
+    width:72px;
+    display:block;
+    margin:0 auto 15px;
 }
 
 .price-feature span{
-    display:block;
     color:#fff;
-    font-size:1rem;
     font-weight:600;
+    font-size:1rem;
 }
 
 /* =========================
-   DISCOUNT RIBBON
+   DISCOUNT
 ========================= */
 
 .price-discount{
@@ -661,17 +666,16 @@ section{
     position:relative;
     z-index:2;
 
-    background:linear-gradient(
-        135deg,
-        #ff2d55,
-        #ff0040
-    );
+    width:100%;
+    max-width:290px;
+
+    margin:auto;
+
+    background:linear-gradient(135deg,#ff2d55,#ff0040);
 
     color:#fff;
 
-    padding:30px 60px 30px 35px;
-
-    min-width:280px;
+    padding:28px 45px 28px 28px;
 
     text-align:center;
 
@@ -690,16 +694,17 @@ section{
 }
 
 .price-discount img{
-    width:70px;
-    margin:0 auto 15px;
+    width:65px;
     display:block;
+    margin:0 auto 15px;
 }
 
 .price-discount h3{
-    font-size:1rem;
-    line-height:1.8;
-    font-weight:700;
     color:#fff;
+
+    font-size:1rem;
+    line-height:1.7;
+    font-weight:700;
 }
 
 /* =========================
@@ -719,50 +724,87 @@ section{
 }
 
 /* =========================
-   RESPONSIVE
+   TABLET
 ========================= */
 
 @media(max-width:1100px){
 
     .price-banner{
+
+        width:calc(100% - 50px);
+
         grid-template-columns:repeat(2,1fr);
+
+        padding:50px 30px;
+        gap:30px;
+
     }
 
     .price-left{
+
         grid-column:1/-1;
         text-align:center;
+
     }
 
     .price-discount{
+
         grid-column:1/-1;
-        margin:auto;
+        margin:20px auto 0;
+
     }
 
 }
+
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:768px){
 
     .price-banner{
-        width:95%;
-        padding:40px 25px;
+
+        width:calc(100% - 32px);
+
+        margin:60px auto;
+
+        padding:45px 22px;
 
         grid-template-columns:1fr;
 
+        gap:28px;
+
+        border-radius:24px;
+
         text-align:center;
+
     }
 
     .price-left h2{
+
         font-size:3rem;
+
+    }
+
+    .price-feature img{
+
+        width:64px;
+
     }
 
     .price-discount{
-        width:100%;
+
+        max-width:260px;
+
+        padding:25px 20px;
+
         clip-path:none;
-        border-radius:25px;
-        padding:30px 20px;
+
+        border-radius:20px;
+
     }
 
-}
+   }
 
 /* =======================
    WEBSITE PROCESS
