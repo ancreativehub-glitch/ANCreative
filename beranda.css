@@ -1060,7 +1060,7 @@ textarea{
 
 .footer-logo img{
     width:70px;
-    margin:auto;
+    margin-top:none;
 }
 
 .footer-logo h3{
