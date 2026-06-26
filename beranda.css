@@ -204,15 +204,15 @@ body {
 ========================================= */
 
 .hero{
-    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 60px;
 
+    width: 100%;
     min-height: 100vh;
-    padding: 110px 6% 60px;
 
+    padding: 110px 7% 70px;
     overflow: hidden;
 }
 
@@ -222,8 +222,7 @@ body {
 
 .hero-left{
     flex: 1;
-    max-width: 620px;
-    z-index: 2;
+    max-width: 600px;
 }
 
 .hero-left h1{
@@ -231,27 +230,19 @@ body {
     font-size: clamp(42px, 6vw, 78px);
     font-weight: 800;
     line-height: 1.1;
-    margin-bottom: 20px;
-    transition: .4s ease;
+    margin: 0 0 35px;
+    text-align: left;
 }
 
 .hero-left h1:hover{
-    text-shadow: 0 0 25px rgba(255,255,255,.5);
-    transform: scale(1.02);
+    text-shadow: 0 0 25px rgba(255,255,255,.4);
 }
 
 .hero-left p{
     color: #fff;
     font-size: 18px;
     line-height: 1.8;
-    max-width: 520px;
     margin-bottom: 35px;
-    transition: .3s ease;
-}
-
-.hero-left p:hover{
-    opacity: .9;
-    transform: translateX(5px);
 }
 
 /* =========================================
@@ -264,22 +255,22 @@ body {
     justify-content: center;
     gap: 10px;
 
-    padding: 15px 35px;
+    padding: 15px 34px;
 
     color: #fff;
     text-decoration: none;
     font-weight: 600;
 
     border: 2px solid #fff;
-    border-radius: 50px;
+    border-radius: 999px;
 
-    transition: .35s ease;
+    transition: .3s ease;
 }
 
 .btn:hover{
     background: rgba(255,255,255,.12);
-    box-shadow: 0 15px 30px rgba(255,255,255,.18);
     transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(255,255,255,.15);
 }
 
 /* =========================================
@@ -288,110 +279,58 @@ body {
 
 .hero-right{
     flex: 1;
-    position: relative;
-    min-height: 560px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-/* =========================================
-   LAPTOP
-========================================= */
-
 .laptop{
-    position: absolute;
-    top: 50%;
-    left: 50%;
+    width: 100%;
+    max-width: 620px;
+    height: auto;
 
-    width: min(600px,90%);
-
-    transform: translate(-50%,-50%);
-    z-index: 10;
-
-    transition: .4s ease;
+    transition: .35s ease;
 }
 
 .laptop:hover{
-    transform: translate(-50%,-50%) scale(1.05);
+    transform: scale(1.04);
     filter: drop-shadow(0 20px 40px rgba(0,0,0,.35));
 }
 
 /* =========================================
-   FLOATING OBJECT
+   TABLET
 ========================================= */
 
-.palette,
-.ps,
-.ai,
-.id,
-.cup,
-.tablet{
-    position: absolute;
-    transition: .4s ease;
-}
-
-.palette:hover,
-.ps:hover,
-.ai:hover,
-.id:hover,
-.cup:hover,
-.tablet:hover{
-    transform: scale(1.1) rotate(-5deg);
-    filter: drop-shadow(0 15px 25px rgba(0,0,0,.3));
-}
-
-/* =========================================
-   POSITION
-========================================= */
-
-.palette{
-    left: 20px;
-    bottom: 60px;
-    width: 120px;
-}
-
-.ps{
-    top: 40px;
-    right: 130px;
-    width: 55px;
-}
-
-.ai{
-    top: 15px;
-    right: 60px;
-    width: 55px;
-}
-
-.id{
-    top: 95px;
-    right: 95px;
-    width: 55px;
-}
-
-.cup{
-    top: 170px;
-    right: 15px;
-    width: 110px;
-}
-
-.tablet{
-    right: 20px;
-    bottom: 30px;
-    width: 220px;
-}
-
-/* =========================================
-   RESPONSIVE
-========================================= */
-
-@media (max-width: 992px){
+@media (max-width:992px){
 
     .hero{
-        flex-direction: column;
+        gap: 40px;
+        padding: 110px 5% 60px;
+    }
+
+    .hero-left h1{
+        font-size: clamp(36px, 6vw, 60px);
+    }
+
+    .laptop{
+        max-width: 500px;
+    }
+
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width:768px){
+
+    .hero{
+        flex-direction: column-reverse;
         justify-content: center;
         text-align: center;
-        gap: 40px;
 
         min-height: auto;
-        padding: 120px 25px 60px;
+        padding: 110px 25px 60px;
     }
 
     .hero-left{
@@ -399,65 +338,55 @@ body {
     }
 
     .hero-left h1{
-        font-size: clamp(40px,11vw,60px);
-        margin-bottom: 20px;
+        font-size: clamp(34px, 10vw, 50px);
+        text-align: center;
+        margin-bottom: 25px;
     }
 
     .hero-left p{
+        text-align: center;
         font-size: 16px;
-        margin: 0 auto 30px;
     }
 
     .btn{
-        margin: auto;
+        display: inline-flex;
     }
 
     .hero-right{
         width: 100%;
-        min-height: 420px;
     }
 
     .laptop{
-        width: 95%;
-    }
-
-    .palette{
-        width: 90px;
-        left: 0;
-        bottom: 40px;
-    }
-
-    .ps{
-        width: 45px;
-        top: 20px;
-        right: 70px;
-    }
-
-    .ai{
-        width: 45px;
-        top: 0;
-        right: 20px;
-    }
-
-    .id{
-        width: 45px;
-        top: 70px;
-        right: 45px;
-    }
-
-    .cup{
-        width: 85px;
-        top: 120px;
-        right: 0;
-    }
-
-    .tablet{
-        width: 170px;
-        right: 0;
-        bottom: 10px;
+        width: 90%;
+        max-width: 420px;
     }
 
 }
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width:480px){
+
+    .hero{
+        padding: 100px 20px 50px;
+    }
+
+    .hero-left h1{
+        font-size: 36px;
+    }
+
+    .btn{
+        width: 100%;
+        max-width: 260px;
+    }
+
+    .laptop{
+        width: 100%;
+    }
+
+                         }
 
 /* =========================================
    ABOUT SECTION
