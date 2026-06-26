@@ -782,15 +782,17 @@
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
 <script>
-    const toggle = document.getElementById("menuToggle");
-    const menu = document.getElementById("dropdownMenu");
+    const menuToggle = document.getElementById("menuToggle");
+    const dropdown = document.getElementById("dropdownMenu");
+    menuToggle.addEventListener("click", () => {
+    dropdown.classList.toggle("show");
+});
 
-    if (toggle && menu) {
-        toggle.addEventListener("click", () => {
-            menu.classList.toggle("active");
-            toggle.classList.toggle("active");
-        });
+document.addEventListener("click", (e) => {
+    if (!menuToggle.contains(e.target) && !dropdown.contains(e.target)) {
+        dropdown.classList.remove("show");
     }
+});
 
     document.querySelectorAll(".card").forEach((card) => {
         card.addEventListener("click", () => {
