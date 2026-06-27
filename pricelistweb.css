@@ -1,0 +1,573 @@
+/* ==========================================
+   FONTS IMPORT & ANIMATION KEYFRAMES 
+   ========================================== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Base Class untuk Animasi Scroll Komponen (Sinkron Beranda) */
+.scroll-animate {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.scroll-animate.animated {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Delay bergantian untuk element grid berjejer (Staggered effect) */
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+
+
+/* ==========================================
+   RESET & GLOBAL STYLE 
+   ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif; /* Menyeragamkan font dasar utama ke Poppins */
+}
+
+:root {
+    --primary-color: #0d6efd;      
+    --primary-hover: #0052cc;      /* Diselaraskan dengan transisi warna biru beranda */
+    --bg-body: #f8fafc;            
+    --text-main: #1e293b;          
+    --text-muted: #64748b;
+    --card-bg: #ffffff;
+    --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+    --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Disinkronkan ke cubic-bezier */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Penyesuaian jarak berhenti scroll agar tidak tertutup navbar fixed */
+main, header {
+    scroll-margin-top: 80px; 
+}
+
+
+/* ==========================================
+   NAVBAR SECTION (Identik dengan Beranda)
+   ========================================== */
+.navbar {
+    background: #ffffff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    animation: fadeInUp 0.5s ease-out forwards;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.navbar .logo-img {
+    height: 60px;
+    width: auto;  
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.navbar .logo-img:hover {
+    transform: scale(1.05);
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+.menu-toggle .bar {
+    height: 3px;
+    width: 25px;
+    background-color: #333;
+    margin: 4px 0;
+    transition: 0.4s;
+}
+
+.nav-menu a {
+    color: #444;
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 5px;
+    transition: color 0.3s ease;
+}
+
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.nav-menu a:hover {
+    color: var(--primary-color);
+}
+
+.nav-menu a:hover::after,
+.nav-menu a.active::after {
+    width: 100%;
+}
+
+.nav-menu a.active {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+
+/* ==========================================
+   HERO & SEARCH SECTION
+   ========================================== */
+header {
+    background: linear-gradient(135deg, #0084ff 0%, #0052cc 50%, #002b80 100%); /* Gradasi Biru identik Beranda */
+    color: #ffffff;
+    padding: 80px 0 90px 0; /* Padding disesuaikan agar lega */
+    text-align: center;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    animation: fadeInLeft 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+header h1 {
+    font-size: 2.3rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+    letter-spacing: -0.5px;
+    line-height: 1.3;
+}
+
+.search-container {
+    position: relative;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.search-container input {
+    width: 100%;
+    padding: 14px 20px 14px 50px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    outline: none;
+    transition: var(--transition);
+}
+
+.search-container input:focus {
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.4); /* Glow putih transparan beranda */
+    transform: scale(1.01);
+}
+
+.search-icon {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+
+/* ==========================================
+   PRICELIST CONTENT & GRID CARD
+   ========================================== */
+main {
+    padding: 80px 0;
+}
+
+.price-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 25px;
+}
+
+.price-card {
+    background: var(--card-bg);
+    border-radius: 20px;
+    padding: 35px 24px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    border: 1px solid #e2e8f0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    transition: var(--transition);
+}
+
+.price-card:hover {
+    transform: translateY(-8px); /* Bounce naik disamakan dengan modul layanan beranda */
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.12);
+    border-color: var(--primary-color);
+}
+
+.card-icon {
+    width: 65px;
+    height: 65px;
+    background-color: #eef2ff;
+    color: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+    transition: var(--transition);
+}
+
+.price-card:hover .card-icon {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    transform: scale(1.05) rotate(3deg); /* Efek rotasi ikon beranda */
+}
+
+.price-card h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #111;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.price-card .price {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 25px;
+}
+
+.btn-order {
+    width: 100%;
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border: none;
+    padding: 13px 20px;
+    border-radius: 30px; /* Diubah melengkung elips agar senada dengan tombol CTA */
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-shadow: 0 4px 10px rgba(13, 110, 253, 0.15);
+    transition: var(--transition);
+}
+
+.btn-order i {
+    font-size: 0.85rem;
+    transition: var(--transition);
+}
+
+.btn-order:hover {
+    background-color: var(--primary-hover);
+    box-shadow: 0 8px 15px rgba(13, 110, 253, 0.3);
+}
+
+.btn-order:hover i {
+    transform: translateX(5px);
+}
+
+/* Custom Card Layout Spesifik */
+.custom-card {
+    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+    border: 1px dashed var(--primary-color);
+}
+.custom-card .card-icon {
+    background-color: #3b82f6;
+    color: #fff;
+}
+.custom-card .price {
+    font-size: 1.2rem;
+    color: #1e3a8a;
+}
+.custom-card .btn-order {
+    background-color: #212121; /* Menyamakan dengan warna tag-black di beranda */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.custom-card .btn-order:hover {
+    background-color: #000000;
+}
+
+.no-result {
+    text-align: center;
+    padding: 40px;
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+
+/* ==========================================
+   FOOTER SECTION (UPDATED: ALL CENTERED)
+   ========================================== */
+.footer {
+    background-color: #000000;
+    color: #ffffff;
+    font-family: 'Inter', sans-serif; /* Menggunakan font Inter khusus area footer */
+    padding: 60px 40px; 
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column; /* Menyusun susunan info & logo secara vertikal */
+    align-items: center;    /* Memosisikan seluruh komponen tepat di tengah */
+    justify-content: center;
+    gap: 30px;
+}
+
+.footer-info {
+    text-align: center;     /* Meratakan teks info ke tengah */
+}
+
+.footer-info h3 {
+    font-size: 1.05rem; 
+    font-weight: 700;
+    margin: 0 0 4px 0;
+    letter-spacing: 0.3px;
+}
+
+.footer-info p {
+    font-size: 0.9rem; 
+    line-height: 1.5;
+    color: #ffffff; 
+    margin: 0 0 16px 0;
+}
+
+.footer-info p:last-child {
+    margin-bottom: 0;
+}
+
+.footer-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;    /* Menyelaraskan logo dan copyright di tengah */
+    gap: 15px; 
+    text-align: center;
+}
+
+.footer-logo {
+    margin-bottom: 0; 
+}
+
+.footer .logo-img {
+    height: 80px; 
+    width: auto;  
+    display: block;
+    margin: 0 auto;
+    transition: transform 0.3s ease;
+}
+.footer .logo-img:hover {
+    transform: translateY(-3px);
+}
+
+.copyright {
+    font-size: 0.85rem; 
+    color: #ffffff;
+    white-space: nowrap; 
+}
+
+
+/* ==========================================
+   WHATSAPP FLOATING BUTTON (Identik Beranda)
+   ========================================== */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25d366; 
+    color: #fff;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 35px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.whatsapp-float::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.whatsapp-float:hover {
+    background-color: #20ba5a;
+    transform: scale(1.1); 
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+
+/* ==========================================
+   MEDIA QUERIES (RESPONSIVE CONFIG)
+   ========================================== */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: absolute;
+        top: 65px; /* Disesuaikan agar pas dengan tinggi area header navbar */
+        left: -100%;
+        flex-direction: column;
+        background-color: #ffffff;
+        width: 100%;
+        text-align: center;
+        gap: 0;
+        box-shadow: 0 10px 10px rgba(0,0,0,0.05);
+        transition: 0.3s;
+        padding: 20px 0;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-menu li {
+        width: 100%;
+    }
+
+    .nav-menu a {
+        display: block;
+        padding: 15px 0;
+        width: 100%;
+    }
+
+    .nav-menu a::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    /* Transformasi Tombol Hamburger Cross (X) */
+    .menu-toggle.is-active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-toggle.is-active .bar:nth-child(1) {
+        transform: translateY(11px) rotate(45deg);
+    }
+    .menu-toggle.is-active .bar:nth-child(3) {
+        transform: translateY(-11px) rotate(-45deg);
+    }
+
+    header {
+        padding: 60px 0 70px 0;
+    }
+
+    header h1 {
+        font-size: 1.8rem;
+    }
+    
+    main {
+        padding: 50px 0;
+    }
+
+    .price-grid {
+        grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+        gap: 15px;
+    }
+
+    .footer {
+        padding: 40px 20px;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        align-items: center; /* Tetap rata tengah di perangkat seluler */
+        gap: 30px;
+    }
+
+    .footer-right {
+        align-items: center; /* Tetap rata tengah di perangkat seluler */
+        text-align: center;  /* Tetap rata tengah di perangkat seluler */
+        width: 100%;
+        gap: 15px;
+    }
+
+    .footer-logo {
+        margin-bottom: 0;
+    }
+
+    .copyright {
+        white-space: normal;
+    }
+}
