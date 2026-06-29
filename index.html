@@ -13,7 +13,8 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="ANCreative - Jasa Desain Grafis & Pembuatan Website Murah">
     <meta property="og:description" content="Solusi visual dan digital kreatif, profesional, dan terjangkau untuk UMKM, organisasi, dan mahasiswa.">
-    <meta property="og:url" content="https://ancreativehub.com"> <meta property="og:image" content="logo ANCreative.svg">
+    <meta property="og:url" content="https://ancreativehub.com"> 
+    <meta property="og:image" content="logo ANCreative.svg">
 
     <link rel="canonical" href="https://ancreativehub.com">
 
@@ -315,13 +316,16 @@
             });
         });
 
-        // Carousel / Slider
+        // Carousel / Slider dengan Fitur Geser Sentuh (Touch Swipe)
         const track = document.querySelector('.slider-track');
         const items = document.querySelectorAll('.slider-item');
         const nextBtn = document.querySelector('.next-btn');
         const prevBtn = document.querySelector('.prev-btn');
 
         let currentIndex = 0;
+        let startX = 0;
+        let currentX = 0;
+        let isDragging = false;
 
         function getItemsPerView() {
             return window.innerWidth >= 768 ? 3 : 1;
@@ -336,6 +340,8 @@
             if (currentIndex < 0) currentIndex = 0;
 
             const itemWidth = items[0].getBoundingClientRect().width + 15;
+            
+            track.style.transition = "transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)";
             track.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
         }
 
@@ -351,7 +357,42 @@
             updateSlider();
         });
 
-        // Optimasi: Gunakan resize dengan teknik ringan (requestAnimationFrame) agar tidak ngelag di HP lama
+        // --- DETEKSI EVENT SENTUHAN JARI ---
+        track.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+            isDragging = true;
+            track.style.transition = 'none';
+        }, { passive: true });
+
+        track.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            currentX = e.touches[0].clientX;
+            const diffX = currentX - startX;
+            
+            const itemPerView = getItemsPerView();
+            const itemWidth = items[0].getBoundingClientRect().width + 15;
+            const currentTranslation = -currentIndex * itemWidth;
+            
+            track.style.transform = `translateX(${currentTranslation + diffX}px)`;
+        }, { passive: true });
+
+        track.addEventListener('touchend', () => {
+            if (!isDragging) return;
+            isDragging = false;
+            
+            const diffX = currentX - startX;
+            const swipeThreshold = 50;
+            const itemPerView = getItemsPerView();
+
+            if (diffX < -swipeThreshold && currentIndex < items.length - itemPerView) {
+                currentIndex++;
+            } else if (diffX > swipeThreshold && currentIndex > 0) {
+                currentIndex--;
+            }
+            
+            updateSlider();
+        });
+
         let resizeTimeout;
         window.addEventListener('resize', () => {
             if (resizeTimeout) cancelAnimationFrame(resizeTimeout);
@@ -401,7 +442,7 @@
         searchLayananItem();
     }
 
-    // Live Search Otomatis (Aman dari Lag karena manipulasi DOM langsung lewat style.display)
+    // Live Search Otomatis
     function searchLayananItem() {
         const input = document.getElementById('pl-searchBar').value.toLowerCase();
         const activePanel = document.querySelector('.pl-price-panel.active');
