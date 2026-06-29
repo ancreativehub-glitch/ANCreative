@@ -1,8 +1,10 @@
 /* ==========================================
-   FONTS IMPORT & ANIMATION KEYFRAMES 
+   FONTS IMPORT - DIHAPUS (Sudah dioptimalkan via HTML)
    ========================================== */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
 
+/* ==========================================
+   ANIMATION KEYFRAMES 
+   ========================================== */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -29,6 +31,7 @@
 .scroll-animate {
     opacity: 0;
     transform: translateY(40px);
+    will-change: transform, opacity;
     transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
                 transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
@@ -43,33 +46,41 @@
 .delay-2 { transition-delay: 0.2s; }
 .delay-3 { transition-delay: 0.3s; }
 
-
 /* ==========================================
    RESET & GLOBAL STYLE 
    ========================================== */
-* {
+*, *::before, *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif; /* Menyeragamkan font dasar utama ke Poppins */
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 :root {
     --primary-color: #0d6efd;      
-    --primary-hover: #0052cc;      /* Diselaraskan dengan transisi warna biru beranda */
+    --primary-hover: #0052cc;      
     --bg-body: #f8fafc;            
     --text-main: #1e293b;          
     --text-muted: #64748b;
     --card-bg: #ffffff;
     --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
-    --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                  box-shadow 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                  border-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                  background-color 0.3s ease;
 }
 
 body {
+    font-family: 'Poppins', sans-serif; /* Menyeragamkan font dasar utama ke Poppins */
     background-color: var(--bg-body);
     color: var(--text-main);
     line-height: 1.6;
     overflow-x: hidden;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
 }
 
 .container {
@@ -82,7 +93,6 @@ body {
 main, header {
     scroll-margin-top: 80px; 
 }
-
 
 /* ==========================================
    NAVBAR SECTION (Identik dengan Beranda)
@@ -171,7 +181,6 @@ main, header {
     font-weight: 600;
 }
 
-
 /* ==========================================
    HERO & SEARCH SECTION
    ========================================== */
@@ -211,7 +220,7 @@ main, header {
     font-size: 1rem;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
     outline: none;
-    transition: var(--transition);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .search-container input:focus {
@@ -228,7 +237,6 @@ main, header {
     font-size: 1.1rem;
 }
 
-
 /* ==========================================
    PRICELIST CONTENT & GRID CARD
    ========================================== */
@@ -240,6 +248,8 @@ main {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     gap: 25px;
+    content-visibility: auto; /* Browser melewati kalkulasi elemen jika di luar layar */
+    contain-intrinsic-size: 0 1000px;
 }
 
 .price-card {
@@ -253,11 +263,13 @@ main {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    transform: translateZ(0);
+    will-change: transform, box-shadow, border-color;
     transition: var(--transition);
 }
 
 .price-card:hover {
-    transform: translateY(-8px); /* Bounce naik disamakan dengan modul layanan beranda */
+    transform: translateY(-8px) translateZ(0); /* Bounce naik disamakan dengan modul layanan beranda */
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.12);
     border-color: var(--primary-color);
 }
@@ -273,6 +285,7 @@ main {
     justify-content: center;
     font-size: 1.6rem;
     margin-bottom: 20px;
+    will-change: transform, background-color, color;
     transition: var(--transition);
 }
 
@@ -311,12 +324,13 @@ main {
     justify-content: center;
     gap: 8px;
     box-shadow: 0 4px 10px rgba(13, 110, 253, 0.15);
+    will-change: background-color, box-shadow;
     transition: var(--transition);
 }
 
 .btn-order i {
     font-size: 0.85rem;
-    transition: var(--transition);
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .btn-order:hover {
@@ -356,7 +370,6 @@ main {
     color: var(--text-muted);
     font-weight: 500;
 }
-
 
 /* ==========================================
    FOOTER SECTION (UPDATED: ALL CENTERED)
@@ -414,7 +427,7 @@ main {
 
 .footer .logo-img {
     height: 80px; 
-    width: auto;  
+    width: auto;   
     display: block;
     margin: 0 auto;
     transition: transform 0.3s ease;
@@ -428,7 +441,6 @@ main {
     color: #ffffff;
     white-space: nowrap; 
 }
-
 
 /* ==========================================
    WHATSAPP FLOATING BUTTON (Identik Beranda)
@@ -450,7 +462,9 @@ main {
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    transition: all 0.3s ease;
+    transform: translateZ(0);
+    will-change: transform, background-color, box-shadow;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .whatsapp-float::before {
@@ -467,10 +481,9 @@ main {
 
 .whatsapp-float:hover {
     background-color: #20ba5a;
-    transform: scale(1.1); 
+    transform: scale(1.1) translateZ(0); 
     box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.4);
 }
-
 
 /* ==========================================
    MEDIA QUERIES (RESPONSIVE CONFIG)
@@ -490,7 +503,7 @@ main {
         text-align: center;
         gap: 0;
         box-shadow: 0 10px 10px rgba(0,0,0,0.05);
-        transition: 0.3s;
+        transition: left 0.3s ease;
         padding: 20px 0;
     }
 
