@@ -20,7 +20,7 @@
 @keyframes fadeInLeft {
     from {
         opacity: 0;
-        transform: translateY(30px); /* fallback mobile smooth */
+        transform: translateY(30px);
     }
     to {
         opacity: 1;
@@ -52,7 +52,7 @@
     transform: translateY(0);
 }
 
-/* Delay bergantian untuk element berjejer (Staggered effect) */
+/* Delay bergantian untuk element berjejer */
 .delay-1 { transition-delay: 0.1s; }
 .delay-2 { transition-delay: 0.2s; }
 .delay-3 { transition-delay: 0.3s; }
@@ -70,7 +70,6 @@ html {
     scroll-behavior: smooth;
 }
 
-/* Penyesuaian jarak berhenti scroll agar tidak tertutup navbar fixed */
 section, header {
     scroll-margin-top: 80px; 
 }
@@ -131,7 +130,6 @@ img {
     gap: 20px;
 }
 
-/* --- PERBAIKAN TOMBOL HAMBURGER & ANIMASI X --- */
 .menu-toggle {
     display: none;
     flex-direction: column;
@@ -140,7 +138,7 @@ img {
     background: none;
     border: none;
     width: 24px;
-    height: 18px; /* Tinggi kotak dikunci agar kalkulasi rotasi presisi */
+    height: 18px;
     position: relative;
 }
 
@@ -151,18 +149,16 @@ img {
     background-color: #333;
     border-radius: 3px;
     transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    transform-origin: center; /* Titik tumpu rotasi pas di tengah garis */
+    transform-origin: center;
     position: absolute;
 }
 
-/* Posisi awal masing-masing bar garis tiga saat normal */
 .menu-toggle .bar:nth-child(1) { top: 0; }
 .menu-toggle .bar:nth-child(2) { top: 7px; }
 .menu-toggle .bar:nth-child(3) { top: 14px; }
 
-/* Efek transisi berubah wujud menjadi X yang simetris sempurna */
 .menu-toggle.is-active .bar:nth-child(1) {
-    top: 7px; /* Menuju ke baris tengah dulu */
+    top: 7px;
     transform: rotate(45deg);
 }
 
@@ -172,11 +168,10 @@ img {
 }
 
 .menu-toggle.is-active .bar:nth-child(3) {
-    top: 7px; /* Menuju ke baris tengah dulu */
+    top: 7px;
     transform: rotate(-45deg);
 }
 
-/* Styling Link Default */
 .nav-menu a {
     color: #444;
     text-decoration: none;
@@ -185,7 +180,6 @@ img {
     transition: color 0.3s ease;
 }
 
-/* Efek Hover Garis Bawah Kreatif pada Menu */
 .nav-menu a::after {
     content: '';
     position: absolute;
@@ -205,7 +199,6 @@ img {
     width: 100%;
 }
 
-/* Gaya Ketika Menu Navbar Aktif (Scrollspy & Clicked) */
 .nav-menu a.active {
     color: #0d6efd;
     font-weight: 600;
@@ -349,7 +342,8 @@ img {
 .slider-track {
     display: flex;
     gap: 15px;
-    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: transform;
+    touch-action: pan-y;
 }
 
 .slider-item {
@@ -404,7 +398,7 @@ img {
 .next-btn { right: 0; }
 
 /* ==========================================
-   SERVICES SECTION (PRICELIST INTERAKTIF BARU)
+   SERVICES SECTION
    ========================================== */
 .services {
     padding: 100px 5%;
@@ -432,7 +426,6 @@ img {
     margin-bottom: 10px;
 }
 
-/* Controls: Tabs & Search Bar Container */
 .pl-controls {
     display: flex;
     flex-direction: column;
@@ -443,7 +436,6 @@ img {
     width: 100%;
 }
 
-/* Kategori Tab Menu */
 .pl-tabs {
     display: flex;
     background: #e2e8f0;
@@ -471,7 +463,6 @@ img {
     box-shadow: 0 4px 10px rgba(13, 110, 253, 0.25);
 }
 
-/* Pencarian Input */
 .pl-search-wrapper {
     position: relative;
     width: 100%;
@@ -505,7 +496,6 @@ img {
     box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.1);
 }
 
-/* Grid & Panels */
 .pl-price-panel {
     display: none;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -517,7 +507,6 @@ img {
     display: grid;
 }
 
-/* Card Pricelist Item */
 .pl-card {
     background: #ffffff;
     border: 1px solid #e2e8f0;
@@ -563,7 +552,6 @@ img {
     letter-spacing: -0.5px;
 }
 
-/* Button Pesan di Card */
 .pl-btn {
     display: inline-flex;
     align-items: center;
@@ -589,7 +577,6 @@ img {
     filter: brightness(0.9);
 }
 
-/* Desain & Web Custom Card */
 .pl-card.custom-card {
     background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
     color: #ffffff;
@@ -617,7 +604,6 @@ img {
     background-color: #1ebd54;
 }
 
-/* Tampilan Not Found Pencarian */
 .pl-no-results {
     display: none;
     text-align: center;
@@ -738,7 +724,7 @@ img {
 }
 
 /* ==========================================
-   FOOTER SECTION (UPDATED: ALL CENTERED)
+   FOOTER SECTION
    ========================================== */
 .footer {
     background-color: #000000;
@@ -809,48 +795,6 @@ img {
 }
 
 /* ==========================================
-   WHATSAPP FLOATING BUTTON (Disesuaikan dengan HTML)
-   ========================================== */
-.whatsapp-icon {
-    position: fixed;
-    width: 60px;
-    height: 60px;
-    bottom: 20px;
-    right: 20px;
-    background-color: #25d366; 
-    color: #fff;
-    border-radius: 50px;
-    text-align: center;
-    font-size: 32px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-.whatsapp-icon::before {
-    content: '';
-    position: absolute;
-    top: -4px;
-    left: -4px;
-    right: -4px;
-    bottom: -4px;
-    border: 2px solid rgba(255, 255, 255, 0.6);
-    border-radius: 50%;
-    pointer-events: none;
-}
-
-.whatsapp-icon:hover {
-    background-color: #20ba5a;
-    transform: scale(1.1); 
-    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.4);
-    color: #ffffff;
-}
-
-/* ==========================================
    MEDIA QUERIES (MOBILE & TABLET DOWN)
    ========================================== */
 @media (max-width: 768px) {
@@ -861,11 +805,22 @@ img {
         font-size: 20px; 
         line-height: 1.6;
     }
+    
+    /* --- MODIFIKASI PORTOFOLIO RESPONSIVE MOBILE --- */
     .portfolio-slider {
         padding: 60px 0;
     }
+    .slider-container {
+        padding: 0 15px; 
+    }
+    .slider-btn {
+        display: none; 
+    }
+    .slider-item img {
+        height: auto;
+        aspect-ratio: 16 / 9; 
+    }
     
-    /* Pricelist Responsive Mobile */
     .services {
         padding: 60px 15px;
     }
@@ -981,17 +936,14 @@ img {
         justify-content: flex-end;
     }
     
-    /* Controls sampingan di PC laptop */
     .pl-controls {
         flex-direction: row;
     }
     
-    /* Slider */
     .slider-item {
         flex: 0 0 calc(33.333% - 10px); 
     }
     
-    /* About Me */
     .about-container {
         flex-direction: row;
         align-items: center;
