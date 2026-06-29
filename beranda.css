@@ -1,10 +1,15 @@
 /* ==========================================
+   FONTS IMPORT (Poppins, Schoolbell, & Inter)
+   ========================================== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;700&family=Schoolbell&display=swap');
+
+/* ==========================================
    ANIMATION KEYFRAMES 
    ========================================== */
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(30px);
     }
     to {
         opacity: 1;
@@ -15,32 +20,31 @@
 @keyframes fadeInLeft {
     from {
         opacity: 0;
-        transform: translateX(-20px);
+        transform: translateY(30px); /* fallback mobile smooth */
     }
     to {
         opacity: 1;
-        transform: translateX(0);
+        transform: translateY(0);
     }
 }
 
 @keyframes fadeInRight {
     from {
         opacity: 0;
-        transform: translateX(20px);
+        transform: translateY(30px);
     }
     to {
         opacity: 1;
-        transform: translateX(0);
+        transform: translateY(0);
     }
 }
 
-/* Base Class untuk Animasi Scroll dengan Akselerasi Hardware */
+/* Base Class untuk Animasi Scroll */
 .scroll-animate {
     opacity: 0;
-    transform: translateY(30px);
-    will-change: transform, opacity;
-    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
-                transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .scroll-animate.animated {
@@ -48,14 +52,15 @@
     transform: translateY(0);
 }
 
-.delay-1 { transition-delay: 0.05s; }
-.delay-2 { transition-delay: 0.1s; }
-.delay-3 { transition-delay: 0.15s; }
+/* Delay bergantian untuk element berjejer (Staggered effect) */
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
 
 /* ==========================================
    RESET & BASE STYLES
    ========================================== */
-*, *::before, *::after {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -65,6 +70,7 @@ html {
     scroll-behavior: smooth;
 }
 
+/* Penyesuaian jarak berhenti scroll agar tidak tertutup navbar fixed */
 section, header {
     scroll-margin-top: 80px; 
 }
@@ -74,8 +80,6 @@ body {
     color: #333;
     background-color: #ffffff;
     overflow-x: hidden;
-    text-rendering: optimizeSpeed;
-    -webkit-font-smoothing: antialiased;
 }
 
 .container {
@@ -86,7 +90,6 @@ body {
 
 img {
     max-width: 100%;
-    height: auto;
     display: block;
 }
 
@@ -99,7 +102,7 @@ img {
     position: sticky;
     top: 0;
     z-index: 1000;
-    animation: fadeInUp 0.4s ease-out forwards;
+    animation: fadeInUp 0.5s ease-out forwards;
 }
 
 .nav-container {
@@ -115,7 +118,7 @@ img {
     height: 60px;
     width: auto;  
     display: block;
-    transition: transform 0.25s ease;
+    transition: transform 0.3s ease;
 }
 
 .navbar .logo-img:hover {
@@ -128,30 +131,61 @@ img {
     gap: 20px;
 }
 
+/* --- PERBAIKAN TOMBOL HAMBURGER & ANIMASI X --- */
 .menu-toggle {
     display: none;
     flex-direction: column;
+    justify-content: space-between;
     cursor: pointer;
     background: none;
     border: none;
+    width: 24px;
+    height: 18px; /* Tinggi kotak dikunci agar kalkulasi rotasi presisi */
+    position: relative;
 }
 
 .menu-toggle .bar {
+    display: block;
     height: 3px;
-    width: 25px;
+    width: 100%;
     background-color: #333;
-    margin: 4px 0;
-    transition: transform 0.25s ease, opacity 0.25s ease;
+    border-radius: 3px;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform-origin: center; /* Titik tumpu rotasi pas di tengah garis */
+    position: absolute;
 }
 
+/* Posisi awal masing-masing bar garis tiga saat normal */
+.menu-toggle .bar:nth-child(1) { top: 0; }
+.menu-toggle .bar:nth-child(2) { top: 7px; }
+.menu-toggle .bar:nth-child(3) { top: 14px; }
+
+/* Efek transisi berubah wujud menjadi X yang simetris sempurna */
+.menu-toggle.is-active .bar:nth-child(1) {
+    top: 7px; /* Menuju ke baris tengah dulu */
+    transform: rotate(45deg);
+}
+
+.menu-toggle.is-active .bar:nth-child(2) {
+    opacity: 0;
+    transform: translateX(-15px);
+}
+
+.menu-toggle.is-active .bar:nth-child(3) {
+    top: 7px; /* Menuju ke baris tengah dulu */
+    transform: rotate(-45deg);
+}
+
+/* Styling Link Default */
 .nav-menu a {
     color: #444;
     text-decoration: none;
     position: relative;
     padding-bottom: 5px;
-    transition: color 0.25s ease;
+    transition: color 0.3s ease;
 }
 
+/* Efek Hover Garis Bawah Kreatif pada Menu */
 .nav-menu a::after {
     content: '';
     position: absolute;
@@ -160,7 +194,7 @@ img {
     bottom: 0;
     left: 0;
     background-color: #0d6efd;
-    transition: width 0.25s ease;
+    transition: width 0.3s ease;
 }
 
 .nav-menu a:hover {
@@ -171,6 +205,7 @@ img {
     width: 100%;
 }
 
+/* Gaya Ketika Menu Navbar Aktif (Scrollspy & Clicked) */
 .nav-menu a.active {
     color: #0d6efd;
     font-weight: 600;
@@ -204,7 +239,7 @@ img {
     text-align: center;
     color: #ffffff;
     z-index: 2;
-    animation: fadeInLeft 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation: fadeInLeft 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
 
 .hero-content h1 {
@@ -226,12 +261,12 @@ img {
     font-weight: 600;
     font-size: 15px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-    transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.1), box-shadow 0.25s ease; 
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease; 
 }
 
 .btn-cta:hover {
-    transform: translateY(-4px) scale(1.02);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25); 
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); 
 }
 
 .hero-image {
@@ -240,7 +275,7 @@ img {
     display: flex;
     justify-content: center;
     align-self: flex-end; 
-    animation: fadeInRight 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation: fadeInRight 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
 
 .hero-image img {
@@ -251,11 +286,11 @@ img {
     border-top-right-radius: 20px;
     -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
     mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
-    transition: transform 0.4s ease;
+    transition: transform 0.5s ease;
 }
 
 .hero:hover .hero-image img {
-    transform: scale(1.01);
+    transform: scale(1.02);
 }
 
 /* ==========================================
@@ -294,8 +329,6 @@ img {
 .portfolio-slider {
     padding: 100px 0; 
     background: #fcfcfc;
-    content-visibility: auto; 
-    contain-intrinsic-size: 0 500px;
 }
 
 .slider-container {
@@ -316,9 +349,7 @@ img {
 .slider-track {
     display: flex;
     gap: 15px;
-    will-change: transform;
-    transform: translateZ(0); 
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .slider-item {
@@ -326,7 +357,7 @@ img {
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .slider-item:hover {
@@ -338,11 +369,11 @@ img {
     width: 100%;
     height: 200px;
     object-fit: cover;
-    transition: transform 0.4s ease;
+    transition: transform 0.5s ease;
 }
 
 .slider-item:hover img {
-    transform: scale(1.03);
+    transform: scale(1.05);
 }
 
 .slider-btn {
@@ -360,106 +391,252 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background 0.25s ease, transform 0.2s ease;
+    transition: background 0.3s ease, transform 0.2s ease;
 }
 
 .slider-btn:hover {
     background: rgba(0, 0, 0, 0.6);
 }
-.prev-btn:hover { transform: translateY(-50%) scale(1.05); }
-.next-btn:hover { transform: translateY(-50%) scale(1.05); }
+.prev-btn:hover { transform: translateY(-50%) scale(1.1); }
+.next-btn:hover { transform: translateY(-50%) scale(1.1); }
 
 .prev-btn { left: 0; }
 .next-btn { right: 0; }
 
 /* ==========================================
-   SERVICES SECTION
+   SERVICES SECTION (PRICELIST INTERAKTIF BARU)
    ========================================== */
 .services {
-    padding: 100px 20px; 
-    background-color: #ffffff;
-    display: flex;
-    justify-content: center;
-    content-visibility: auto;
-    contain-intrinsic-size: 0 600px;
+    padding: 100px 5%;
+    background-color: #ffffff; 
+    background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
+    background-size: 20px 20px;
 }
 
 .services-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px; 
-    justify-content: center; 
-    max-width: 1000px; 
+    max-width: 1200px;
+    margin: 0 auto;
     width: 100%;
+    display: block; 
 }
 
-.service-card {
+.services-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.services-header h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 10px;
+}
+
+/* Controls: Tabs & Search Bar Container */
+.pl-controls {
     display: flex;
     flex-direction: column;
+    gap: 20px;
     align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
     width: 100%;
-    max-width: 340px; 
-    position: relative; 
-    transition: transform 0.25s ease;
 }
 
-.service-card:hover {
-    transform: translateY(-6px);
-}
-
-.card-inner {
-    width: 100%;
-    height: 180px; 
-    border-radius: 90px; 
-    overflow: hidden;
+/* Kategori Tab Menu */
+.pl-tabs {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
-    margin-bottom: -30px; 
-    position: relative;
-    z-index: 1;
-    transition: box-shadow 0.25s ease;
+    background: #e2e8f0;
+    padding: 6px;
+    border-radius: 30px;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.06);
 }
 
-.service-card:hover .card-inner {
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+.pl-tab-btn {
+    padding: 10px 24px;
+    border: none;
+    background: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: #64748b;
+    cursor: pointer;
+    border-radius: 25px;
+    transition: all 0.3s ease;
 }
 
-.card-inner img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; 
-    transition: transform 0.4s ease;
-}
-
-.service-card:hover .card-inner img {
-    transform: scale(1.05);
-}
-
-.btn-service {
-    display: inline-block;
-    padding: 14px 40px;
-    font-size: 1.1rem;
-    font-weight: 500;
+.pl-tab-btn.active {
+    background: #0d6efd;
     color: #ffffff;
-    text-decoration: none;
-    border-radius: 30px; 
-    transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.1), filter 0.2s ease, box-shadow 0.25s ease;
-    z-index: 2; 
+    box-shadow: 0 4px 10px rgba(13, 110, 253, 0.25);
+}
+
+/* Pencarian Input */
+.pl-search-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 350px;
+}
+
+.pl-search-wrapper i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #94a3b8;
+    font-size: 16px;
+}
+
+.pl-search-input {
+    width: 100%;
+    padding: 12px 16px 12px 45px;
+    border: 2px solid #e2e8f0;
+    border-radius: 30px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    background-color: #ffffff;
+    color: #333;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.pl-search-input:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.1);
+}
+
+/* Grid & Panels */
+.pl-price-panel {
+    display: none;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 25px;
+    animation: fadeInUp 0.4s ease-out forwards;
+}
+
+.pl-price-panel.active {
+    display: grid;
+}
+
+/* Card Pricelist Item */
+.pl-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
     text-align: center;
-    width: 85%; 
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.service-card:hover .btn-service {
-    transform: translateY(-2px);
-    filter: brightness(1.1);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+.pl-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.08);
+    border-color: #cbd5e1;
 }
 
-.btn-graphic { background-color: #b30000; }
-.btn-web { background-color: #0073b7; }
+.pl-card-header h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 12px;
+}
+
+.pl-card-price {
+    font-family: 'Poppins', sans-serif;
+    color: #0d6efd;
+    margin-bottom: 20px;
+}
+
+.pl-card-price .currency {
+    font-size: 14px;
+    font-weight: 500;
+    vertical-align: super;
+}
+
+.pl-card-price .amount {
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+/* Button Pesan di Card */
+.pl-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 10px 16px;
+    background-color: #f1f5f9;
+    color: #334155;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+}
+
+.pl-card:hover .pl-btn {
+    background-color: #0d6efd;
+    color: #ffffff;
+}
+
+.pl-btn:hover {
+    filter: brightness(0.9);
+}
+
+/* Desain & Web Custom Card */
+.pl-card.custom-card {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    color: #ffffff;
+    border: none;
+}
+
+.pl-card.custom-card h3 {
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.pl-card.custom-card p {
+    font-size: 13px;
+    color: #94a3b8;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+.pl-card.custom-card .pl-btn {
+    background-color: #25d366;
+    color: #ffffff;
+}
+
+.pl-card.custom-card .pl-btn:hover {
+    background-color: #1ebd54;
+}
+
+/* Tampilan Not Found Pencarian */
+.pl-no-results {
+    display: none;
+    text-align: center;
+    padding: 40px 20px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+
+.pl-no-results i {
+    font-size: 40px;
+    color: #94a3b8;
+    margin-bottom: 12px;
+}
+
+.pl-no-results p {
+    font-size: 16px;
+    color: #64748b;
+}
 
 /* ==========================================
    ADVANTAGES SECTION
@@ -468,8 +645,6 @@ img {
     background: linear-gradient(90deg, #ffb347 0%, #ffcc66 100%);
     padding: 90px 5%; 
     text-align: center;
-    content-visibility: auto;
-    contain-intrinsic-size: 0 400px;
 }
 
 .advantages h2 {
@@ -503,8 +678,8 @@ img {
 }
 
 .tag:hover {
-    transform: scale(1.05) translateY(-1px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transform: scale(1.08) translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
 }
 
 .tag-purple { background-color: #9c27b0; }
@@ -524,8 +699,6 @@ img {
         linear-gradient(90deg, #e0e0e0 1px, transparent 1px);
     background-size: 30px 30px;
     padding: 100px 5%; 
-    content-visibility: auto;
-    contain-intrinsic-size: 0 500px;
 }
 
 .about-container {
@@ -543,11 +716,18 @@ img {
     justify-content: center;
 }
 
-.about-visual img {
-    transition: transform 0.3s ease;
+.about-visual .polaroid {
+    background: #ffffff;
+    padding: 15px 15px 35px 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    border: 1px solid #eee;
+    transform: rotate(-2deg);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
-.about-visual img:hover {
-    transform: scale(1.02);
+
+.about-visual .polaroid:hover {
+    transform: scale(1.03) rotate(0deg);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
 }
 
 .about-text {
@@ -558,7 +738,7 @@ img {
 }
 
 /* ==========================================
-   FOOTER SECTION 
+   FOOTER SECTION (UPDATED: ALL CENTERED)
    ========================================== */
 .footer {
     background-color: #000000;
@@ -613,13 +793,13 @@ img {
 
 .footer .logo-img {
     height: 80px; 
-    width: auto;   
+    width: auto;  
     display: block;
     margin: 0 auto;
-    transition: transform 0.25s ease;
+    transition: transform 0.3s ease;
 }
 .footer .logo-img:hover {
-    transform: translateY(-2px);
+    transform: translateY(-3px);
 }
 
 .copyright {
@@ -629,25 +809,106 @@ img {
 }
 
 /* ==========================================
-   WHATSAPP FLOATING SECTION - DIHAPUS 
+   WHATSAPP FLOATING BUTTON (Disesuaikan dengan HTML)
    ========================================== */
+.whatsapp-icon {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25d366; 
+    color: #fff;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 32px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.whatsapp-icon::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.whatsapp-icon:hover {
+    background-color: #20ba5a;
+    transform: scale(1.1); 
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.4);
+    color: #ffffff;
+}
 
 /* ==========================================
    MEDIA QUERIES (MOBILE & TABLET DOWN)
    ========================================== */
 @media (max-width: 768px) {
-    .intro { padding: 60px 15px; }
-    .intro p { font-size: 20px; line-height: 1.6; }
-    .portfolio-slider { padding: 60px 0; }
-    .services { padding: 60px 20px; }
-    .services-container { gap: 60px; }
-    .card-inner { height: 160px; border-radius: 80px; }
-    .btn-service { font-size: 1rem; padding: 12px 30px; }
-    .advantages { padding: 60px 5%; }
-    .about-me { padding: 60px 5%; }
-    .footer-container { flex-direction: column; align-items: center; gap: 30px; }
-    .footer-right { align-items: center; text-align: center; width: 100%; }
-    .copyright { white-space: normal; }
+    .intro {
+        padding: 60px 15px;
+    }
+    .intro p {
+        font-size: 20px; 
+        line-height: 1.6;
+    }
+    .portfolio-slider {
+        padding: 60px 0;
+    }
+    
+    /* Pricelist Responsive Mobile */
+    .services {
+        padding: 60px 15px;
+    }
+    .services-header h2 {
+        font-size: 28px;
+    }
+    .pl-controls {
+        flex-direction: column;
+        width: 100%;
+    }
+    .pl-tabs {
+        width: 100%;
+        justify-content: center;
+    }
+    .pl-tab-btn {
+        flex: 1;
+        text-align: center;
+        padding: 10px 10px;
+        font-size: 14px;
+    }
+    .pl-search-wrapper {
+        max-width: 100%;
+    }
+
+    .advantages {
+        padding: 60px 5%;
+    }
+    .about-me {
+        padding: 60px 5%;
+    }
+    .footer-container {
+        flex-direction: column;
+        align-items: center; 
+        gap: 30px;
+    }
+    .footer-right {
+        align-items: center; 
+        text-align: center;
+        width: 100%;
+    }
+    .copyright {
+        white-space: normal; 
+    }
 
     .nav-menu {
         position: absolute;
@@ -657,33 +918,89 @@ img {
         background-color: #fff;
         width: 100%;
         text-align: center;
-        transition: left 0.25s ease;
+        transition: 0.3s;
         box-shadow: 0 10px 10px rgba(0,0,0,0.05);
         padding: 20px 0;
     }
-    .nav-menu.active { left: 0; }
-    .nav-menu a::after { left: 50%; transform: translateX(-50%); }
-    .menu-toggle { display: flex; }
+    .nav-menu.active {
+        left: 0;
+    }
+    
+    .nav-menu a::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
 }
 
 @media (max-width: 480px) {
-    .intro { padding: 50px 10px; }
-    .intro p { font-size: 16px; line-height: 1.6; }
-    .highlight-red-underline { border-bottom-width: 1.5px; }
+    .intro {
+        padding: 50px 10px;
+    }
+    .intro p {
+        font-size: 16px; 
+        line-height: 1.6;
+    }
+    .highlight-red-underline {
+        border-bottom-width: 1.5px; 
+    }
+    .pl-price-panel {
+        grid-template-columns: 1fr; 
+    }
 }
 
 /* ==========================================
    MEDIA QUERIES (LAPTOP & DESKTOP UP)
    ========================================== */
 @media (min-width: 769px) { 
-    .hero { padding: 100px 0 0 0; }
-    .hero-container { flex-direction: row; justify-content: space-between; align-items: center; text-align: left; }
-    .hero-content { text-align: left; flex: 1; max-width: 600px; }
-    .hero-content h1 { font-size: 42px; line-height: 1.2; }
-    .hero-image { flex: 1; max-width: 500px; margin-top: 0; justify-content: flex-end; }
-    .slider-item { flex: 0 0 calc(33.333% - 10px); }
-    .services-container { flex-direction: row; justify-content: space-around; }
-    .about-container { flex-direction: row; align-items: center; }
-    .about-visual { flex: 1; }
-    .about-text { flex: 2; font-size: 15px; }
-   }
+    .hero {
+        padding: 100px 0 0 0; 
+    }
+    .hero-container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        text-align: left;
+    }
+    .hero-content {
+        text-align: left;
+        flex: 1;
+        max-width: 600px;
+    }
+    .hero-content h1 {
+        font-size: 42px;
+        line-height: 1.2;
+    }
+    .hero-image {
+        flex: 1;
+        max-width: 500px; 
+        margin-top: 0;
+        justify-content: flex-end;
+    }
+    
+    /* Controls sampingan di PC laptop */
+    .pl-controls {
+        flex-direction: row;
+    }
+    
+    /* Slider */
+    .slider-item {
+        flex: 0 0 calc(33.333% - 10px); 
+    }
+    
+    /* About Me */
+    .about-container {
+        flex-direction: row;
+        align-items: center;
+    }
+    .about-visual {
+        flex: 1;
+    }
+    .about-text {
+        flex: 2;
+        font-size: 15px;
+    }
+}
