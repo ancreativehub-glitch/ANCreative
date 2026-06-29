@@ -4,8 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pricelist Web - ANCreative</title>
-    <link rel="stylesheet" href="pricelistweb.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+    <link rel="stylesheet" href="pricelistdg.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -15,7 +21,7 @@
             <div class="logo">
                 <img src="logo ANCreative.svg" alt="ANCreative Logo" class="logo-img">
             </div>
-            <button class="menu-toggle" id="mobile-menu">
+            <button class="menu-toggle" id="mobile-menu" aria-label="Toggle navigation menu" aria-expanded="false">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -26,8 +32,8 @@
         </div>
     </nav>
 
-    <header id="layanan">
-        <div class="container">
+    <header id="layanan" class="hero-pricelist">
+        <div class="container header-content">
             <h1>Pricelist Layanan Pembuatan Website</h1>
             <div class="search-container scroll-animate delay-1">
                 <i class="fa-solid fa-magnifying-glass search-icon"></i>
@@ -116,14 +122,20 @@
         </div>
     </footer>
 
+    <a href="https://wa.me/6285707339804" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Hubungi kami melalui WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // 1. KONTROL NAVBAR MOBILE (Diselaraskan class .is-active sesuai beranda)
+            // 1. KONTROL NAVBAR MOBILE
             const mobileMenuBtn = document.getElementById('mobile-menu');
             const navMenu = document.querySelector('.nav-menu');
 
             if (mobileMenuBtn && navMenu) {
                 mobileMenuBtn.addEventListener('click', () => {
+                    const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
+                    mobileMenuBtn.setAttribute('aria-expanded', !isExpanded);
                     mobileMenuBtn.classList.toggle('is-active');
                     navMenu.classList.toggle('active');
                 });
@@ -131,6 +143,7 @@
 
             document.querySelectorAll('.nav-link').forEach(link => {
                 link.addEventListener('click', () => {
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
                     mobileMenuBtn.classList.remove('is-active');
                     navMenu.classList.remove('active');
                 });
@@ -186,7 +199,7 @@
                         }
                         
                         const encodedMessage = encodeURIComponent(message);
-                        window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
+                        window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank', 'noopener,noreferrer');
                     });
                 }
             });
