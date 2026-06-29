@@ -7,18 +7,15 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Schoolbell&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Schoolbell&display=swap" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" media="print" onload="this.media='all'">
     
     <link rel="stylesheet" href="beranda.css">
 </head>
 
 <body>
-    <a href="https://wa.me/6285707339804" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Hubungi kami melalui WhatsApp">
-        <i class="fab fa-whatsapp whatsapp-icon"></i>
-    </a>
-
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">
@@ -152,7 +149,6 @@
 
     <script>
     document.addEventListener('DOMContentLoaded', () => {
-        // --- 1. MOBILE NAVBAR TOGGLE ---
         const mobileMenuBtn = document.getElementById('mobile-menu');
         const navMenu = document.querySelector('.nav-menu');
         const navLinks = document.querySelectorAll('.nav-menu a');
@@ -171,7 +167,6 @@
             });
         });
 
-        // --- 2. RESPONSIVE CAROUSEL / SLIDER ---
         const track = document.querySelector('.slider-track');
         const items = document.querySelectorAll('.slider-item');
         const nextBtn = document.querySelector('.next-btn');
@@ -207,20 +202,18 @@
             updateSlider();
         });
 
-        // Optimasi event resize menggunakan debounce ringan agar tidak membebani browser
         let resizeTimeout;
         window.addEventListener('resize', () => {
             clearTimeout(resizeTimeout);
-            resizeTimeout = setTimeout(updateSlider, 100);
+            resizeTimeout = setTimeout(updateSlider, 50);
         });
         
         updateSlider();
 
-        // --- 3. SCROLL ANIMATION INTERSECTION OBSERVER ---
         const observerOptions = {
             root: null,
             rootMargin: '0px',
-            threshold: 0.15 
+            threshold: 0.1
         };
 
         const scrollObserver = new IntersectionObserver((entries, observer) => {
@@ -234,11 +227,10 @@
 
         document.querySelectorAll('.scroll-animate').forEach(el => scrollObserver.observe(el));
 
-        // --- 4. AUTOMATIC SCROLLSPY ---
         const sections = document.querySelectorAll('.page-section');
         const scrollspyOptions = {
             root: null,
-            rootMargin: '-25% 0px -55% 0px',
+            rootMargin: '-30% 0px -60% 0px',
             threshold: 0
         };
 
@@ -257,4 +249,4 @@
     });
     </script>
 </body>
-</html>
+    </html>
