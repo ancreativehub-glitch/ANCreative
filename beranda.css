@@ -1,7 +1,6 @@
 /* ==========================================
-   FONTS IMPORT (Hanya Poppins & Inter Secukupnya)
+   FONTS IMPORT - DIHAPUS (Font sudah dioptimalkan via HTML)
    ========================================== */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;700&display=swap');
 
 /* ==========================================
    ANIMATION KEYFRAMES 
@@ -39,10 +38,11 @@
     }
 }
 
-/* Base Class untuk Animasi Scroll */
+/* Base Class untuk Animasi Scroll dengan Akselerasi Hardware */
 .scroll-animate {
     opacity: 0;
     transform: translateY(40px);
+    will-change: transform, opacity;
     transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
                 transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
@@ -60,7 +60,7 @@
 /* ==========================================
    RESET & BASE STYLES
    ========================================== */
-* {
+*, *::before, *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -80,6 +80,8 @@ body {
     color: #333;
     background-color: #ffffff;
     overflow-x: hidden;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
 }
 
 .container {
@@ -90,6 +92,7 @@ body {
 
 img {
     max-width: 100%;
+    height: auto;
     display: block;
 }
 
@@ -193,7 +196,7 @@ img {
     background: linear-gradient(135deg, #0084ff 0%, #0052cc 50%, #002b80 100%);
     position: relative;
     overflow: hidden;
-    padding: 80px 0 0 0; /* Memberikan ruang napas di atas hero */
+    padding: 80px 0 0 0; 
 }
 
 .hero-container {
@@ -268,7 +271,7 @@ img {
    INTRO SECTION
    ========================================== */
 .intro {
-    padding: 100px 20px; /* Jarak atas-bawah diperluas agar seimbang */
+    padding: 100px 20px; 
     text-align: center;
 }
 
@@ -298,8 +301,10 @@ img {
    PORTFOLIO SLIDER SECTION
    ========================================== */
 .portfolio-slider {
-    padding: 100px 0; /* Memberi ruang longgar sebelum masuk ke section Layanan */
+    padding: 100px 0; 
     background: #fcfcfc;
+    content-visibility: auto; /* Optimasi render browser */
+    contain-intrinsic-size: 0 500px;
 }
 
 .slider-container {
@@ -320,6 +325,8 @@ img {
 .slider-track {
     display: flex;
     gap: 15px;
+    will-change: transform;
+    transform: translateZ(0); /* Memicu akselerasi Hardware GPU */
     transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
@@ -378,10 +385,12 @@ img {
    SERVICES SECTION
    ========================================== */
 .services {
-    padding: 100px 20px; /* Jarak atas-bawah diperluas agar kartu layanan terpusat dengan baik */
+    padding: 100px 20px; 
     background-color: #ffffff;
     display: flex;
     justify-content: center;
+    content-visibility: auto;
+    contain-intrinsic-size: 0 600px;
 }
 
 .services-container {
@@ -466,13 +475,15 @@ img {
    ========================================== */
 .advantages {
     background: linear-gradient(90deg, #ffb347 0%, #ffcc66 100%);
-    padding: 90px 5%; /* Penyeimbangan ketebalan background gradient */
+    padding: 90px 5%; 
     text-align: center;
+    content-visibility: auto;
+    contain-intrinsic-size: 0 400px;
 }
 
 .advantages h2 {
     font-size: 22px;
-    margin-bottom: 40px; /* Menambah jarak antara judul dan tags di bawahnya */
+    margin-bottom: 40px; 
     font-weight: 700;
 }
 
@@ -521,7 +532,9 @@ img {
         linear-gradient(#e0e0e0 1px, transparent 1px),
         linear-gradient(90deg, #e0e0e0 1px, transparent 1px);
     background-size: 30px 30px;
-    padding: 100px 5%; /* Diperluas agar grid background terlihat lebih elegan */
+    padding: 100px 5%; 
+    content-visibility: auto;
+    contain-intrinsic-size: 0 500px;
 }
 
 .about-container {
@@ -609,7 +622,7 @@ img {
 
 .footer .logo-img {
     height: 80px; 
-    width: auto;  
+    width: auto;   
     display: block;
     margin: 0 auto;
     transition: transform 0.3s ease;
@@ -628,94 +641,65 @@ img {
    WHATSAPP FLOATING BUTTON
    ========================================== */
 .whatsapp-float {
-  position: fixed;
-  width: 60px;
-  height: 60px;
-  bottom: 20px;
-  right: 20px;
-  background-color: #25d366; 
-  color: #fff;
-  border-radius: 50px;
-  text-align: center;
-  font-size: 35px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  transition: all 0.3s ease;
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25d366; 
+    color: #fff;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 35px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    will-change: transform;
+    transform: translateZ(0);
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .whatsapp-float::before {
-  content: '';
-  position: absolute;
-  top: -4px;
-  left: -4px;
-  right: -4px;
-  bottom: -4px;
-  border: 2px solid rgba(255, 255, 255, 0.6);
-  border-radius: 50%;
-  pointer-events: none;
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    pointer-events: none;
 }
 
 .whatsapp-float:hover {
-  background-color: #20ba5a;
-  transform: scale(1.1); 
-  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.4);
+    background-color: #20ba5a;
+    transform: scale(1.1) translateZ(0); 
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.4);
 }
 
 .whatsapp-icon {
-  margin-top: 0px;
+    margin-top: 0px;
 }
 
 /* ==========================================
    MEDIA QUERIES (MOBILE & TABLET DOWN)
    ========================================== */
 @media (max-width: 768px) {
-    .intro {
-        padding: 60px 15px;
-    }
-    .intro p {
-        font-size: 20px; 
-        line-height: 1.6;
-    }
-    .portfolio-slider {
-        padding: 60px 0;
-    }
-    .services {
-        padding: 60px 20px;
-    }
-    .services-container {
-        gap: 60px; 
-    }
-    .card-inner {
-        height: 160px; 
-        border-radius: 80px; 
-    }
-    .btn-service {
-        font-size: 1rem;
-        padding: 12px 30px;
-    }
-    .advantages {
-        padding: 60px 5%;
-    }
-    .about-me {
-        padding: 60px 5%;
-    }
-    .footer-container {
-        flex-direction: column;
-        align-items: center; 
-        gap: 30px;
-    }
-    .footer-right {
-        align-items: center; 
-        text-align: center;
-        width: 100%;
-    }
-    .copyright {
-        white-space: normal; 
-    }
+    .intro { padding: 60px 15px; }
+    .intro p { font-size: 20px; line-height: 1.6; }
+    .portfolio-slider { padding: 60px 0; }
+    .services { padding: 60px 20px; }
+    .services-container { gap: 60px; }
+    .card-inner { height: 160px; border-radius: 80px; }
+    .btn-service { font-size: 1rem; padding: 12px 30px; }
+    .advantages { padding: 60px 5%; }
+    .about-me { padding: 60px 5%; }
+    .footer-container { flex-direction: column; align-items: center; gap: 30px; }
+    .footer-right { align-items: center; text-align: center; width: 100%; }
+    .copyright { white-space: normal; }
 
     .nav-menu {
         position: absolute;
@@ -725,87 +709,33 @@ img {
         background-color: #fff;
         width: 100%;
         text-align: center;
-        transition: 0.3s;
+        transition: left 0.3s ease;
         box-shadow: 0 10px 10px rgba(0,0,0,0.05);
         padding: 20px 0;
     }
-    .nav-menu.active {
-        left: 0;
-    }
-    
-    .nav-menu a::after {
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-    .menu-toggle {
-        display: flex;
-    }
+    .nav-menu.active { left: 0; }
+    .nav-menu a::after { left: 50%; transform: translateX(-50%); }
+    .menu-toggle { display: flex; }
 }
 
 @media (max-width: 480px) {
-    .intro {
-        padding: 50px 10px;
-    }
-    .intro p {
-        font-size: 16px; 
-        line-height: 1.6;
-    }
-    .highlight-red-underline {
-        border-bottom-width: 1.5px; 
-    }
+    .intro { padding: 50px 10px; }
+    .intro p { font-size: 16px; line-height: 1.6; }
+    .highlight-red-underline { border-bottom-width: 1.5px; }
 }
 
 /* ==========================================
    MEDIA QUERIES (LAPTOP & DESKTOP UP)
    ========================================== */
 @media (min-width: 769px) { 
-    .hero {
-        padding: 100px 0 0 0; 
-    }
-    .hero-container {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        text-align: left;
-    }
-    .hero-content {
-        text-align: left;
-        flex: 1;
-        max-width: 600px;
-    }
-    .hero-content h1 {
-        font-size: 42px;
-        line-height: 1.2;
-    }
-    .hero-image {
-        flex: 1;
-        max-width: 500px; 
-        margin-top: 0;
-        justify-content: flex-end;
-    }
-    
-    /* Slider */
-    .slider-item {
-        flex: 0 0 calc(33.333% - 10px); 
-    }
-    
-    /* Services */
-    .services-container {
-        flex-direction: row;
-        justify-content: space-around;
-    }
-    
-    /* About Me */
-    .about-container {
-        flex-direction: row;
-        align-items: center;
-    }
-    .about-visual {
-        flex: 1;
-    }
-    .about-text {
-        flex: 2;
-        font-size: 15px;
-    }
+    .hero { padding: 100px 0 0 0; }
+    .hero-container { flex-direction: row; justify-content: space-between; align-items: center; text-align: left; }
+    .hero-content { text-align: left; flex: 1; max-width: 600px; }
+    .hero-content h1 { font-size: 42px; line-height: 1.2; }
+    .hero-image { flex: 1; max-width: 500px; margin-top: 0; justify-content: flex-end; }
+    .slider-item { flex: 0 0 calc(33.333% - 10px); }
+    .services-container { flex-direction: row; justify-content: space-around; }
+    .about-container { flex-direction: row; align-items: center; }
+    .about-visual { flex: 1; }
+    .about-text { flex: 2; font-size: 15px; }
 }
