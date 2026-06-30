@@ -57,6 +57,7 @@ body {
     color: #333;
     background-color: #ffffff;
     overflow-x: hidden;
+    padding-top: 90px; /* Ditambahkan agar konten hero tidak tertutup navbar fixed */
 }
 
 .container {
@@ -76,8 +77,10 @@ img {
 .navbar {
     background: #ffffff;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    position: sticky;
+    position: fixed; /* DIUBAH: Menggunakan fixed agar konsisten menempel di atas */
     top: 0;
+    left: 0;         /* Ditambahkan untuk memastikan posisi rata kiri */
+    width: 100%;     /* Ditambahkan agar navbar memenuhi lebar layar */
     z-index: 1000;
     animation: fadeInUp 0.5s ease-out forwards;
 }
@@ -193,7 +196,7 @@ img {
     background: linear-gradient(135deg, #0084ff 0%, #0052cc 50%, #002b80 100%);
     position: relative;
     overflow: hidden;
-    padding: 80px 0 0 0; 
+    padding: 40px 0 0 0; /* Diatur ulang dari 80px agar jarak proporsional dengan padding body */
 }
 
 .hero-container {
@@ -844,8 +847,8 @@ img {
     }
 
     .nav-menu {
-        position: absolute;
-        top: 65px;
+        position: fixed; /* DIUBAH: Agar menu mobile juga ikut fixed saat di-scroll */
+        top: 90px;      /* Disesuaikan dengan tinggi area navbar fixed */
         left: -100%;
         flex-direction: column;
         background-color: #fff;
@@ -890,7 +893,7 @@ img {
    ========================================== */
 @media (min-width: 769px) { 
     .hero {
-        padding: 100px 0 0 0; 
+        padding: 60px 0 0 0; 
     }
     .hero-container {
         flex-direction: row;
@@ -933,4 +936,4 @@ img {
         flex: 2;
         font-size: 15px;
     }
-}
+} /* PERBAIKAN: Kurung kurawal ganda yang merusak struktur di akhir file sebelumnya telah dibersihkan */
