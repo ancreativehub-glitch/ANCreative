@@ -49,8 +49,10 @@
                 </ul>
             </div>
         </nav>
+    </header>
 
-        <div id="beranda" class="hero page-section">
+    <main>
+        <section id="beranda" class="hero page-section">
             <div class="hero-container">
                 <div class="hero-content">
                     <h1>Jasa Desain Grafis<br>dan Pembuatan Website</h1>
@@ -62,10 +64,8 @@
                     <img src="Orang.webp" alt="Model ANCreative menunjuk ke arah teks layanan" fetchpriority="high" decoding="sync">
                 </div>
             </div>
-        </div>
-    </header>
+        </section>
 
-    <main>
         <section class="intro scroll-animate">
             <p>
                 Halo, kami menyediakan jasa <span class="highlight-blue">Desain Grafis dan Pembuatan Website</span> 
@@ -343,7 +343,6 @@
             if (currentIndex > maxIndex) currentIndex = maxIndex;
             if (currentIndex < 0) currentIndex = 0;
 
-            // Kalkulasi lebar riil + gap kontainer slider
             const itemWidth = items[0].getBoundingClientRect().width;
             const gap = 20; 
             const moveDistance = currentIndex * (itemWidth + gap);
@@ -369,6 +368,7 @@
         // Touch swipe handling
         track.addEventListener('touchstart', (e) => {
             startX = e.touches[0].clientX;
+            currentX = startX; // Reset currentX agar stabil
             isDragging = true;
             track.style.transition = 'none';
         }, { passive: true });
