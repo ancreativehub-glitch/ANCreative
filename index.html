@@ -21,9 +21,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;700&family=Schoolbell&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    
+    <!-- Font Awesome untuk Icon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <!-- File CSS Utama -->
     <link rel="stylesheet" href="beranda.css">
 </head>
 
@@ -297,9 +297,10 @@
         </div>
     </footer>
 
+    <!-- Bagian Logika JavaScript -->
     <script>
     document.addEventListener('DOMContentLoaded', () => {
-        // Navigasi Mobile
+        // Navigasi Mobile Toggle
         const mobileMenuBtn = document.getElementById('mobile-menu');
         const navMenu = document.querySelector('.nav-menu');
         const navLinks = document.querySelectorAll('.nav-menu a');
@@ -359,7 +360,7 @@
             updateSlider();
         });
 
-        // --- DETEKSI EVENT SENTUHAN JARI ---
+        // Deteksi Event Sentuhan Jari
         track.addEventListener('touchstart', (e) => {
             startX = e.touches[0].clientX;
             isDragging = true;
@@ -415,9 +416,8 @@
 
         document.querySelectorAll('.scroll-animate').forEach(el => scrollObserver.observe(el));
 
-        // Automatic Scrollspy
+        // Automatic Scrollspy Navbar Link Highlight
         const sections = document.querySelectorAll('.page-section');
-        const scrollspyOptions = { root: null, rootMargin: '-30% 0px -50% 0px', threshold: 0 };
         const scrollspyObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -427,12 +427,12 @@
                     if (activeLink) activeLink.classList.add('active');
                 }
             });
-        }, scrollspyObserver);
+        }, { root: null, rootMargin: '-30% 0px -50% 0px', threshold: 0 });
 
         sections.forEach(section => scrollspyObserver.observe(section));
     });
 
-    // Tab Price List
+    // Tab Price List Switcher
     function switchPricelistTab(tabId) {
         document.querySelectorAll('.pl-price-panel').forEach(panel => panel.classList.remove('active'));
         document.querySelectorAll('.pl-tab-btn').forEach(btn => btn.classList.remove('active'));
@@ -444,7 +444,7 @@
         searchLayananItem();
     }
 
-    // Live Search Otomatis
+    // Live Search Otomatis Price List
     function searchLayananItem() {
         const input = document.getElementById('pl-searchBar').value.toLowerCase();
         const activePanel = document.querySelector('.pl-price-panel.active');
