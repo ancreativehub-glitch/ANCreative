@@ -406,8 +406,8 @@ img {
 }
 
 .services-header h2 {
-    font-size: 32px;
-    font-weight: 700;
+    font-size: 25px;
+    font-weight: 600;
     color: #111;
 }
 
@@ -597,9 +597,9 @@ img {
 }
 
 .advantages h2 {
-    font-size: 26px;
+    font-size: 25px;
     margin-bottom: 40px; 
-    font-weight: 700;
+    font-weight: 600;
 }
 
 .brand-dark { color: #222; }
