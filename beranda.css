@@ -392,9 +392,6 @@ img {
    ========================================== */
 .services {
     padding: 80px 5%;
-    background-color: #ffffff; 
-    background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
-    background-size: 20px 20px;
 }
 
 .services-container {
