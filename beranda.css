@@ -669,10 +669,6 @@ img {
 }
 
 .about-visual .polaroid {
-    background: #ffffff;
-    padding: 15px 15px 35px 15px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-    border: 1px solid #eee;
     transform: rotate(-2deg);
     transition: all 0.4s ease;
     max-width: 380px;
@@ -680,8 +676,7 @@ img {
 }
 
 .about-visual .polaroid:hover {
-    transform: scale(1.02) rotate(0deg);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.18);
+    transform: scale(1.05) rotate(0deg);
 }
 
 .about-text {
