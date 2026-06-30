@@ -656,14 +656,6 @@ img {
 /* ==========================================
    ABOUT ME SECTION
    ========================================== */
-.about-me {
-    background-color: #ffffff;
-    background-image: 
-        linear-gradient(#e0e0e0 1px, transparent 1px),
-        linear-gradient(90deg, #e0e0e0 1px, transparent 1px);
-    background-size: 30px 30px;
-    padding: 100px 5%; 
-}
 
 .about-container {
     max-width: 1100px;
