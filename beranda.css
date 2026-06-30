@@ -1,7 +1,7 @@
 /* ==========================================
    FONTS IMPORT (Poppins, Schoolbell, & Inter)
    ========================================== */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;700&family=Schoolbell&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@400;700&family=Schoolbell&display=swap');
 
 /* ==========================================
    ANIMATION KEYFRAMES 
@@ -376,32 +376,47 @@ img {
 .next-btn { right: 0; }
 
 /* ==========================================
-   SERVICES SECTION
+   SERVICES SECTION (PREMIUM DESIGN UPDATED)
    ========================================== */
 .services {
     padding: 100px 5%;
-    background-color: #ffffff; 
-    background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
-    background-size: 20px 20px;
+    background-color: #f8fafc; 
+    background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+    background-size: 24px 24px;
+    position: relative;
 }
 
 .services-container {
     max-width: 1200px;
     margin: 0 auto;
     width: 100%;
-    display: block; 
 }
 
 .services-header {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
 }
 
 .services-header h2 {
-    font-size: 36px;
-    font-weight: 700;
-    color: #111;
-    margin-bottom: 10px;
+    font-size: 38px;
+    font-weight: 800;
+    color: #0f172a;
+    letter-spacing: -1px;
+    position: relative;
+    display: inline-block;
+}
+
+/* Garis dekorasi di bawah judul */
+.services-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: #0d6efd;
+    border-radius: 2px;
 }
 
 .pl-controls {
@@ -412,18 +427,21 @@ img {
     justify-content: space-between;
     margin-bottom: 40px;
     width: 100%;
+    background: #ffffff;
+    padding: 15px 25px;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
 }
 
 .pl-tabs {
     display: flex;
-    background: #e2e8f0;
+    background: #f1f5f9;
     padding: 6px;
     border-radius: 30px;
-    box-shadow: inset 0 2px 4px rgba(0,0,0,0.06);
 }
 
 .pl-tab-btn {
-    padding: 10px 24px;
+    padding: 12px 28px;
     border: none;
     background: none;
     font-family: 'Poppins', sans-serif;
@@ -432,13 +450,13 @@ img {
     color: #64748b;
     cursor: pointer;
     border-radius: 25px;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .pl-tab-btn.active {
-    background: #0d6efd;
+    background: linear-gradient(135deg, #0d6efd 0%, #0052cc 100%);
     color: #ffffff;
-    box-shadow: 0 4px 10px rgba(13, 110, 253, 0.25);
+    box-shadow: 0 4px 15px rgba(13, 110, 253, 0.3);
 }
 
 .pl-search-wrapper {
@@ -449,7 +467,7 @@ img {
 
 .pl-search-wrapper i {
     position: absolute;
-    left: 15px;
+    left: 18px;
     top: 50%;
     transform: translateY(-50%);
     color: #94a3b8;
@@ -458,148 +476,206 @@ img {
 
 .pl-search-input {
     width: 100%;
-    padding: 12px 16px 12px 45px;
+    padding: 14px 16px 14px 48px;
     border: 2px solid #e2e8f0;
     border-radius: 30px;
     font-family: 'Poppins', sans-serif;
     font-size: 14px;
     background-color: #ffffff;
-    color: #333;
+    color: #0f172a;
     outline: none;
     transition: all 0.3s ease;
 }
 
 .pl-search-input:focus {
     border-color: #0d6efd;
-    box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.1);
+    box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.15);
 }
 
+/* Grid Layout */
 .pl-price-panel {
     display: none;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 25px;
-    animation: fadeInUp 0.4s ease-out forwards;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    gap: 30px;
 }
 
 .pl-price-panel.active {
     display: grid;
 }
 
+/* Desain Kartu Layanan Modern (Premium & Clean) */
 .pl-card {
     background: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-radius: 16px;
-    padding: 24px;
+    border: 1px solid #f1f5f9;
+    border-radius: 24px;
+    padding: 35px 28px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.03);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                box-shadow 0.4s ease, 
+                border-color 0.4s ease;
+}
+
+/* Ornamen lingkaran gradasi halus di pojok kanan atas kartu */
+.pl-card::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 100px;
+    height: 100px;
+    background: rgba(13, 110, 253, 0.03);
+    border-radius: 50%;
+    transition: all 0.4s ease;
 }
 
 .pl-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.08);
-    border-color: #cbd5e1;
+    transform: translateY(-10px);
+    border-color: rgba(13, 110, 253, 0.2);
+    box-shadow: 0 20px 40px rgba(13, 110, 253, 0.08);
+}
+
+.pl-card:hover::before {
+    background: rgba(13, 110, 253, 0.08);
+    transform: scale(1.5);
 }
 
 .pl-card-header h3 {
-    font-size: 18px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 15px;
+    letter-spacing: -0.3px;
+}
+
+/* Sub-text Skena "Mulai Dari" otomatis dengan CSS */
+.pl-card-header::before {
+    content: 'Mulai dari';
+    display: block;
+    font-size: 11px;
+    text-transform: uppercase;
+    color: #64748b;
     font-weight: 600;
-    color: #1e293b;
-    margin-bottom: 12px;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
 }
 
 .pl-card-price {
     font-family: 'Poppins', sans-serif;
     color: #0d6efd;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    background: #f0f7ff;
+    padding: 10px 20px;
+    border-radius: 15px;
+    width: 100%;
+    transition: background 0.3s ease;
+}
+
+.pl-card:hover .pl-card-price {
+    background: #0d6efd;
+    color: #ffffff;
 }
 
 .pl-card-price .currency {
     font-size: 14px;
-    font-weight: 500;
-    vertical-align: super;
+    font-weight: 600;
+    margin-right: 2px;
 }
 
 .pl-card-price .amount {
-    font-size: 32px;
-    font-weight: 700;
-    letter-spacing: -0.5px;
+    font-size: 34px;
+    font-weight: 800;
+    letter-spacing: -1px;
 }
 
+/* Tombol Order Animasi Solid */
 .pl-btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: 10px;
     width: 100%;
-    padding: 10px 16px;
-    background-color: #f1f5f9;
-    color: #334155;
+    padding: 14px 20px;
+    background: #f8fafc;
+    color: #0d6efd;
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 14px;
-    border-radius: 10px;
-    transition: all 0.2s ease;
+    border-radius: 16px;
+    border: 2px solid #e2e8f0;
+    transition: all 0.3s ease;
 }
 
 .pl-card:hover .pl-btn {
-    background-color: #0d6efd;
+    background: linear-gradient(135deg, #0d6efd 0%, #0052cc 100%);
     color: #ffffff;
+    border-color: transparent;
+    box-shadow: 0 8px 20px rgba(13, 110, 253, 0.25);
 }
 
 .pl-btn:hover {
-    filter: brightness(0.9);
+    transform: scale(1.02);
 }
 
+/* Desain Kartu Khusus Request Custom (WhatsApp) */
 .pl-card.custom-card {
-    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
     color: #ffffff;
     border: none;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.15);
+}
+
+.pl-card.custom-card::before {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.pl-card.custom-card:hover {
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.3);
+}
+
+.pl-card.custom-card .pl-card-header::before {
+    content: 'Solusi Khusus';
+    color: #38bdf8;
 }
 
 .pl-card.custom-card h3 {
     color: #ffffff;
-    font-size: 20px;
+    font-size: 22px;
 }
 
 .pl-card.custom-card p {
-    font-size: 13px;
+    font-size: 13.5px;
     color: #94a3b8;
+    line-height: 1.6;
     margin-top: 5px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .pl-card.custom-card .pl-btn {
-    background-color: #25d366;
+    background: #25d366;
     color: #ffffff;
+    border: none;
 }
 
-.pl-card.custom-card .pl-btn:hover {
-    background-color: #1ebd54;
+.pl-card.custom-card:hover .pl-btn {
+    background: linear-gradient(135deg, #25d366 0%, #1ebd54 100%);
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
 }
 
 .pl-no-results {
     display: none;
     text-align: center;
-    padding: 40px 20px;
+    padding: 50px 20px;
     background: #ffffff;
-    border-radius: 16px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
-}
-
-.pl-no-results i {
-    font-size: 40px;
-    color: #94a3b8;
-    margin-bottom: 12px;
-}
-
-.pl-no-results p {
-    font-size: 16px;
-    color: #64748b;
+    border-radius: 24px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+    grid-column: 1 / -1;
 }
 
 /* ==========================================
@@ -773,7 +849,7 @@ img {
 }
 
 /* ==========================================
-   MEDIA QUERIES (MOBILE & TABLET DOWN)
+   MEDIA QUERIES (MOBILE & TABLET)
    ========================================== */
 @media (max-width: 768px) {
     .intro {
@@ -798,28 +874,33 @@ img {
         aspect-ratio: 16 / 9; 
     }
     
+    /* Layout Mobile Khusus Layanan */
     .services {
-        padding: 60px 15px;
+        padding: 70px 20px;
     }
     .services-header h2 {
-        font-size: 28px;
+        font-size: 30px;
     }
     .pl-controls {
         flex-direction: column;
-        width: 100%;
+        padding: 15px;
     }
     .pl-tabs {
         width: 100%;
-        justify-content: center;
     }
     .pl-tab-btn {
         flex: 1;
-        text-align: center;
-        padding: 10px 10px;
+        padding: 12px 10px;
         font-size: 14px;
     }
     .pl-search-wrapper {
         max-width: 100%;
+    }
+    .pl-price-panel {
+        gap: 20px;
+    }
+    .pl-card {
+        padding: 30px 20px;
     }
 
     .advantages {
