@@ -17,6 +17,28 @@
     }
 }
 
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* Base Class untuk Animasi Scroll */
 .scroll-animate {
     opacity: 0;
@@ -48,7 +70,7 @@ html {
     scroll-behavior: smooth;
 }
 
-section, .hero {
+section, header {
     scroll-margin-top: 80px; 
 }
 
@@ -187,14 +209,15 @@ img {
 }
 
 /* ==========================================
-   HERO SECTION (Updated for Image Transparency)
+   HERO SECTION (DIREVISI TOTAL)
    ========================================== */
 .hero {
-    /* Gradasi diubah mengarah ke bawah dan berakhir di warna putih bersih agar foto menyatu */
-    background: linear-gradient(to bottom, #0084ff 0%, #0052cc 65%, #ffffff 100%);
+    background: linear-gradient(135deg, #0084ff 0%, #0052cc 50%, #002b80 100%);
     position: relative;
     overflow: hidden;
     padding: 80px 0 0 0; 
+    display: flex;
+    align-items: flex-end; /* Memaksa isi container menempel rapat di bawah */
 }
 
 .hero-container {
@@ -205,13 +228,15 @@ img {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 5%;
+    width: 100%;
 }
 
 .hero-content {
     text-align: center;
     color: #ffffff;
     z-index: 2;
-    animation: fadeInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    margin-bottom: 20px;
+    animation: fadeInLeft 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
 
 .hero-content h1 {
@@ -246,8 +271,10 @@ img {
     max-width: 450px;
     display: flex;
     justify-content: center;
-    align-self: flex-end; 
-    animation: fadeInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    align-self: flex-end; /* Memastikan gambar menempel di batas bawah */
+    margin-top: auto;
+    z-index: 1;
+    animation: fadeInRight 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
 
 .hero-image img {
@@ -256,6 +283,12 @@ img {
     object-fit: cover;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
+    display: block;
+    
+    /* Modifikasi gradasi transparansi: transparan halus menyatu ke seksi bawah */
+    -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+    
     transition: transform 0.5s ease;
 }
 
@@ -884,22 +917,25 @@ img {
 }
 
 /* ==========================================
-   MEDIA QUERIES (LAPTOP & DESKTOP UP)
+   MEDIA QUERIES (LAPTOP & DESKTOP UP - REVISI)
    ========================================== */
 @media (min-width: 769px) { 
     .hero {
         padding: 100px 0 0 0; 
+        height: 600px; /* Mengunci tinggi area hero agar konsisten */
     }
     .hero-container {
         flex-direction: row;
         justify-content: space-between;
-        align-items: center;
+        align-items: flex-end; /* Memaksa elemen ditarik penuh ke bawah area hero di desktop */
         text-align: left;
+        height: 100%;
     }
     .hero-content {
         text-align: left;
         flex: 1;
         max-width: 600px;
+        margin-bottom: 110px; /* Menaikkan posisi teks agar proporsional dengan model */
     }
     .hero-content h1 {
         font-size: 42px;
@@ -907,9 +943,10 @@ img {
     }
     .hero-image {
         flex: 1;
-        max-width: 500px; 
-        margin-top: 0;
+        max-width: 450px; 
+        margin-top: auto;
         justify-content: flex-end;
+        align-self: flex-end; /* Memastikan kontainer foto menempel ke dasar */
     }
     
     .pl-controls {
